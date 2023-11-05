@@ -4,7 +4,7 @@ import { Button } from "./ui/Button";
 
 const Hero = () => {
   return (
-    <div className="relative flex flex-col items-center pt-[225px]">
+    <div className="container relative flex flex-col items-center !pt-[225px]">
       <Image
         className="absolute z-[1] top-[78px] rotate-[35deg] left-[50%] translate-x-[-50%]"
         src="/HeroEllipse.svg"
@@ -22,46 +22,39 @@ const Hero = () => {
         Servicii de asistență medicală de cea mai înaltă calitate, într-o
         ambianță caldă și relaxantă.
       </p>
-      <div className="flex w-[341px] relative justify-center items-center mt-[85px]">
-        <div className="left-[0] absolute">
-          <div className="bg-blue z-[4] relative border-[#EBEBEC] w-[55px] border-[3px]  h-[55px] relative rounded-[50%]">
-            <span className="absolute text-[14px] leading-[82%] text-[#fff] font-[500] top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%]">
-              +13
-            </span>
-          </div>
+
+      <div className="flex  justify-center items-center mt-[85px]">
+        <div className="bg-blue z-[4] relative border-[#EBEBEC] w-[55px] border-[3px]  h-[55px] rounded-[50%]">
+          <span className="absolute text-[14px] leading-[82%] text-[#fff] font-[500] top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%]">
+            +13
+          </span>
         </div>
-        <Image
-          src="/icons/DoctorIcon1.svg"
-          width={55}
-          height={55}
+        <img
+          src="/icons/DoctorIcon1.png"
           alt=""
-          className="absolute left-[34px] z-[3] "
+          className="w-[55px] h-[55px] relative ml-[-21px] z-[3] "
         />
-        <Image
+        <img
           src="/icons/DoctorIcon2.svg"
-          width={55}
-          height={55}
           alt=""
-          className="absolute left-[68px] z-[2]"
+          className="w-[55px] h-[55px] ml-[-21px] z-[2]"
         />
-        <Image
+        <img
           src="/icons/DoctorIcon3.svg"
-          width={55}
-          height={55}
           alt=""
-          className="absolute left-[102px] z-[1]"
+          className="w-[55px] h-[55px] ml-[-21px] z-[1]"
         />
         <Button
-          className="flex uppercase absolute left-[136px] px-[30px]"
+          className="flex uppercase ml-[-21px] px-[30px]"
           size="lg"
           variant="transparent"
         >
           <span className="translate-y-[1px]">Programare Online</span>
         </Button>
-        <p className="absolute top-[30px] text-[12px] leading-[145%] text-lightGrey">
-          Revenim cu un apel/mesaj!
-        </p>
       </div>
+      <p className="mt-[10px] text-[12px] leading-[145%] text-lightGrey">
+        Revenim cu un apel/mesaj!
+      </p>
     </div>
   );
 };
