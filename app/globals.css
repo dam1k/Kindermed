@@ -88,3 +88,19 @@ p,
 a {
   color: theme("colors.black");
 }
+
+.no-scrollbar::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.team-slider {
+  scroll-behavior: smooth;
+  transition: scroll 0.2s ease-in-out;
+}
+
+.blog_title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  align-self: stretch;
+}

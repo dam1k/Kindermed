@@ -41,7 +41,8 @@ const Services = () => {
     }
 
     return (
-        <div ref={servicesRef} className="mt-[500px] !pb-[85px] mb-[125px] relative">
+        <div className="mt-[500px] mb-[125px]">
+        <div ref={servicesRef} className="!pb-[85px]  relative">
             <img
                 src="/Services.jpg"
                 className="object-cover absolute top-0 left-0 z-[0] w-full h-full"
@@ -51,7 +52,7 @@ const Services = () => {
             <div className="container grid grid-cols-2 relative z-[2] !pt-[125px] gap-y-[40px] gap-x-[25px]">
                 <div>
                     <div className="flex gap-[86px]">
-                        <p className="uppercase text-[#fff]/[0.65] mt-[10px] leading-[105%]">
+                        <p className="uppercase text-[#fff]/[0.65] ml-[3px] mt-[10px] leading-[105%]">
                             Serviciile noastre
                         </p>
                         <h2 className="uppercase text-[35px] text-[#fff] leading-[140%] tracking-[-0.35px]">
@@ -91,7 +92,7 @@ const Services = () => {
                         <Button className="uppercase"
                                 variant="transparentWhite"
                                 onClick={() => handleClick("open")}>
-                             Ascunde serviciile
+                            vezi toate serviciile
                         </Button>
                     </div>
                 </li>}
@@ -123,6 +124,26 @@ const Services = () => {
                     </li>
                 </motion.ul>}
             </AnimatePresence>
+        </div>
+            <ul className="relative z-[2] container bg-[#E7E9EC] !pt-[95px] !pb-[125px]">
+                {lastServices.map((service, i:number) =>  {
+                    return <li key={service.id} className={`!text-black" grid grid-cols-2 relative gap-[25px] border-black py-[20px] pt-[20px]`}>
+                        {service.id === 13 && <div className="absolute left-[250px] bottom-0 h-[1px] bg-black w-[calc(100%-250px)]"/>}
+                        <div className="flex ml-[250px]">
+                                <span
+                                    className={`w-[250px] text-[24px] leading-[105%] text-black/[0.5]`}>{`${service.id <= 9 ? "0" : ""}${service.id}`}</span>
+                            <h2 className={`text-black text-[24px]  leading-[125%] break-words uppercase`}>{service.name}</h2>
+                        </div>
+                        <div className="grid grid-cols-2 w-[825px] gap-[25px] ">
+                            {service.desc.map((p:string, i:number) => {
+                                return <p key={i} className={`w-[400px] text-black/[0.85]`}>
+                                    {p}
+                                </p>
+                            })}
+                        </div>
+                    </li>
+                })}
+            </ul>
         </div>
     );
 };
