@@ -104,3 +104,10 @@ a {
   -webkit-line-clamp: 2;
   align-self: stretch;
 }
+
+.ellipsis {
+  width: 460px; /* Set the width of the container where text is displayed. Adjust this according to your layout. */
+  white-space: nowrap; /* Prevent the text from wrapping to the next line. */
+  overflow: hidden; /* Hide any overflowing text. */
+  text-overflow: ellipsis; /* Add ellipsis (...) to indicate overflow. */
+}
