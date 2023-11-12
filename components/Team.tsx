@@ -37,7 +37,7 @@ function Team() {
     }
 
     return (
-        <div id="team" className="container !pb-[350px] !pr-0 bg-[#fff] !pt-[125px] grid grid-cols-2 gap-x-[25px] gap-y-[85px]">
+        <div id="team" className="container !pb-[316px] !pr-0 bg-[#fff] !pt-[125px] grid grid-cols-2 gap-x-[25px] gap-y-[85px]">
             <div>
                 <div className="flex gap-[146px]">
                     <p className="uppercase text-black/[0.65] mt-[10px] ml-[3px] leading-[105%]">

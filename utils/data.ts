@@ -33,6 +33,7 @@ export interface contact {
 export interface phoneNumber {
     href: string;
     phone: string;
+    viber?: string;
 }
 
 
@@ -306,7 +307,8 @@ export const phoneNumbers: phoneNumber[] = [
     },
     {
         href:  "(+373) 78 222 060",
-        phone:  "078 222 060"
+        phone:  "078 222 060",
+        viber: "37378222060"
     }
 ]
 
