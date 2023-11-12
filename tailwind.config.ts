@@ -20,6 +20,7 @@ module.exports = {
         black: "#141A20",
         blue: "#00AAF1",
         lightGrey: "rgba(62, 64, 77, 0.50)",
+        lightGreyBg: "rgba(231, 233, 236, 0.50)",
         darkGrey: "#3E404D",
         yellow: "#F0AF09",
         pink: "#FF1493",

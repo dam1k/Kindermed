@@ -15,11 +15,10 @@ function Team() {
     const router = useRouter();
 
     useEffect(() => {
-        console.log(currentSlide)
         if (currentSlide > 1) {
             setCurrentScrollAmount(350);
         }
-    }, [currentSlide])
+    }, [currentSlide]);
 
     function handleClick(type: "left" | "right") {
         if (sliderRef.current) {
@@ -38,7 +37,7 @@ function Team() {
     }
 
     return (
-        <div id="team" className="container !pr-0 !mt-[125px] grid grid-cols-2 gap-x-[25px] gap-y-[85px]">
+        <div id="team" className="container !pb-[350px] !pr-0 bg-[#fff] !pt-[125px] grid grid-cols-2 gap-x-[25px] gap-y-[85px]">
             <div>
                 <div className="flex gap-[146px]">
                     <p className="uppercase text-black/[0.65] mt-[10px] ml-[3px] leading-[105%]">
@@ -50,8 +49,8 @@ function Team() {
                 </div>
                 <h2 className="uppercase text-[35px] text-black leading-[140%] tracking-[-0.35px]">
                     frumoase pot fi făcute doar în echipă, unde
-                </h2>
-                <h2 className="uppercase text-[35px] text-blaqck leading-[140%] tracking-[-0.35px]">
+                {/*</h2>*/}
+                {/*<h2 className="uppercase text-[35px] text-blaqck leading-[140%] tracking-[-0.35px]">*/}
                     fiecare membru contează.
                 </h2>
             </div>

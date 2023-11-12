@@ -41,7 +41,7 @@ const Services = () => {
     }
 
     return (
-        <div className="mt-[500px] mb-[125px]">
+        <div className="mt-[500px]">
         <div ref={servicesRef} className="!pb-[85px]  relative">
             <img
                 src="/Services.jpg"
@@ -125,7 +125,7 @@ const Services = () => {
                 </motion.ul>}
             </AnimatePresence>
         </div>
-            <ul className="relative z-[2] container bg-[#E7E9EC] !pt-[95px] !pb-[125px]">
+            <ul className="relative z-[2] container !bg-[#E7E9EC]/[0.5] !pt-[95px] !pb-[125px]">
                 {lastServices.map((service, i:number) =>  {
                     return <li key={service.id} className={`!text-black" grid grid-cols-2 relative gap-[25px] border-black py-[20px] pt-[20px]`}>
                         {service.id === 13 && <div className="absolute left-[250px] bottom-0 h-[1px] bg-black w-[calc(100%-250px)]"/>}

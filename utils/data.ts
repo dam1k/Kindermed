@@ -9,6 +9,11 @@ export interface service {
     id: number;
 }
 
+export interface busDirection {
+    location: string;
+    routes: number[]
+}
+
 export interface lastService extends service {
     desc: string[];
 }
@@ -249,4 +254,27 @@ export const team: doctor[] = [
         specialty: "ginecolog",
         img: "/Doctor1.jpg"
     }
+]
+
+export const busDirections: busDirection[]  = [
+    {
+        location: "Din sectorul Botanica",
+        routes: [1, 5, 8, 20, 22]
+    },
+    {
+        location: "Din sectorul Buiucani",
+        routes: [3, 4, 22, 35]
+    },
+    {
+        location: "Din sectorul Râșcani",
+        routes: [25, 32]
+    },
+    {
+        location: "Din sectorul Telecentru",
+        routes: [3, 9, 24, 34]
+    },
+    {
+        location: "Din sectorul Ciocana",
+        routes: [10, 13, 16]
+    },
 ]

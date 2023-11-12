@@ -42,10 +42,9 @@ async function Blog() {
   const { posts } = await client.request(QUERY);
 
   return (
-    <div className="container">
       <div
         id="blog"
-        className="container !pr-0 !mt-[358px] bg-[rgba(231, 233, 236, 0.50)] pt-[125px] grid grid-cols-2 gap-x-[25px] gap-y-[85px]"
+        className="container !pr-0 !pb-[125px] bg-lightGreyBg !pt-[125px] grid grid-cols-2 gap-x-[25px] gap-y-[85px]"
       >
         <div>
           <div className="flex gap-[146px]">
@@ -72,7 +71,6 @@ async function Blog() {
         </div>
         {posts && <BlogSidebar posts={posts} />}
       </div>
-    </div>
   );
 }
 

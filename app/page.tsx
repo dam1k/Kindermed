@@ -9,7 +9,6 @@ export default function Home() {
       <Services />
         <Team/>
         <Blog/>
-        <div className="h-screen"/>
     </main>
   );
 }

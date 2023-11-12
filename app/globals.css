@@ -105,9 +105,25 @@ a {
   align-self: stretch;
 }
 
+.place-card-large, .place-card {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+.default-card {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
 .ellipsis {
   width: 460px; /* Set the width of the container where text is displayed. Adjust this according to your layout. */
   white-space: nowrap; /* Prevent the text from wrapping to the next line. */
   overflow: hidden; /* Hide any overflowing text. */
   text-overflow: ellipsis; /* Add ellipsis (...) to indicate overflow. */
+}
+
+.text-popover-foreground {
+  left: 100px !important;
 }
