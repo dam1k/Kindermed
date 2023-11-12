@@ -24,6 +24,18 @@ export interface doctor {
     img: string;
 }
 
+export interface contact {
+    name: string;
+    href: string;
+    icon: string;
+}
+
+export interface phoneNumber {
+    href: string;
+    phone: string;
+}
+
+
 export const articles = [
     {
         tags: ["info", "important"],
@@ -278,3 +290,71 @@ export const busDirections: busDirection[]  = [
         routes: [10, 13, 16]
     },
 ]
+
+export const phoneNumbers: phoneNumber[] = [
+    {
+        href: "(+373) 22 111 060",
+        phone: "022 111 060"
+    },
+    {
+        href: "(+373) 22 111 061",
+        phone: "022 111 061"
+    },
+    {
+        href:  "(+373) 78 222 080",
+        phone: "078 222 080"
+    },
+    {
+        href:  "(+373) 78 222 060",
+        phone:  "078 222 060"
+    }
+]
+
+export const contacts: contact[] = [
+    {
+        name: "kindermed19@gmail.com",
+        href: "mailto:kindermed19@gmail.com",
+        icon: "/icons/Mail.svg"
+    },
+    {
+        name: "Instagram",
+        href: "https://www.instagram.com/kindermedmd/",
+        icon: "/icons/InstagramWhite.svg"
+    },
+    {
+        name: "Facebook",
+        href: "https://www.facebook.com/KinderMedMD/",
+        icon: "/icons/FacebookWhite.svg"
+    }
+]
+
+export const footerLinks: navLink[] = [
+    {
+        text: "KinderTeam",
+        href: "#team",
+    },
+    {
+        text: "Servicii",
+        href: "#servicii",
+    },
+    {
+        text: "Orarul medicilor",
+        href: "/orar",
+    },
+    {
+        text: "Pachete",
+        href: "#pachete",
+    },
+    {
+        text: "Vaccinare",
+        href: "/vaccinare",
+    },
+    {
+        text: "Blog",
+        href: "/blog",
+    },
+    {
+        text: "Contacte",
+        href: "#contacts",
+    },
+];
