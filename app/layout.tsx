@@ -22,7 +22,7 @@ export default function RootLayout({
       <body className={rubik.className}>
         <Header />
         {children}
-      <Footer/>
+      {/*<Footer/>*/}
       </body>
     </html>
   );

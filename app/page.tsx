@@ -7,8 +7,8 @@ export default function Home() {
     <main>
       <Hero />
       <Services />
-        <Team/>
-        <Blog/>
+        {/*<Team/>*/}
+        {/*<Blog/>*/}
     </main>
   );
 }

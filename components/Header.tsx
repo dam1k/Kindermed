@@ -7,13 +7,15 @@ import Link from "next/link";
 
 function Header() {
   return (
-    <header className="container flex flex-col items-center gap-[45px] !pt-[25px]">
-      <div className="flex justify-between w-full items-center">
-        <Call />
+    <header className="container flex flex-col items-center gap-[45px] max-[1024px]:!pt-[15px] !pt-[25px]">
+      <div className="flex justify-between max-[1024px]:justify-center w-full items-center">
+          <div className=" max-[1024px]:hidden ">
+            <Call />
+          </div>
 
-        <Image src="/Logo.svg" alt="kindermed" width={152.5} height={50} />
+        <img src="/Logo.svg" alt="kindermed" className="max-[1024px]:w-[92.34px] max-[1024px]:h-[30px] min-[1025px]:w-[152.5px] min-[1025px]:h-[50px]" />
 
-        <Button className="flex gap-[7px] items-center">
+        <Button className="flex  max-[1024px]:hidden gap-[7px] items-center">
           <img
             src="/icons/Smile.svg"
             alt="kindermed"
@@ -22,7 +24,7 @@ function Header() {
           Programare Online
         </Button>
       </div>
-      <div className="flex gap-[65px]">
+      <div className="flex max-[1024px]:hidden gap-[65px]">
         {navLinks.map((link: navLink) => {
           return (
             <Link key={link.href} className="flex items-center leading-[185%]" href={link.href}>

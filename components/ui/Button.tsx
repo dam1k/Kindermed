@@ -20,7 +20,7 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
         transparent: "bg-transparent rounded-[40px] border-[1px] border-blue",
           transparentWhite: "text-[24px] leading-[30px] bg-transparent rounded-[42px] border-[1px] border-[#fff] text-[#fff] py-[9px] px-[20px] h-[48px]",
-          lightGrey: "border-[1px] !border-[#3E404D]/[0.24] text-black"
+          lightGrey: "border-[1px] !border-[#3E404D]/[0.24] 0text-black"
       },
       size: {
         default: "h-[41px]",
