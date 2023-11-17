@@ -52,7 +52,7 @@ const Services = () => {
                 <div
                     className="container max-[1024px]:!px-[10px] grid lg:grid-cols-2 grid-cols-1 relative z-[2] max-[1024px]:!pt-[100px] max-[1024px]:gap-y-[35px] !pt-[125px] gap-y-[40px] gap-x-[25px]">
                     <div className="">
-                        <div className="flex lg:gap-[86px] gap-[30px]">
+                        <div className="flex lg:gap-[86px] gap-[50px]">
                             <p className="text-[12px] lg:text-[16px] uppercase text-[#fff]/[0.65] ml-[3px] mt-[10px] leading-[105%]">
                                 <span className="max-[1024px]:hidden">Serviciile noastre</span>
                                 <span className="min-[1025px]:hidden">Serviciile</span>
