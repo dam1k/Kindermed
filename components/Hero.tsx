@@ -4,7 +4,7 @@ import { Button } from "./ui/Button";
 
 const Hero = () => {
   return (
-    <div className="container max-[1024px]:px-[10px] relative flex flex-col items-center max-[1024px]: !pt-[215px] !pt-[225px]">
+    <div className="container max-[1024px]:px-[10px] relative flex flex-col items-center max-[1024px]:!pt-[215px] !pt-[225px]">
       <Image
         className="absolute z-[1] max-[1024px]:hidden top-[78px] rotate-[35deg] left-[50%] translate-x-[-50%]"
         src="/HeroEllipse.svg"

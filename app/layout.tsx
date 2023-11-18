@@ -3,6 +3,7 @@ import { Rubik as FontSans } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "./globals.css";
+import React from "react";
 
 const rubik = FontSans({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -19,10 +20,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={rubik.className}>
-      {/*<Provider store={store}>*/}
-          <Header />
-          {children}
-      {/*</Provider>*/}
+        {/*<Provider store={store}>*/}
+        <Header />
+        {children}
+        <Footer />
+        {/*</Provider>*/}
       </body>
     </html>
   );

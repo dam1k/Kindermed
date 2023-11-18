@@ -15,6 +15,7 @@ function Team() {
   // const dispatch = useDispatch();
   // const {width} = useSelector((store: RootState) => store.ui);
   const [currentScrollAmount, setCurrentScrollAmount] = useState<number>(405);
+  const [scrolling, setScrolling] = useState<boolean>(false);
   const [currentSlide, setCurrentSlide] = useState<number>(1);
   const sliderRef = useRef<HTMLDivElement>(null);
   const mobileSliderRef = useRef<HTMLDivElement>(null);
@@ -28,41 +29,38 @@ function Team() {
       window.removeEventListener("resize", () => setWidth(window.innerWidth));
   }, []);
 
-  useEffect(() => {
-    console.log(currentSlide)
-  }, [currentSlide])
-
-  // useEffect(() => {
-  //   if (width <= 1024) {
-  //     setCurrentScrollAmount(165);
-  //   }
-  // }, [width]);
-  //
-  // useEffect(() => {
-  //   if (currentSlide > 1) {
-  //     setCurrentScrollAmount(350);
-  //   }
-  // }, [currentSlide]);
-
   function handleClick(type: "left" | "right") {
     if (sliderRef.current && mobileSliderRef.current) {
+      setScrolling(true);
       if (type === "right") {
         if (currentSlide < team.length) {
           setCurrentSlide((prev) => prev + 1);
         }
-        if(width <= 1024) {
-            mobileSliderRef.current.scrollLeft += 175;
+        if (width <= 1024) {
+          mobileSliderRef.current.scrollLeft += 175;
+          setTimeout(() => {
+            setScrolling(false);
+          }, 300);
         } else {
           sliderRef.current.scrollLeft += currentSlide > 1 ? 325 : 430;
+          setTimeout(() => {
+            setScrolling(false);
+          }, 300);
         }
       } else {
         if (currentSlide > 1) {
           setCurrentSlide((prev) => prev - 1);
         }
-        if(width <= 1024) {
+        if (width <= 1024) {
           mobileSliderRef.current.scrollLeft -= 175;
+          setTimeout(() => {
+            setScrolling(false);
+          }, 300);
         } else {
           sliderRef.current.scrollLeft -= currentSlide === 2 ? 430 : 325;
+          setTimeout(() => {
+            setScrolling(false);
+          }, 300);
         }
       }
     }
@@ -73,17 +71,17 @@ function Team() {
       id="team"
       className="container !pr-0 !pb-[316px] max-[1024px]:px-[10px] min-[1025px]:!pr-0 bg-[#fff] !pt-[125px] grid grid-cols-1 min-[1025px]:grid-cols-2 gap-x-[25px] gap-[35px] min-[1025px]:gap-y-[85px]"
     >
-      <div>
+      <div className="pr-[10px]">
         <div className="flex min-[1025px]:gap-[146px] gap-[50px]">
           <p className="text-[12px] min-[1025px]:text-[16px] uppercase text-black/[0.65] mt-[10px] ml-[3px] leading-[105%]">
             KINDERTEAM
           </p>
           <h2 className="uppercase text-[20px] min-[1025px]:text-[35px] text-black leading-[140%] tracking-[-0.35px]">
-            Lucrurile cu adevărat mari și
+            Lucrurile cu adevărat
           </h2>
         </div>
         <h2 className="uppercase text-[20px] min-[1025px]:text-[35px] text-black leading-[140%] tracking-[-0.35px]">
-          frumoase pot fi făcute doar în echipă, unde
+          mari și frumoase pot fi făcute doar în echipă, unde
           {/*</h2>*/}
           {/*<h2 className="uppercase text-[35px] text-blaqck leading-[140%] tracking-[-0.35px]">*/}
           fiecare membru contează.
@@ -98,7 +96,9 @@ function Team() {
             height={40}
             className="hover:scale-125 transition-all cursor-pointer"
             src="/icons/ChevronRight.svg"
-            onClick={() => handleClick("left")}
+            onClick={() => {
+              if (!scrolling) handleClick("left");
+            }}
           />
           <Image
             width={40}
@@ -106,38 +106,44 @@ function Team() {
             height={40}
             className="hover:scale-125 transition-all cursor-pointer"
             src="/icons/ChevronLeft.svg"
-            onClick={() => handleClick("right")}
+            onClick={() => {
+              if (!scrolling) handleClick("right");
+            }}
           />
         </div>
       </div>
 
-      <p className="max-[1024px]:pb-[30px] min-[1025px]:hidden leading-[145%] text-[14px] min-[1025px]:text-[22px] min-[1025px]:w-[500px]">
+      <p className="pr-[10px] max-[1024px]:pb-[30px] min-[1025px]:hidden leading-[145%] text-[14px] min-[1025px]:text-[22px] min-[1025px]:w-[500px]">
         În spatele Clinicii KinderMed se află o echipă prietenoasă și unită, iar
         aportul fiecărui membru, ne ajută să menținem calitatea serviciilor la
         cel mai înalt nivel.
       </p>
 
       <div className="flex items-start min-[1025px]:hidden pb-[30px]">
-          <div className="flex w-[120px] justify-between">
-              <div className="flex flex-shrink-0 gap-[15px] items-center">
-                  <Image
-                      width={24}
-                      alt=""
-                      height={24}
-                      className="hover:scale-125 transition-all cursor-pointer"
-                      src="/icons/ChevronRight.svg"
-                      onClick={() => handleClick("left")}
-                  />
-                  <Image
-                      width={24}
-                      alt=""
-                      height={24}
-                      className="hover:scale-125 transition-all cursor-pointer"
-                      src="/icons/ChevronLeft.svg"
-                      onClick={() => handleClick("right")}
-                  />
-              </div>
+        <div className="flex w-[120px] justify-between">
+          <div className="flex flex-shrink-0 gap-[15px] items-center">
+            <Image
+              width={24}
+              alt=""
+              height={24}
+              className="hover:scale-125 transition-all cursor-pointer"
+              src="/icons/ChevronRight.svg"
+              onClick={() => {
+                if (!scrolling) handleClick("left");
+              }}
+            />
+            <Image
+              width={24}
+              alt=""
+              height={24}
+              className="hover:scale-125 transition-all cursor-pointer"
+              src="/icons/ChevronLeft.svg"
+              onClick={() => {
+                if (!scrolling) handleClick("right");
+              }}
+            />
           </div>
+        </div>
         <div
           className="team-slider no-scrollbar w-full overflow-scroll flex gap-[10px]"
           ref={mobileSliderRef}
@@ -145,9 +151,7 @@ function Team() {
           {team.map((doctor, i) => {
             return (
               <div className="flex flex-col gap-[25px]" key={i}>
-                <div
-                  className="w-[165px]"
-                >
+                <div className="w-[165px]">
                   <img alt="" className="w-full" src={doctor.img} />
                 </div>
                 <div>
@@ -173,17 +177,15 @@ function Team() {
 
       <div className="flex gap-[8px] min-[1025px]:hidden">
         <Button
-            className="border-[1px] text-black border-[#3E404D]/[0.24] bg-transparent flex gap-[8px]"
-            onClick={() =>
-                router.push("https://www.instagram.com/kindermedmd/")
-            }
+          className="border-[1px] text-black border-[#3E404D]/[0.24] bg-transparent flex gap-[8px]"
+          onClick={() => router.push("https://www.instagram.com/kindermedmd/")}
         >
           <Image src="/icons/Instagram.svg" width={17} alt="" height={17} />
           Instagram
         </Button>
         <Button
-            onClick={() => router.push("https://www.facebook.com/KinderMedMD")}
-            className="border-[1px] text-black border-[#3E404D]/[0.24] bg-transparent flex gap-[8px]"
+          onClick={() => router.push("https://www.facebook.com/KinderMedMD")}
+          className="border-[1px] text-black border-[#3E404D]/[0.24] bg-transparent flex gap-[8px]"
         >
           <Image src="/icons/Facebook.svg" width={17} alt="" height={17} />
           Facebook

@@ -44,7 +44,7 @@ async function Blog() {
   return (
       <div
         id="blog"
-        className="container !pr-0 !pb-[125px] bg-lightGreyBg !pt-[125px] grid grid-cols-2 gap-x-[25px] gap-y-[85px]"
+        className="max-[1024px]:hidden max-[1024px]:grid-cols-1 container !pr-0 !pb-[125px] bg-lightGreyBg !pt-[125px] grid grid-cols-2 gap-x-[25px] gap-y-[85px]"
       >
         <div>
           <div className="flex gap-[146px]">

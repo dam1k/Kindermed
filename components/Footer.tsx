@@ -29,7 +29,7 @@ function Footer() {
     return (
         <>
             <div
-                className="text-[#fff] !pt-[125px] bg-[#161616] container !pr-0 !pb-[125px] grid grid-cols-2 gap-x-[25px] gap-y-[85px]">
+                className="max-[1024px]:hidden text-[#fff] !pt-[125px] bg-[#161616] container !pr-0 !pb-[125px] grid grid-cols-2 gap-x-[25px] gap-y-[85px]">
                 <div>
                     <div className="!text-[#fff] flex gap-[146px]">
                         <p className="uppercase !text-[#fff]/[0.65] mt-[10px] ml-[3px] leading-[105%]">
@@ -161,7 +161,7 @@ function Footer() {
                     })}
                 </div>
             </div>
-            <div className="bg-[#121212] gap-[15px] py-[45px] flex-col flex items-center">
+            <div className="max-[1024px]:hidden bg-[#121212] gap-[15px] py-[45px] flex-col flex items-center">
                 <p className="w-[515px] leading-[23.2px] text-center !text-[#fff]/[0.15]">
                     Copyright © 2023, S.R.L. “MIDLTON”. Toate drepturile sunt rezervate. <br/>
                     Adresa juridică: mun.Chișinău, bd. Dacia, 9/1, ap.35 <br/>

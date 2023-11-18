@@ -76,6 +76,10 @@
     }
 }
 
+body {
+    overflow-x: hidden;
+}
+
 .container {
     padding: 0 25px;
     max-width: 2000px;
@@ -137,4 +141,8 @@ a {
   .serviceDesc {
     display: none !important;
   }
+}
+
+.bg-overlay {
+    background: linear-gradient(180deg, rgba(245, 245, 247, 0.00) 0%, rgba(245, 245, 247, 0.00) 0.01%, #F5F5F7 56.25%), linear-gradient(0deg, rgba(245, 245, 247, 0.85) 0%, rgba(245, 245, 247, 0.85) 100%),  lightgray 50% / cover no-repeat;
 }
