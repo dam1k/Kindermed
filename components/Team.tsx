@@ -36,7 +36,7 @@ function Team() {
         if (currentSlide < team.length) {
           setCurrentSlide((prev) => prev + 1);
         }
-        if (width <= 1024) {
+        if (width <= 1600) {
           mobileSliderRef.current.scrollLeft += 175;
           setTimeout(() => {
             setScrolling(false);
@@ -51,7 +51,7 @@ function Team() {
         if (currentSlide > 1) {
           setCurrentSlide((prev) => prev - 1);
         }
-        if (width <= 1024) {
+        if (width <= 1600) {
           mobileSliderRef.current.scrollLeft -= 175;
           setTimeout(() => {
             setScrolling(false);
@@ -69,18 +69,18 @@ function Team() {
   return (
     <div
       id="team"
-      className="container !pr-0 !pb-[316px] max-[1024px]:px-[10px] min-[1025px]:!pr-0 bg-[#fff] !pt-[125px] grid grid-cols-1 min-[1025px]:grid-cols-2 gap-x-[25px] gap-[35px] min-[1025px]:gap-y-[85px]"
+      className="container !pr-0 !pb-[316px] max-[1600px]:px-[10px] min-[1601px]:!pr-0 bg-[#fff] !pt-[125px] grid grid-cols-1 min-[1601px]:grid-cols-2 gap-x-[25px] gap-[35px] min-[1601px]:gap-y-[85px]"
     >
       <div className="pr-[10px]">
-        <div className="flex min-[1025px]:gap-[146px] gap-[50px]">
-          <p className="text-[12px] min-[1025px]:text-[16px] uppercase text-black/[0.65] mt-[10px] ml-[3px] leading-[105%]">
+        <div className="flex min-[1601px]:gap-[146px] gap-[50px]">
+          <p className="text-[12px] min-[1601px]:text-[16px] uppercase text-black/[0.65] mt-[10px] ml-[3px] leading-[105%]">
             KINDERTEAM
           </p>
-          <h2 className="uppercase text-[20px] min-[1025px]:text-[35px] text-black leading-[140%] tracking-[-0.35px]">
+          <h2 className="uppercase text-[20px] min-[1601px]:text-[35px] text-black leading-[140%] tracking-[-0.35px]">
             Lucrurile cu adevărat
           </h2>
         </div>
-        <h2 className="uppercase text-[20px] min-[1025px]:text-[35px] text-black leading-[140%] tracking-[-0.35px]">
+        <h2 className="uppercase text-[20px] min-[1601px]:text-[35px] text-black leading-[140%] tracking-[-0.35px]">
           mari și frumoase pot fi făcute doar în echipă, unde
           {/*</h2>*/}
           {/*<h2 className="uppercase text-[35px] text-blaqck leading-[140%] tracking-[-0.35px]">*/}
@@ -88,7 +88,7 @@ function Team() {
         </h2>
       </div>
 
-      <div className="max-[1024px]:hidden flex justify-start items-end">
+      <div className="max-[1600px]:hidden flex justify-start items-end">
         <div className="flex gap-[25px] items-center">
           <Image
             width={40}
@@ -113,13 +113,13 @@ function Team() {
         </div>
       </div>
 
-      <p className="pr-[10px] max-[1024px]:pb-[30px] min-[1025px]:hidden leading-[145%] text-[14px] min-[1025px]:text-[22px] min-[1025px]:w-[500px]">
+      <p className="pr-[10px] max-[1600px]:pb-[30px] min-[1601px]:hidden leading-[145%] text-[14px] min-[1601px]:text-[22px] min-[1601px]:w-[500px]">
         În spatele Clinicii KinderMed se află o echipă prietenoasă și unită, iar
         aportul fiecărui membru, ne ajută să menținem calitatea serviciilor la
         cel mai înalt nivel.
       </p>
 
-      <div className="flex items-start min-[1025px]:hidden pb-[30px]">
+      <div className="flex items-start min-[1601px]:hidden pb-[30px]">
         <div className="flex w-[120px] justify-between">
           <div className="flex flex-shrink-0 gap-[15px] items-center">
             <Image
@@ -175,7 +175,7 @@ function Team() {
         </div>
       </div>
 
-      <div className="flex gap-[8px] min-[1025px]:hidden">
+      <div className="flex gap-[8px] min-[1601px]:hidden">
         <Button
           className="border-[1px] text-black border-[#3E404D]/[0.24] bg-transparent flex gap-[8px]"
           onClick={() => router.push("https://www.instagram.com/kindermedmd/")}
@@ -192,8 +192,8 @@ function Team() {
         </Button>
       </div>
 
-      <div className="max-[1024px]:hidden min-[1025px]:ml-[250px] flex flex-col gap-[45px]">
-        <p className="max-[1024px]:pb-[30px] leading-[145%] text-[14px] min-[1025px]:text-[22px] min-[1025px]:w-[500px]">
+      <div className="max-[1600px]:hidden min-[1601px]:ml-[250px] flex flex-col gap-[45px]">
+        <p className="max-[1600px]:pb-[30px] leading-[145%] text-[14px] min-[1601px]:text-[22px] min-[1601px]:w-[500px]">
           În spatele Clinicii KinderMed se află o echipă prietenoasă și unită,
           iar aportul fiecărui membru, ne ajută să menținem calitatea
           serviciilor la cel mai înalt nivel.
@@ -219,7 +219,7 @@ function Team() {
       </div>
 
       <div
-        className="max-[1024px]:hidden team-slider no-scrollbar w-full overflow-scroll flex gap-[25px]"
+        className="max-[1600px]:hidden team-slider no-scrollbar w-full overflow-scroll flex gap-[25px]"
         ref={sliderRef}
       >
         {team.map((doctor, i) => {
