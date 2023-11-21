@@ -41,7 +41,7 @@ const Services = () => {
     }
 
     return (
-        <div className="max-[1400px]:mt-[322px] mt-[500px]">
+        <div>
             <div ref={servicesRef} className="pb-[35px] min-[1401px]:pb-[85px] relative">
                 <img
                     src="/Services.jpg"

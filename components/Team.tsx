@@ -21,13 +21,6 @@ function Team() {
   const mobileSliderRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
 
-  useEffect(() => {
-    setWidth(window.innerWidth);
-
-    window.addEventListener("resize", () => setWidth(window.innerWidth));
-    return () =>
-      window.removeEventListener("resize", () => setWidth(window.innerWidth));
-  }, []);
 
   function handleClick(type: "left" | "right") {
     if (sliderRef.current && mobileSliderRef.current) {
@@ -69,7 +62,7 @@ function Team() {
   return (
     <div
       id="team"
-      className="container !pr-0 !pb-[316px] max-[1600px]:px-[10px] min-[1601px]:!pr-0 bg-[#fff] !pt-[125px] grid grid-cols-1 min-[1601px]:grid-cols-2 gap-x-[25px] gap-[35px] min-[1601px]:gap-y-[85px]"
+      className="container !pr-0 max-[1600px]:!pb-[100px] min-[1601px]:!pb-[316px] max-[1600px]:px-[10px] min-[1601px]:!pr-0 bg-[#fff] !pt-[125px] grid grid-cols-1 min-[1601px]:grid-cols-2 gap-x-[25px] gap-[35px] min-[1601px]:gap-y-[85px]"
     >
       <div className="pr-[10px]">
         <div className="flex min-[1601px]:gap-[146px] gap-[50px]">

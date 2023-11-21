@@ -140,11 +140,21 @@ a {
     background: linear-gradient(180deg, rgba(245, 245, 247, 0.00) 0%, rgba(245, 245, 247, 0.00) 0.01%, #F5F5F7 56.25%), linear-gradient(0deg, rgba(245, 245, 247, 0.85) 0%, rgba(245, 245, 247, 0.85) 100%),  lightgray 50% / cover no-repeat;
 }
 
+
 @media only screen and (min-width: 1025px) {
     .ellipsis {
         width: 460px; /* Set the width of the container where text is displayed. Adjust this according to your layout. */
         white-space: nowrap; /* Prevent the text from wrapping to the next line. */
         overflow: hidden; /* Hide any overflowing text. */
         text-overflow: ellipsis; /* Add ellipsis (...) to indicate overflow. */
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .ellipsis {
+        white-space: nowrap; /* Prevent the text from wrapping to the next line. */
+        overflow: hidden; /* Hide any overflowing text. */
+        text-overflow: ellipsis; /* Add ellipsis (...) to indicate overflow. */
+        width: 270px; /* Set the width of the container where text is displayed. Adjust this according to your layout. */
     }
 }

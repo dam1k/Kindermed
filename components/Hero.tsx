@@ -3,6 +3,16 @@ import Image from "next/image";
 import { Button } from "./ui/Button";
 
 const Hero = () => {
+    // const [width, setWidth] = useState<number>(0);
+    //
+    // useEffect(() => {
+    //     setWidth(window.innerWidth);
+    //
+    //     window.addEventListener("resize", () => setWidth(window.innerWidth));
+    //     return () =>
+    //         window.removeEventListener("resize", () => setWidth(window.innerWidth));
+    // }, []);
+
   return (
     <div className="container max-[1024px]:px-[10px] relative flex flex-col items-center max-[1024px]:!pt-[215px] !pt-[225px]">
       <Image
@@ -52,7 +62,7 @@ const Hero = () => {
           <span className="translate-y-[1px]">Programare Online</span>
         </Button>
       </div>
-      <p className="mt-[10px] text-[12px] leading-[145%] text-lightGrey">
+      <p className="mt-[10px] max-[1400px]:!pb-[322px] !pb-[500px] text-[12px] leading-[145%] text-lightGrey">
         Revenim cu un apel/mesaj!
       </p>
     </div>

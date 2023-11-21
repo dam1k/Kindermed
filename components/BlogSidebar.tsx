@@ -10,12 +10,12 @@ const BlogSidebar = ({ posts }: { posts: any }) => {
 
   return (
     <div className="min-[1025px]:mr-[225px]">
-      <div className="flex flex-col gap-[25px]">
-        <p className="text-[22px] leading-[145%]">Ultimele articole:</p>
+      <div className="flex flex-col gap-[15px] min-[1025px]:gap-[25px]">
+        <p className="text-[16px] min-[1025px]:text-[22px] leading-[145%]">Ultimele articole:</p>
         {posts &&
           posts.map((post: any) => {
             return (
-              <div className="flex gap-[25px]" key={post.id}>
+              <div className="flex gap-[10px] min-[1025px]:gap-[25px]" key={post.id}>
                 <img
                   className="object-cover rounded-[14px] max-[1024px]:h-[90px] max-[1024px]:w-[90px] min-[1025px]:w-[200px] min-[1025px]:h-[125px]"
                   src={post.image.url}

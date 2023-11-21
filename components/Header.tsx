@@ -7,13 +7,13 @@ import Link from "next/link";
 
 function Header() {
   return (
-    <header className="container flex flex-col items-center gap-[45px] max-[1024px]:!pt-[15px] !pt-[25px]">
+    <header className="container relative z-[2] flex flex-col items-center gap-[45px] max-[1024px]:!pt-[15px] !pt-[25px]">
       <div className="flex justify-between max-[1024px]:justify-center w-full items-center">
           <div className=" max-[1024px]:hidden ">
             <Call />
           </div>
 
-        <img src="/Logo.svg" alt="kindermed" className="max-[1024px]:w-[92.34px] max-[1024px]:h-[30px] min-[1025px]:w-[152.5px] min-[1025px]:h-[50px]" />
+        <img src="/Logo.svg" alt="kindermed" className="max-[1024px]:w-[92.34px] max-[1024px]:h-[30px] min-[1025px]:h-[70px]" />
 
         <Button className="flex  max-[1024px]:hidden gap-[7px] items-center">
           <img
