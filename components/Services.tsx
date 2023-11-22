@@ -53,7 +53,7 @@ const Services = () => {
                     className="container max-[1400px]:!px-[10px] grid lg:grid-cols-2 grid-cols-1 relative z-[2] max-[1400px]:!pt-[100px] max-[1400px]:gap-y-[35px] !pt-[125px] gap-y-[40px] gap-x-[25px]">
                     <div className="">
                         <div className="flex lg:gap-[86px] gap-[50px]">
-                            <p className="text-[12px] lg:text-[16px] uppercase text-[#fff]/[0.65] ml-[3px] mt-[10px] leading-[105%]">
+                            <p className="text-[12px] lg:text-[16px] uppercase text-[#fff]/[0.65] ml-[1px] min-[1025px]:ml-[3px] mt-[5px] min-[1025px]:mt-[10px] leading-[105%]">
                                 <span className="max-[1400px]:hidden">Serviciile noastre</span>
                                 <span className="min-[1401px]:hidden">Serviciile</span>
                             </p>

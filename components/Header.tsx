@@ -13,7 +13,7 @@ function Header() {
             <Call />
           </div>
 
-        <img src="/Logo.svg" alt="kindermed" className="max-[1024px]:w-[92.34px] max-[1024px]:h-[30px] min-[1025px]:h-[70px]" />
+        <img src="/Logo.svg" alt="kindermed" className="max-[1024px]:h-[45px] min-[1025px]:h-[70px]" />
 
         <Button className="flex  max-[1024px]:hidden gap-[7px] items-center">
           <img
@@ -27,7 +27,7 @@ function Header() {
       <div className="flex max-[1024px]:hidden gap-[65px]">
         {navLinks.map((link: navLink) => {
           return (
-            <Link key={link.href} className="flex items-center leading-[185%]" href={link.href}>
+            <Link key={link.href} className="uppercase font-[500] py-[12px] px-[17px] border-[1px] border-[#3E404D]/[0.24] rounded-[14px] flex items-center leading-[105%]" href={link.href}>
                 <span>{link.text}</span>
                 {link.href === "#team" && <div
                     className="relative text-[#fff] h-[21px] w-[22px] rounded-[8px] ml-[7px] bg-blue text-[12px]">

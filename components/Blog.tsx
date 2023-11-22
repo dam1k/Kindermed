@@ -45,11 +45,11 @@ async function Blog() {
     <div className="bg-lightGreyBg">
       <div
         id="blog"
-        className="max-[1600px]:justify-center max-[1600px]:grid-cols-1 container max-[1024px]:px-[10px] !pb-[125px] max-[1024px]:!pt-[100px] min-[1025px]:!pt-[125px] grid grid-cols-2 gap-x-[25px] gap-y-[85px] max-[1024px]:!gap-y-[35px] "
+        className="max-[1600px]:justify-center max-[1600px]:grid-cols-1 container max-[1024px]:px-[10px] !pb-[100px] min-[1025px]:!pb-[125px] max-[1024px]:!pt-[100px] min-[1025px]:!pt-[125px] grid grid-cols-2 gap-x-[25px] gap-y-[85px] max-[1024px]:!gap-y-[35px] "
       >
         <div>
-          <div className="flex items-center gap-[50px] min-[1025px]:gap-[100px] min-[1615px]:gap-[100px] min-[1815px]:gap-[205px]">
-            <p className="uppercase text-black/[0.65] min-[1025px]:mt-[10px] min-[1025px]:ml-[3px] text-[12px] min-[1025px]:text-[16pxs] leading-[105%]">
+          <div className="flex gap-[50px] min-[1025px]:gap-[100px] min-[1615px]:gap-[100px] min-[1815px]:gap-[205px]">
+            <p className="uppercase text-black/[0.65] mt-[5px] min-[1025px]:mt-[10px] ml-[1px] min-[1025px]:ml-[3px] text-[12px] min-[1025px]:text-[16pxs] leading-[105%]">
               Blog
             </p>
             <h2 className="uppercase text-[20px] min-[1025px]:text-[35px] text-black leading-[140%] tracking-[-0.35px]">

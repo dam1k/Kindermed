@@ -45,10 +45,11 @@ const BlogSidebar = ({ posts }: { posts: any }) => {
                       );
                     })}
                   </div>
-                  <h3 className="uppercase text-[16px] min-[1025px]:text-[20px] leading-[135%] w-full ellipsis">
-                    {post.title.split(" ").slice(0, 4).join(" ")}
-                    <br />
-                    {post.title.split(" ").slice(4).join(" ")}
+                  <h3 className="uppercase text-[16px] min-[1025px]:text-[20px] leading-[135%] w-full two-lines-text ellipsis three-lines-text">
+                    {/*{post.title.split(" ").slice(0, 4).join(" ")}*/}
+                    {/*<br />*/}
+                    {/*{post.title.split(" ").slice(4).join(" ")}*/}
+                      {post.title}
                   </h3>
                   <div className="flex max-[1024px]:mt-[4px] justify-between items-center ">
                       <div className="min-[1025px]:hidden flex mb-[8px] gap-[15px]">

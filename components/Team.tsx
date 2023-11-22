@@ -66,7 +66,7 @@ function Team() {
     >
       <div className="pr-[10px]">
         <div className="flex min-[1601px]:gap-[146px] gap-[50px]">
-          <p className="text-[12px] min-[1601px]:text-[16px] uppercase text-black/[0.65] mt-[10px] ml-[3px] leading-[105%]">
+          <p className="text-[12px] min-[1601px]:text-[16px] uppercase text-black/[0.65] mt-[5px] min-[1025px]:mt-[10px] ml-[1px] min-[1025px]:ml-[3px] leading-[105%]">
             KINDERTEAM
           </p>
           <h2 className="uppercase text-[20px] min-[1601px]:text-[35px] text-black leading-[140%] tracking-[-0.35px]">
