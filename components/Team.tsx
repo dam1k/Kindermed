@@ -1,19 +1,14 @@
 "use client";
 
 import React, { useRef, useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { team } from "@/utils/data";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { RootState } from "@/store";
-import { updateWidth } from "@/features/uiSlice";
 
 function Team() {
   const [width, setWidth] = useState<number>(0);
-  // const dispatch = useDispatch();
-  // const {width} = useSelector((store: RootState) => store.ui);
   const [currentScrollAmount, setCurrentScrollAmount] = useState<number>(405);
   const [scrolling, setScrolling] = useState<boolean>(false);
   const [currentSlide, setCurrentSlide] = useState<number>(1);
@@ -21,6 +16,13 @@ function Team() {
   const mobileSliderRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
 
+  useEffect(() => {
+    setWidth(window.innerWidth);
+
+    window.addEventListener("resize", () => setWidth(window.innerWidth));
+    return () =>
+        window.removeEventListener("resize", () => setWidth(window.innerWidth));
+  }, []);
 
   function handleClick(type: "left" | "right") {
     if (sliderRef.current && mobileSliderRef.current) {
@@ -35,6 +37,7 @@ function Team() {
             setScrolling(false);
           }, 300);
         } else {
+          console.log("sheesh")
           sliderRef.current.scrollLeft += currentSlide > 1 ? 325 : 430;
           setTimeout(() => {
             setScrolling(false);
@@ -62,7 +65,7 @@ function Team() {
   return (
     <div
       id="team"
-      className="container !pr-0 max-[1600px]:!pb-[100px] min-[1601px]:!pb-[316px] max-[1600px]:px-[10px] min-[1601px]:!pr-0 bg-[#fff] !pt-[125px] grid grid-cols-1 min-[1601px]:grid-cols-2 gap-x-[25px] gap-[35px] min-[1601px]:gap-y-[85px]"
+      className="container !pr-0 max-[1600px]:!pb-[100px] max-[1600px]:!pt-[100px] min-[1601px]:!pb-[316px] max-[1600px]:px-[10px] min-[1601px]:!pr-0 bg-[#fff] !pt-[125px] grid grid-cols-1 min-[1601px]:grid-cols-2 gap-x-[25px] gap-[35px] min-[1601px]:gap-y-[85px]"
     >
       <div className="pr-[10px]">
         <div className="flex min-[1601px]:gap-[146px] gap-[50px]">
