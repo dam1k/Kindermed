@@ -67,22 +67,17 @@ function Team() {
       id="team"
       className="container !pr-0 max-[1600px]:!pb-[100px] max-[1600px]:!pt-[100px] min-[1601px]:!pb-[316px] max-[1600px]:px-[10px] min-[1601px]:!pr-0 bg-[#fff] !pt-[125px] grid grid-cols-1 min-[1601px]:grid-cols-2 gap-x-[25px] gap-[35px] min-[1601px]:gap-y-[85px]"
     >
-      <div className="pr-[10px]">
-        <div className="flex min-[1601px]:gap-[146px] gap-[50px]">
-          <p className="text-[12px] min-[1601px]:text-[16px] uppercase text-black/[0.65] mt-[5px] min-[1025px]:mt-[10px] ml-[1px] min-[1025px]:ml-[3px] leading-[105%]">
-            KINDERTEAM
+        <div className="pr-[10px] relative">
+          <p className="absolute top-0 left-0 text-[12px] min-[1601px]:text-[16px] uppercase text-black/[0.65] mt-[5px] min-[1601px]:mt-[10px] ml-[1px] min-[1025px]:ml-[3px] leading-[105%]">
+            <span className="min-[1601px]:hidden">TEAM</span>
+            <span className="max-[1600px]:hidden">KINDERTEAM</span>
           </p>
-          <h2 className="uppercase text-[20px] min-[1601px]:text-[35px] text-black leading-[140%] tracking-[-0.35px]">
+          <h2 className="inline ml-[100px] min-[1601px]:ml-[250px] uppercase text-[20px] min-[1601px]:text-[35px] text-black leading-[140%] tracking-[-0.35px]">
             Lucrurile cu adevărat
+            mari și frumoase pot fi făcute doar în echipă, unde
+            fiecare membru contează.
           </h2>
         </div>
-        <h2 className="uppercase text-[20px] min-[1601px]:text-[35px] text-black leading-[140%] tracking-[-0.35px]">
-          mari și frumoase pot fi făcute doar în echipă, unde
-          {/*</h2>*/}
-          {/*<h2 className="uppercase text-[35px] text-blaqck leading-[140%] tracking-[-0.35px]">*/}
-          fiecare membru contează.
-        </h2>
-      </div>
 
       <div className="max-[1600px]:hidden flex justify-start items-end">
         <div className="flex gap-[25px] items-center">
@@ -116,7 +111,7 @@ function Team() {
       </p>
 
       <div className="flex items-start min-[1601px]:hidden pb-[30px]">
-        <div className="flex w-[120px] justify-between">
+        <div className="shrink-0 flex w-[100px] justify-between">
           <div className="flex flex-shrink-0 gap-[15px] items-center">
             <Image
               width={24}

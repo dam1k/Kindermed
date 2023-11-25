@@ -9,7 +9,7 @@ const BlogSidebar = ({ posts }: { posts: any }) => {
   const router = useRouter();
 
   return (
-    <div className="min-[1025px]:mr-[225px]">
+    <div className="min-[1601px]:mr-[225px]">
       <div className="flex flex-col gap-[15px] min-[1025px]:gap-[25px]">
         <p className="text-[16px] min-[1025px]:text-[22px] leading-[145%]">Ultimele articole:</p>
         {posts &&

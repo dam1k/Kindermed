@@ -7,15 +7,15 @@ import Link from "next/link";
 
 function Header() {
   return (
-    <header className="container relative z-[2] flex flex-col items-center gap-[45px] max-[1024px]:!pt-[15px] !pt-[25px]">
-      <div className="flex justify-between max-[1024px]:justify-center w-full items-center">
-          <div className=" max-[1024px]:hidden ">
+    <header className="container relative z-[2] flex flex-col items-center gap-[45px] max-[1350px]:!pt-[15px] !pt-[25px]">
+      <div className="flex justify-between max-[1350px]:justify-center w-full items-center">
+          <div className=" max-[1350px]:hidden ">
             <Call />
           </div>
 
-        <img src="/Logo.svg" alt="kindermed" className="max-[1024px]:h-[45px] min-[1025px]:h-[70px]" />
+        <img src="/Logo.svg" alt="kindermed" className="max-[1350px]:h-[45px] min-[1351px]:h-[70px]" />
 
-        <Button className="flex  max-[1024px]:hidden gap-[7px] items-center">
+        <Button className="flex  max-[1350px]:hidden gap-[7px] items-center">
           <img
             src="/icons/Smile.svg"
             alt="kindermed"
@@ -24,7 +24,7 @@ function Header() {
           Programare Online
         </Button>
       </div>
-      <div className="flex max-[1024px]:hidden gap-[65px]">
+      <div className="flex max-[1350px]:hidden gap-[65px]">
         {navLinks.map((link: navLink) => {
           return (
             <Link key={link.href} className="uppercase font-[500] py-[12px] px-[17px] border-[1px] border-[#3E404D]/[0.24] rounded-[14px] flex items-center leading-[105%]" href={link.href}>
