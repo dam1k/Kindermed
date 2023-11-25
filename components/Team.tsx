@@ -65,21 +65,21 @@ function Team() {
   return (
     <div
       id="team"
-      className="container !pr-0 max-[1600px]:!pb-[100px] max-[1600px]:!pt-[100px] min-[1601px]:!pb-[316px] max-[1600px]:px-[10px] min-[1601px]:!pr-0 bg-[#fff] !pt-[125px] grid grid-cols-1 min-[1601px]:grid-cols-2 gap-x-[25px] gap-[35px] min-[1601px]:gap-y-[85px]"
+      className="container !pr-0 max-[1024px]:!pb-[100px] max-[1024px]:!pt-[100px] min-[1025px]:!pb-[316px] max-[1024px]:px-[10px] min-[1025px]:!pr-0 bg-[#fff] !pt-[125px] grid grid-cols-1 min-[1025px]:grid-cols-2 gap-x-[25px] gap-[35px] min-[1025px]:gap-y-[85px]"
     >
         <div className="pr-[10px] relative">
-          <p className="absolute top-0 left-0 text-[12px] min-[1601px]:text-[16px] uppercase text-black/[0.65] mt-[5px] min-[1601px]:mt-[10px] ml-[1px] min-[1025px]:ml-[3px] leading-[105%]">
-            <span className="min-[1601px]:hidden">TEAM</span>
-            <span className="max-[1600px]:hidden">KINDERTEAM</span>
+          <p className="absolute top-0 left-0 text-[12px] min-[1025px]:text-[16px] uppercase text-black/[0.65] mt-[5px] min-[1025px]:mt-[10px] ml-[1px] min-[1025px]:ml-[3px] leading-[105%]">
+            <span className="min-[1025px]:hidden">TEAM</span>
+            <span className="max-[1024px]:hidden">KINDERTEAM</span>
           </p>
-          <h2 className="inline ml-[100px] min-[1601px]:ml-[250px] uppercase text-[20px] min-[1601px]:text-[35px] text-black leading-[140%] tracking-[-0.35px]">
+          <h2 className="inline max-[1250px]:ml-[150px] ml-[250px] uppercase text-[20px] min-[1025px]:text-[26px] min-[1600px]:text-[35px] text-black leading-[140%] tracking-[-0.35px]">
             Lucrurile cu adevărat
             mari și frumoase pot fi făcute doar în echipă, unde
             fiecare membru contează.
           </h2>
         </div>
 
-      <div className="max-[1600px]:hidden flex justify-start items-end">
+      <div className="max-[1024px]:hidden flex justify-start items-end">
         <div className="flex gap-[25px] items-center">
           <Image
             width={40}
@@ -104,13 +104,13 @@ function Team() {
         </div>
       </div>
 
-      <p className="pr-[10px] max-[1600px]:pb-[30px] min-[1601px]:hidden leading-[145%] text-[14px] min-[1601px]:text-[22px] min-[1601px]:w-[500px]">
+      <p className="pr-[10px] max-[1024px]:pb-[30px] min-[1025px]:hidden leading-[145%] text-[14px] min-[1025px]:text-[22px] min-[1025px]:w-[500px]">
         În spatele Clinicii KinderMed se află o echipă prietenoasă și unită, iar
         aportul fiecărui membru, ne ajută să menținem calitatea serviciilor la
         cel mai înalt nivel.
       </p>
 
-      <div className="flex items-start min-[1601px]:hidden pb-[30px]">
+      <div className="flex items-start min-[1025px]:hidden pb-[30px]">
         <div className="shrink-0 flex w-[100px] justify-between">
           <div className="flex flex-shrink-0 gap-[15px] items-center">
             <Image
@@ -166,7 +166,7 @@ function Team() {
         </div>
       </div>
 
-      <div className="flex gap-[8px] min-[1601px]:hidden">
+      <div className="flex gap-[8px] min-[1025px]:hidden">
         <Button
           className="border-[1px] text-black border-[#3E404D]/[0.24] bg-transparent flex gap-[8px]"
           onClick={() => router.push("https://www.instagram.com/kindermedmd/")}
@@ -183,8 +183,8 @@ function Team() {
         </Button>
       </div>
 
-      <div className="max-[1600px]:hidden min-[1601px]:ml-[250px] flex flex-col gap-[45px]">
-        <p className="max-[1600px]:pb-[30px] leading-[145%] text-[14px] min-[1601px]:text-[22px] min-[1601px]:w-[500px]">
+      <div className="max-[1024px]:hidden max-[1250px]:ml-[150px] ml-[250px] flex flex-col gap-[45px]">
+        <p className="max-[1024px]:pb-[30px] leading-[145%] text-[14px] min-[1025px]:text-[18px] min-[1600px]:w-[500px]">
           În spatele Clinicii KinderMed se află o echipă prietenoasă și unită,
           iar aportul fiecărui membru, ne ajută să menținem calitatea
           serviciilor la cel mai înalt nivel.
@@ -210,7 +210,7 @@ function Team() {
       </div>
 
       <div
-        className="max-[1600px]:hidden team-slider no-scrollbar w-full overflow-scroll flex gap-[25px]"
+        className="max-[1024px]:hidden team-slider no-scrollbar w-full overflow-scroll flex gap-[25px]"
         ref={sliderRef}
       >
         {team.map((doctor, i) => {
@@ -218,7 +218,7 @@ function Team() {
             <div className="flex flex-col gap-[25px]" key={i}>
               <div
                 className={`${
-                  i === 0 ? "w-[405px] h-[540px]" : "w-[300px] h-[400px]"
+                  i === 0 ? "w-[350px] h-[468px] min-[1250px]:w-[405px] min-[1250px]:h-[540px]" : "w-[262px] min-[1250px]:w-[300px] min-[1250px]:h-[400px] h-[348px]"
                 }`}
               >
                 <img alt="" className="w-full" src={doctor.img} />

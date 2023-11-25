@@ -62,7 +62,7 @@ async function Blog() {
           </div>
         <div className="max-[1601px]:hidden" />
 
-        <div className="min-[1601px]:mb-[30px] min-[1025px]:ml-[225px] min-[1815px]:ml-[250px] leading-[145%] flex flex-col gap-[5px]">
+        <div className="min-[1601px]:mb-[30px] min-[1025px]:ml-[225px] min-[1815px]:ml-[250px]   leading-[145%] flex flex-col gap-[5px]">
           <span className="text-blue max-[1024px]:hidden">#citatulzilei</span>
           <h3 className="min-[1025px]:w-[500px] text-[14px] min-[1025px]:text-[22px] text-black italic">
             “Fii la curent cu cele mai recente noutăți din domeniul medical și
