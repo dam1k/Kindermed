@@ -4,16 +4,38 @@ import React, {useState, useEffect} from "react";
 import Call from "./Call";
 import Image from "next/image";
 import { Button } from "./ui/Button";
-import { navLink, navLinks } from "@/utils/data";
+import { navLink, navLinks, schedule } from "@/utils/data";
 import Link from "next/link";
+import {motion, AnimatePresence} from "framer-motion";
 
 
 function Header() {
-
+    const [showScheduleDropdown, setShowScheduleDropdown] = useState<boolean>(false);
+    const [showCallDropdown, setShowCallDropdown] = useState<boolean>(false);
     const [day, setDay] = useState<number>(0);
+    const [working, setWorking] = useState<boolean>(false);
+
     useEffect(() => {
-        const today = new Date().getDay();
+        const date= new Date();
+        const today = date.getDay();
+        const hours = date.getHours();
+        const minutes = date.getMinutes()
         setDay(today);
+        if(today === 0) {
+            setWorking(false);
+        } else if(today === 6) {
+            if(hours >= 9 && hours < 18) {
+                setWorking(true)
+            } else {
+                setWorking(false)
+            }
+        } else {
+            if(hours >= 8 && minutes >= 30 && hours <= 18 && minutes < 30) {
+                setWorking(true);
+            } else {
+                setWorking(false);
+            }
+        }
     }, []);
 
   return (
@@ -30,21 +52,72 @@ function Header() {
                       <Image src="/icons/FacebookGrey.svg" alt="" width={17} height={17}/>
                   </Link>
               </div>
-              <div className="cursor-pointer flex items-center">
-                  <Image src="/icons/Calendar.svg" width={28} height={28} alt=""/>
-                  <div className="ml-[10px] mr-[7px] flex flex-col gap-[3px]">
-                      <div className="flex gap-[5px] items-center">
-                          <p className="text-[12px] leading-[105%]">Astăzi lucrăm</p>
-                          <div className="w-[7px] h-[7px] bg-[#36D938] rounded-[50%]"/>
+              <div className="relative"
+                   onMouseEnter={() => setShowScheduleDropdown(true)}
+                   onMouseLeave={() => setShowScheduleDropdown(false)}>
+                  <div className="cursor-pointer flex items-center">
+                      <Image src="/icons/Calendar.svg" width={28} height={28} alt=""/>
+                      <div className="ml-[10px] mr-[7px] flex flex-col gap-[3px]">
+                          <div className="flex gap-[5px] items-center">
+                              <p className="text-[12px] leading-[105%]">{day === 0 ? "Închis" : "Astăzi lucrăm"}</p>
+                              <div className={`animate-dot w-[7px] h-[7px] ${working ? "bg-[#36D938]" : "bg-[#FF1469]"} rounded-[50%]`}/>
+                          </div>
+                          <div className="leading-[105%]">
+                              {day === 0 ? schedule.sun : day === 6 ? schedule.sat : schedule.monToFri}
+                          </div>
                       </div>
-                      <div className="leading-[105%]">
-                          9:00 - 18:00
-                      </div>
+                      <Image src="/icons/ChevronDown.svg" width={17} height={17} alt=""/>
+                      {/*<div className="">*/}
+                      {/*    <p className="text-[#00AAF1] text-[18px]">Astăzi</p>*/}
+                      {/*</div>*/}
                   </div>
-                  <Image src="/icons/ChevronDown.svg" width={17} height={17} alt=""/>
-                  {/*<div className="">*/}
-                  {/*    <p className="text-[#00AAF1] text-[18px]">Astăzi</p>*/}
-                  {/*</div>*/}
+                  <AnimatePresence>
+                      {showScheduleDropdown && <motion.div
+                          initial={{opacity: 0}}
+                          animate={{opacity: 1}}
+                          exit={{opacity: 0}}
+                          className="absolute w-[300px] bg-[#fff] left-[-17px] top-[57px] py-[14px] px-[17px] rounded-[22px]">
+                          <div className="flex justify-between items-center mb-[12px]">
+                              <div className="flex items-center gap-[3px]">
+                                  <Image src="/icons/ArrowBlue.svg" width={20} height={20} alt=""/>
+                                  <h3 className="text-[#00AAF1] text-[18px] leading-[145%]">
+                                      Astăzi
+                                  </h3>
+                              </div>
+                              <p className="text-[#00AAF1] text-[18px] leading-[145%]">
+                                  {day === 0 ? schedule.sun : day === 6 ? schedule.sat : schedule.monToFri}
+                              </p>
+                          </div>
+
+                          <div className="flex justify-between items-center mb-[7px]">
+                                  <h3 className="uppercase leading-[145%]">
+                                      Luni-vineri
+                                  </h3>
+                              <p className="leading-[145%]">
+                                  {schedule.monToFri}
+                              </p>
+                          </div>
+
+                          <div className="flex justify-between items-center mb-[7px]">
+                              <h3 className="uppercase leading-[145%]">
+                                  Sâmbătă
+                              </h3>
+                              <p className="leading-[145%]">
+                                  {schedule.sat}
+                              </p>
+                          </div>
+
+                          <div className="flex justify-between items-center">
+                              <h3 className="text-[#3E404D]/[0.5] uppercase leading-[145%]">
+                                  Duminică
+                              </h3>
+                              <p className="text-[#3E404D]/[0.5] leading-[145%]">
+                                  {schedule.sun}
+                              </p>
+                          </div>
+
+                      </motion.div>}
+                  </AnimatePresence>
               </div>
               <Link target="_blank" href="https://www.google.com/maps/place/KinderMed/@47.0166545,28.8292626,17z/data=!3m1!4b1!4m6!3m5!1s0x40c97d5c884a1399:0x85ad0ab5ad7e580a!8m2!3d47.0166509!4d28.8318375!16s%2Fg%2F11hdyjkcmy?entry=ttu">
                   <div className="cursor-pointer flex items-center gap-[10px]">

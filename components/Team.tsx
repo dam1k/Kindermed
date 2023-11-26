@@ -23,15 +23,6 @@ function Team() {
         window.removeEventListener("resize", () => setWidth(window.innerWidth));
   }, []);
 
-  useEffect(() => {
-    // if(width > 1024) {
-    //   if(sliderRef.current) {
-    //     sliderRef.current.scrollLeft = 0;
-    //   }
-    //   setCurrentSlide(0);
-    // }
-    console.log(currentSlide)
-  }, [currentSlide])
   function handleClick(type: "left" | "right") {
     if (sliderRef.current) {
       setScrolling(true);

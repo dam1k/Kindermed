@@ -360,3 +360,14 @@ export const footerLinks: navLink[] = [
         href: "#contacts",
     },
 ];
+
+interface schedule {
+    monToFri: string;
+    sat: string;
+    sun: string;
+}
+export const schedule:schedule = {
+    monToFri: "8:30-18:30",
+    sat: "09:00-18:00",
+    sun: "Zi liberă"
+}

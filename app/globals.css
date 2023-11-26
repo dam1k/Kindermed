@@ -158,6 +158,19 @@ a {
     /*width: 270px; !* Set the width of the container where text is displayed. Adjust this according to your layout. *!*/
 }
 
+.animate-dot {
+    animation: animateDot;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+@keyframes animateDot {
+    0% {opacity: 0;}
+    50% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
 @media only screen and (max-width: 1024px) {
     .three-lines-text {
         display: -webkit-box !important;
