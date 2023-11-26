@@ -40,22 +40,21 @@ function Footer() {
     <>
       <div className="bg-[#161616]">
         <div className="text-[#fff] !pt-[100px] lg:!pt-[125px] max-[1023px]:px-[10px] container !pb-[100px] lg:!pb-[125px] grid-cols-1 grid min-[1400px]:grid-cols-2 gap-x-[25px] gap-y-[40px] min-[1400px]:gap-y-[85px]">
-          <div>
-            <div className="!text-[#fff] flex max-[1599px]:gap-[86px] min-[1600px]:gap-[186px]">
-              <p className="uppercase !text-[#fff]/[0.65] mt-[5px] lg:mt-[10px] ml-[1px] lg:ml-[3px] leading-[105%]">
+            <div className="relative !text-[#fff]">
+              <p className="inline absolute top-0 left-0 text-[12px] min-[1025px]:text-[16px] uppercase !text-[#fff]/[0.65] mt-[5px] lg:mt-[10px] ml-[1px] lg:ml-[3px] leading-[105%]">
                 Detalii
               </p>
-              <h2 className="uppercase text-[20px] lg:text-[35px] leading-[140%] !text-[#fff] tracking-[-0.35px]">
-                Echipa noastră este la dispoziția Informează-te despre
+              <h2 className="inline ml-[100px] min-[1024px]:ml-[150px] min-[1600px]:ml-[250px] uppercase text-[20px] min-[1025px]:text-[35px] leading-[140%] !text-[#fff] tracking-[-0.35px]">
+                Echipa noastră este la dispoziția Informează-te despre dvs. pentru a oferi asistență și consultații medicale la doar un
+                apel distanță
               </h2>
             </div>
-            <h2 className="uppercase text-[20px] lg:text-[35px] leading-[140%] !text-[#fff] tracking-[-0.35px]">
-              dvs. pentru a oferi asistență și consultații medicale la doar un
-              apel distanță
-            </h2>
-          </div>
+            {/*<h2 className="uppercase text-[20px] lg:text-[35px] leading-[140%] !text-[#fff] tracking-[-0.35px]">*/}
+            {/*  dvs. pentru a oferi asistență și consultații medicale la doar un*/}
+            {/*  apel distanță*/}
+            {/*</h2>*/}
           <div className="max-[1024px]:hidden" />
-          <div className="max-[1023px]:pl-[0] max-[1599px]:pl-[150px] min-[1600px]:pl-[250px]">
+          <div className="ml-0 min-[1024px]:ml-[150px] min-[1600px]:ml-[250px]">
             <iframe
               className="!rounded-[23px] !overflow-hidden"
               src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10880.805747584376!2d28.8318375!3d47.0166509!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c97d5c884a1399%3A0x85ad0ab5ad7e580a!2sKinderMed!5e0!3m2!1sen!2s!4v1699746089643!5m2!1sen!2s"
@@ -132,7 +131,7 @@ function Footer() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 min-[1450px]:grid-cols-2 gap-[12px] max-[1450px]:gap-y-[50px]">
+          <div className="grid min-[1024px]:ml-[150px] min-[1399px]:ml-0 grid-cols-1 min-[1450px]:grid-cols-2 gap-[12px] max-[1450px]:gap-y-[50px]">
             <div className="flex flex-col gap-[85px] min-[1451px]:gap-[75px] max-[1024px]:pt-[45px]">
               <div>
                 <div className="flex gap-[8px]">
@@ -142,7 +141,7 @@ function Footer() {
                     alt=""
                     src="/icons/ArrowNarrow.svg"
                   />
-                  <h3 className="uppercase !text-[#fff] text-[20px] leading-[21px]">
+                  <h3 className="uppercase text-[16px] !text-[#fff] min-[1024px]:text-[20px] leading-[21px]">
                     Programează-te online
                   </h3>
                 </div>
@@ -207,7 +206,7 @@ function Footer() {
                   Telefoane de contact
                 </h3>
               </div>
-              <div className="max-[1024px]:w-full w-[400px] flex mt-[12px] min-[1025px]:mt-[20px] gap-[8px] flex-wrap content-start items-start">
+              <div className="min-[1025px]:w-[400px] min-[1450px]:w-full flex mt-[12px] min-[1025px]:mt-[20px] gap-[8px] flex-wrap content-start items-start">
                 {phoneNumbers.map((phoneNumber: phoneNumber, i: number) => {
                   return (
                     <Link
@@ -234,7 +233,7 @@ function Footer() {
           </div>
 
           <div className="max-[1024px]:hidden" />
-          <div className="max-[1023px]:hidden w-[430px] flex gap-x-[55px] gap-y-[25px] flex-wrap content-start items-start">
+          <div className="min-[1024px]:ml-[150px] min-[1399px]:ml-0 max-[1023px]:hidden w-[430px] flex gap-x-[55px] gap-y-[25px] flex-wrap content-start items-start">
             {footerLinks.map((link: navLink) => {
               return (
                 <Link
@@ -255,8 +254,8 @@ function Footer() {
           </div>
         </div>
       </div>
-      <div className="max-[1024px]:hidden bg-[#121212] gap-[15px] py-[45px] flex-col flex items-center">
-        <p className="w-[515px] leading-[23.2px] text-center !text-[#fff]/[0.15]">
+      <div className="max-[1024px] bg-[#121212] text-[12px] min-[1024px]:text-[16px] gap-[15px] px-[25px] border-t-[1px] border-[#fff]/[0.05] py-[45px] flex-col flex items-center">
+        <p className="min-[1024px]:w-[515px] text-center leading-[145%] !text-[#fff]/[0.15]">
           Copyright © 2023, S.R.L. “MIDLTON”. Toate drepturile sunt rezervate.{" "}
           <br />
           Adresa juridică: mun.Chișinău, bd. Dacia, 9/1, ap.35 <br />
@@ -264,13 +263,12 @@ function Footer() {
         </p>
         <Link
           target="_blank"
-          className="!text-[#fff]/[0.15] flex gap-[10px] items-center"
+          className="!text-[#fff]/[0.15] leading-[105%] flex gap-[10px] items-center"
           href="https://dreamsite.md"
         >
           Developed by
-          <Image
-            width={12.65}
-            height={29}
+          <img
+              className="shrink-0 h-[29px] w-[12.65px]"
             src="/icons/DreamSiteLogo.svg"
             alt=""
           />

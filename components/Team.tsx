@@ -257,7 +257,7 @@ function Team() {
         >
           {team.map((doctor, i) => {
             return (
-                <div className="flex flex-col gap-[12px] min-[1025px]:gap-[25px]" key={i}>
+                <div className={`flex flex-col gap-[12px] min-[1025px]:gap-[25px] ${i === team.length -1 ? "mr-[10px] min-[1025px]:mr-[25px]" : ""}`} key={i}>
                   <div
                       className={`${
                           i === 0
@@ -265,7 +265,7 @@ function Team() {
                               : "w-[165px] h-[220px] min-[1025px]:w-[262px] min-[1025px]:h-[348px] min-[1250px]:w-[300px] min-[1250px]:h-[400px]"
                       }`}
                   >
-                    <img alt="" className="w-full" src={doctor.img} />
+                    <img alt="" className={`w-full h-full object-cover`} src={doctor.img} />
                   </div>
                   <div>
                     <h3 className="text-[15px] min-[1025px]:text-[20px] leading-[140%] uppercase min-[1025px]:leading-[105%]">

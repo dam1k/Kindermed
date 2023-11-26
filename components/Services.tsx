@@ -56,7 +56,7 @@ const Services = () => {
                                 <span className="max-[1400px]:hidden">Serviciile noastre</span>
                                 <span className="min-[1401px]:hidden">Serviciile</span>
                             </p>
-                            <h2 className="inline ml-[100px] min-[1025px]:ml-[150px] min-[1400px]:ml-[250px] uppercase lg:text-[35px] text-[20px] text-[#fff] leading-[140%] tracking-[-0.35px]">
+                            <h2 className="inline ml-[100px] min-[1025px]:ml-[150px] min-[1400px]:ml-[250px] uppercase min-[1025px]:text-[35px] text-[20px] text-[#fff] leading-[140%] tracking-[-0.35px]">
                                 oferim Soluții complete și personalizate pentru sănătatea dvs.
                             </h2>
                     </div>

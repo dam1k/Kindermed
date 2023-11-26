@@ -45,12 +45,12 @@ const Hero = () => {
           className="max-[1024px]:h-[44px] max-[1024px]:w-[44px] w-[55px] h-[55px] relative ml-[-21px] z-[3] "
         />
         <img
-          src="/icons/DoctorIcon2.svg"
+          src="/icons/DoctorIcon2.png"
           alt=""
           className="max-[1024px]:h-[44px] max-[1024px]:w-[44px] w-[55px] h-[55px] ml-[-21px] z-[2]"
         />
         <img
-          src="/icons/DoctorIcon3.svg"
+          src="/icons/DoctorIcon3.png"
           alt=""
           className="max-[1024px]:h-[44px] max-[1024px]:w-[44px] w-[55px] h-[55px] ml-[-21px] z-[1]"
         />

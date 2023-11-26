@@ -20,7 +20,7 @@ export default function Home() {
           <img
             src="/Hero.jpg"
             alt=""
-            className="object-cover max-[1400px]:hidden h-[calc(100%+500px)] absolute top-0 left-0 w-full saturate-0"
+            className="object-cover z-[-1] max-[1400px]:hidden h-[calc(100%+500px)] absolute top-0 left-0 w-full saturate-0"
           />
       <div className="absolute top-0 left-0 w-full max-[1400px]:hidden h-[calc(100%+500px)] z-[1] bg-[#fff]/[0.90]" />
 
