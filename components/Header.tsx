@@ -7,6 +7,8 @@ import { Button } from "./ui/Button";
 import { navLink, navLinks, schedule } from "@/utils/data";
 import Link from "next/link";
 import {motion, AnimatePresence} from "framer-motion";
+import ScheduleDropdownContent from "@/components/ScheduleDropdownContent";
+import CallDropdownContent from "@/components/CallDropdownContent";
 
 
 function Header() {
@@ -38,8 +40,16 @@ function Header() {
         }
     }, []);
 
+    // useEffect(() => {
+    //     if(showScheduleDropdown) {
+    //         document.body.style.overflow = "hidden";
+    //     } else {
+    //         document.body.style.overflow = "scroll";
+    //     }
+    // }, [showScheduleDropdown]);
+
   return (
-    <header className="container relative z-[2] flex flex-col items-center gap-[45px] max-[1350px]:!pt-[15px] !pt-[25px]">
+    <header className="container relative h-[250px] z-[2] flex flex-col items-center gap-[45px] max-[1350px]:!pt-[15px] !pt-[25px]">
       <div className="flex justify-between max-[1350px]:justify-center w-full items-center">
           <div className="flex-1 flex items-center gap-[35px]">
               <div className="flex gap-[8px]">
@@ -52,10 +62,9 @@ function Header() {
                       <Image src="/icons/FacebookGrey.svg" alt="" width={17} height={17}/>
                   </Link>
               </div>
-              <div className="relative"
-                   onMouseEnter={() => setShowScheduleDropdown(true)}
-                   onMouseLeave={() => setShowScheduleDropdown(false)}>
-                  <div className="cursor-pointer flex items-center">
+              <div className="relative">
+                  <div className="cursor-pointer flex items-center"
+                  onMouseEnter={() => setShowScheduleDropdown(true)}>
                       <Image src="/icons/Calendar.svg" width={28} height={28} alt=""/>
                       <div className="ml-[10px] mr-[7px] flex flex-col gap-[3px]">
                           <div className="flex gap-[5px] items-center">
@@ -71,53 +80,9 @@ function Header() {
                       {/*    <p className="text-[#00AAF1] text-[18px]">Astăzi</p>*/}
                       {/*</div>*/}
                   </div>
-                  <AnimatePresence>
-                      {showScheduleDropdown && <motion.div
-                          initial={{opacity: 0}}
-                          animate={{opacity: 1}}
-                          exit={{opacity: 0}}
-                          className="absolute w-[300px] bg-[#fff] left-[-17px] top-[57px] py-[14px] px-[17px] rounded-[22px]">
-                          <div className="flex justify-between items-center mb-[12px]">
-                              <div className="flex items-center gap-[3px]">
-                                  <Image src="/icons/ArrowBlue.svg" width={20} height={20} alt=""/>
-                                  <h3 className="text-[#00AAF1] text-[18px] leading-[145%]">
-                                      Astăzi
-                                  </h3>
-                              </div>
-                              <p className="text-[#00AAF1] text-[18px] leading-[145%]">
-                                  {day === 0 ? schedule.sun : day === 6 ? schedule.sat : schedule.monToFri}
-                              </p>
-                          </div>
-
-                          <div className="flex justify-between items-center mb-[7px]">
-                                  <h3 className="uppercase leading-[145%]">
-                                      Luni-vineri
-                                  </h3>
-                              <p className="leading-[145%]">
-                                  {schedule.monToFri}
-                              </p>
-                          </div>
-
-                          <div className="flex justify-between items-center mb-[7px]">
-                              <h3 className="uppercase leading-[145%]">
-                                  Sâmbătă
-                              </h3>
-                              <p className="leading-[145%]">
-                                  {schedule.sat}
-                              </p>
-                          </div>
-
-                          <div className="flex justify-between items-center">
-                              <h3 className="text-[#3E404D]/[0.5] uppercase leading-[145%]">
-                                  Duminică
-                              </h3>
-                              <p className="text-[#3E404D]/[0.5] leading-[145%]">
-                                  {schedule.sun}
-                              </p>
-                          </div>
-
-                      </motion.div>}
-                  </AnimatePresence>
+                      <AnimatePresence>
+                          {showScheduleDropdown && <ScheduleDropdownContent setOpen={setShowScheduleDropdown} day={day}/>}
+                      </AnimatePresence>
               </div>
               <Link target="_blank" href="https://www.google.com/maps/place/KinderMed/@47.0166545,28.8292626,17z/data=!3m1!4b1!4m6!3m5!1s0x40c97d5c884a1399:0x85ad0ab5ad7e580a!8m2!3d47.0166509!4d28.8318375!16s%2Fg%2F11hdyjkcmy?entry=ttu">
                   <div className="cursor-pointer flex items-center gap-[10px]">
@@ -135,15 +100,21 @@ function Header() {
           </Link>
 
           <div className="flex-1 gap-[35px] flex justify-end">
-              <div className="flex items-center">
-                  <Image src="/icons/PhoneBlue.svg" width={28} height={28} alt="" />
-                  <div className="ml-[10px] mr-[7px] flex flex-col justify-center items-start text-black gap-[3px]">
-                      <p className="text-[12px] leading-[105%]">Apelează-ne</p>
-                      <a href="tel:+37322111061" className="leading-[105%]">
-                          +373 22 111 061
-                      </a>
+              <div className="relative"
+                   onMouseEnter={() => setShowCallDropdown(true)}>
+                  <div className="flex cursor-pointer items-center">
+                      <Image src="/icons/PhoneBlue.svg" width={28} height={28} alt="" />
+                      <div className="ml-[10px] mr-[7px] flex flex-col justify-center items-start text-black gap-[3px]">
+                          <p className="text-[12px] leading-[105%]">Apelează-ne</p>
+                          <a href="tel:+37322111061" className="leading-[105%]">
+                              +373 22 111 061
+                          </a>
+                      </div>
+                      <Image src="/icons/ChevronDown.svg" width={17} height={17} alt="" />
                   </div>
-                  <Image src="/icons/ChevronDown.svg" width={17} height={17} alt="" />
+                  <AnimatePresence>
+                    {showCallDropdown && <CallDropdownContent setOpen={setShowCallDropdown}/>}
+                  </AnimatePresence>
               </div>
             <Button className="flex  max-[1350px]:hidden gap-[7px] items-center">
               <img
