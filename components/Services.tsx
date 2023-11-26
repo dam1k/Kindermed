@@ -84,7 +84,7 @@ const Services = () => {
                     {!showAll && <li className="max-[1400px]:py-[15px] py-[20px]">
                         <div className="flex max-[1400px]:pl-0 pl-[250px]">
                             {!showAll && <span
-                                className="text-[16px]  min-[1025px]:text-[24px] max-[1400px]:w-[100px] w-[250px] leading-[105%] text-[#fff]/[0.5]">
+                                className="text-[16px] min-[1025px]:text-[24px] max-[1400px]:w-[100px] w-[250px] leading-[105%] text-[#fff]/[0.5]">
                             {`+${showAllServices.length}`}
                         </span>}
                             <Button className="max-[1400px]:hidden uppercase"
@@ -144,7 +144,7 @@ const Services = () => {
                             <div
                                 className="flex max-[1400px]:items-center max-[1400px]:ml-0 ml-[250px] max-[1400px]:col-span-2">
                                 <span
-                                    className={`max-[1400px]:!text-[16px] max-[1400px]:w-[100px] w-[250px] min-[1401px]:text-[24px] leading-[105%] text-black/[0.5]`}>{`${service.id <= 9 ? "0" : ""}${service.id}`}</span>
+                                    className={`text-[16px] min-[1025px]:text-[24px] max-[1400px]:w-[100px] w-[250px] leading-[105%] text-black/[0.5]`}>{`${service.id <= 9 ? "0" : ""}${service.id}`}</span>
                                 <h2 className={`text-black min-[1401px]:text-[24px] text-[16px] leading-[125%] break-words uppercase`}>{service.name}</h2>
                             </div>
                             <div
