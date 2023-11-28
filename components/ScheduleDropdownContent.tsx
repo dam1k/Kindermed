@@ -3,13 +3,12 @@ import Image from "next/image";
 import {schedule} from "@/utils/data";
 import {motion} from "framer-motion";
 
-function ScheduleDropdownContent({day, setOpen}:{day:number, setOpen:React.Dispatch<React.SetStateAction<boolean>>}) {
+function ScheduleDropdownContent({day}:{day:number}) {
     return (
         <motion.div
             initial={{opacity: 0}}
             animate={{opacity: 1}}
             exit={{opacity: 0}}
-            onMouseLeave={() => setOpen(false)}
             className="absolute z-[100] w-[300px] h-[149px] bg-[#fff] left-[-17px] top-[57px] py-[14px] px-[17px] rounded-[22px]">
                 <div className="flex justify-between items-center mb-[12px]">
                     <div className="flex items-center gap-[3px]">
