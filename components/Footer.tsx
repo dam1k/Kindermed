@@ -135,11 +135,10 @@ function Footer() {
             <div className="flex flex-col gap-[85px] min-[1451px]:gap-[75px] max-[1024px]:pt-[45px]">
               <div>
                 <div className="flex gap-[8px]">
-                  <Image
-                    width={21}
-                    height={21}
+                  <img
                     alt=""
                     src="/icons/ArrowNarrow.svg"
+                    className="w-[21px] h-[21px]"
                   />
                   <h3 className="uppercase text-[16px] !text-[#fff] min-[1024px]:text-[20px] leading-[21px]">
                     Programează-te online
@@ -150,20 +149,17 @@ function Footer() {
                   apel/mesaj!
                 </p>
                 <Button className="bg-[#fff] mt-[30px] flex gap-[6px] items-center leading-[105%]">
-                  <Image
-                    width={17}
-                    height={17}
+                  <img
                     alt=""
                     src="/icons/SmileBlack.svg"
+                    className="w-[17px] h-[17px]"
                   />
                   <span className="!text-black">Programare Online</span>
                 </Button>
               </div>
               <div>
                 <div className="flex gap-[8px]">
-                  <Image
-                    width={21}
-                    height={21}
+                  <img
                     alt=""
                     src="/icons/ArrowNarrow.svg"
                   />
@@ -180,10 +176,9 @@ function Footer() {
                         href={contact.href}
                         key={contact.href}
                       >
-                        <Image
+                        <img
                           alt=""
-                          width={17}
-                          height={17}
+                          className="w-[17px] h-[17px]"
                           src={contact.icon}
                         />
                         {contact.name}
@@ -196,11 +191,10 @@ function Footer() {
 
             <div className="">
               <div className="flex gap-[8px]">
-                <Image
-                  width={21}
-                  height={21}
+                <img
                   alt=""
                   src="/icons/ArrowNarrow.svg"
+                  className="w-[21px] h-[21px]"
                 />
                 <h3 className="uppercase !text-[#fff] text-[16px] min-[1025px]:text-[20px] leading-[16.8px] min-[1025px]:leading-[21px]">
                   Telefoane de contact
@@ -218,9 +212,8 @@ function Footer() {
                       }
                       className="leading-[105%] flex px-[17px] py-[12px] gap-[10px] items-center border-[1px] rounded-[15px] !border-[#fff]/[0.4] !text-[#fff]"
                     >
-                      <Image
-                        width={17}
-                        height={17}
+                      <img
+                          className="w-[17px] h-[17px]"
                         alt=""
                         src={i === 3 ? "/icons/Viber.svg" : "/icons/Phone.svg"}
                       />

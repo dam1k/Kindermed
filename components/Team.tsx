@@ -220,21 +220,17 @@ function Team() {
       <div className="flex items-start max-[1024px]:mb-[30px] max-[1024px]:row-start-3 max-[1024px]:row-end-4">
         <div className="min-[1025px]:hidden shrink-0 flex w-[100px] justify-between">
           <div className="flex flex-shrink-0 gap-[15px] items-center">
-            <Image
-                width={24}
+            <img
                 alt=""
-                height={24}
-                className="hover:scale-125 transition-all cursor-pointer"
+                className="w-[24px] h-[24px] hover:scale-125 transition-all cursor-pointer"
                 src="/icons/ChevronRight.svg"
                 onClick={() => {
                   if (!scrolling) handleClick("left");
                 }}
             />
-            <Image
-                width={24}
+            <img
                 alt=""
-                height={24}
-                className="hover:scale-125 transition-all cursor-pointer"
+                className="w-[24px] h-[24px] [hover:scale-125 transition-all cursor-pointer"
                 src="/icons/ChevronLeft.svg"
                 onClick={() => {
                   if (!scrolling) handleClick("right");
