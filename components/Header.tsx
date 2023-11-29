@@ -14,6 +14,8 @@ import MobileMenu from "../components/MobileMenu";
 function Header() {
   const [domLoaded, setDomLoaded] = useState<boolean>(false);
   const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false);
+  const [width, setWidth] = useState<number>(0);
+
   const [showScheduleDropdown, setShowScheduleDropdown] =
     useState<boolean>(false);
   const [showCallDropdown, setShowCallDropdown] = useState<boolean>(false);
@@ -21,6 +23,7 @@ function Header() {
   const [working, setWorking] = useState<boolean>(false);
 
   useEffect(() => {
+    setWidth(window.innerWidth);
     const date = new Date();
     const today = date.getDay();
     const hours = date.getHours();
@@ -42,7 +45,27 @@ function Header() {
       }
     }
     setDomLoaded(true);
+
+    window.addEventListener("resize", () => setWidth(window.innerWidth));
+    return () =>
+        window.removeEventListener("resize", () => setWidth(window.innerWidth));
   }, []);
+
+  useEffect(() => {
+    if(width > 1400) {
+      setShowMobileMenu(false);
+    }
+  }, [width]);
+
+  useEffect(() => {
+    if(showMobileMenu) {
+      document.body.style.overflow = "hidden"
+      document.body.style.height = "100vh"
+    } else {
+      document.body.style.overflow = "scroll"
+      document.body.style.height = "auto"
+    }
+  }, [showMobileMenu]);
 
   return (
     <>

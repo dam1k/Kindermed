@@ -34,8 +34,7 @@ function Footer() {
     return () =>
       window.removeEventListener("resize", () => setWidth(window.innerWidth));
   }, []);
-
-  // const router = useRouter();
+  
   return (
     <>
       <div className="bg-[#161616]">

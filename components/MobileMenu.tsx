@@ -1,21 +1,34 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Image from "next/image"
 import {navLink, navLinks, schedule} from "@/utils/data";
 import Link from "next/link";
-import {motion} from "framer-motion"
+import {AnimatePresence, motion} from "framer-motion"
 import {Button} from "@/components/ui/Button";
 
+const variants = {
+    open: {
+        opacity: 1,
+        height: "auto",
+        marginTop: 10,
+    },
+    collapsed: {
+        opacity: 0,
+        height: 0,
+        marginTop: 0,
+    },
+};
 function MobileMenu({working, day, setOpen}: {working:boolean; day:number; setOpen: React.Dispatch<React.SetStateAction<boolean>>}) {
+    const [showSchedule, setShowSchedule] = useState<boolean>(false);
     return (
-        <motion.div className="fixed top-0 left-0 h-screen w-screen bg-[rgba(26, 26, 32, 0.37)] backdrop-blur-[17.5px] z-[1000]"
+        <motion.div className="min-[1401px]:hidden fixed top-0 left-0 h-screen w-screen bg-[rgba(26, 26, 32, 0.37)] backdrop-blur-[17.5px] z-[1000]"
                     initial={{opacity: 0}}
                     animate={{opacity: 1}}
                     exit={{opacity: 0}}
         key="menu_overlay">
-            <div className="fixed bg-[#FFFFFF] h-[50vh] bottom-0 left-0 w-screen p-[15px] rounded-tr-[25px] rounded-tl-[25px]">
+            <div className="fixed overflow-scroll bg-[#FFFFFF] h-[60vh] bottom-0 left-0 w-screen p-[15px] rounded-tr-[25px] rounded-tl-[25px]">
                 <div className="flex items-center justify-between">
                     <h3 className="text-[18px] leading-[18.9px] uppercase">Navigare</h3>
-                    <button className="bg-[#3E404D]/[0.08] rounded-[10px] w-[25px] h-[25px] bg-[#3e404d] flex items-center justify-center"
+                    <button className="!bg-[#3E404D]/[0.08] rounded-[10px] w-[25px] h-[25px] flex items-center justify-center"
                     onClick={() => setOpen(false)}>
                         <Image src="/icons/Times.svg" alt="" width={15} height={15}/>
                     </button>
@@ -59,7 +72,7 @@ function MobileMenu({working, day, setOpen}: {working:boolean; day:number; setOp
                     </div>
                 </div>
                 <div className="mt-[17px] !bg-[#686A74]/[0.1] rounded-[24px] p-[15px]">
-                    <div className="cursor-pointer flex items-center justify-between">
+                    <div className="cursor-pointer flex items-center justify-between" onClick={() => setShowSchedule((prev) => !prev)}>
                         <div className="flex items-center">
                             <Image
                                 src="/icons/Calendar.svg"
@@ -94,6 +107,59 @@ function MobileMenu({working, day, setOpen}: {working:boolean; day:number; setOp
                             alt=""
                         />
                     </div>
+
+                    <AnimatePresence mode="wait" initial={false}>
+                        {showSchedule && <motion.div
+                            variants={variants}
+                            key="schedule"
+                            initial="collapsed"
+                            animate="open"
+                            // transition={{duration: 0.2}}
+                            exit="collapsed"
+                            className="bg-[#fff] py-[12px] px-[15px] rounded-[22px]">
+                            <div className="flex justify-between items-center mb-[8px]">
+                                <div className="flex items-center gap-[3px]">
+                                    <Image src="/icons/ArrowBlue.svg" width={20} height={20} alt=""/>
+                                    <h3 className="text-[#00AAF1] text-[16px] leading-[23.2px]">
+                                        Astăzi
+                                    </h3>
+                                </div>
+                                <p className="text-[#00AAF1] text-[16px] leading-[23.2px]">
+                                    {day === 0 ? schedule.sun : day === 6 ? schedule.sat : schedule.monToFri}
+                                </p>
+                            </div>
+
+                            <div className="flex justify-between items-center mb-[5px]">
+                                <h3 className="uppercase text-[12px] leading-[17.4px]">
+                                    Luni-vineri
+                                </h3>
+                                <p className="text-[12px] leading-[17.4px]">
+                                    {schedule.monToFri}
+                                </p>
+                            </div>
+
+                            <div className="flex justify-between items-center mb-[5px]">
+                                <h3 className="uppercase text-[12px] leading-[17.4px]">
+                                    Sâmbătă
+                                </h3>
+                                <p className="text-[12px] leading-[17.4px]">
+                                    {schedule.sat}
+                                </p>
+                            </div>
+
+                            <div className="flex justify-between items-center">
+                                <h3 className="text-[#3E404D]/[0.5] uppercase text-[12px] leading-[17.4px]">
+                                    Duminică
+                                </h3>
+                                <p className="text-[#3E404D]/[0.5] text-[12px] leading-[17.4px]">
+                                    {schedule.sun}
+                                </p>
+                            </div>
+                        </motion.div>}
+                    </AnimatePresence>
+
+
+
 
                     <div className="mt-[15px] flex gap-[10px] justify-between">
                         <Button className="flex flex-1 max-w-[230px] gap-[7px] items-center">
