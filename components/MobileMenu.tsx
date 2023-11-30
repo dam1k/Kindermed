@@ -41,9 +41,9 @@ function MobileMenu({working, day, setOpen}: {working:boolean; day:number; setOp
                                   href={link.href}>
                                 <span>{link.text}</span>
                                 {link.href === "#team" && <div
-                                    className="relative text-[#fff] h-[17px] w-[17px] rounded-[7px] ml-[8px] bg-blue">
+                                    className="flex items-center justify-center text-[#fff] h-[17px] w-[17px] rounded-[7px] ml-[8px] bg-blue">
                                 <span
-                                    className="absolute top-[50%] left-[50%] leading-[9px] !text-[10px] translate-x-[-50%] translate-y-[-50%]">13</span>
+                                    className="!text-[10px] leading-[9px]">13</span>
                                 </div>}
                             </Link>
                         );
@@ -63,12 +63,12 @@ function MobileMenu({working, day, setOpen}: {working:boolean; day:number; setOp
                                 +373 22 111 061
                             </a>
                         </div>
-                        <Image
-                            src="/icons/ChevronDown.svg"
-                            width={17}
-                            height={17}
-                            alt=""
-                        />
+                        {/*<Image*/}
+                        {/*    src="/icons/ChevronDown.svg"*/}
+                        {/*    width={17}*/}
+                        {/*    height={17}*/}
+                        {/*    alt=""*/}
+                        {/*/>*/}
                     </div>
                 </div>
                 <div className="mt-[17px] !bg-[#686A74]/[0.1] rounded-[24px] p-[15px]">

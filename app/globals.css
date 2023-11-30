@@ -141,6 +141,11 @@ a {
     background: linear-gradient(180deg, rgba(245, 245, 247, 0.00) 0%, rgba(245, 245, 247, 0.00) 0.01%, #F5F5F7 56.25%), linear-gradient(0deg, rgba(245, 245, 247, 0.85) 0%, rgba(245, 245, 247, 0.85) 100%),  lightgray 50% / cover no-repeat;
 }
 
+.bg-blur {
+    background: rgba(20, 26, 32, 0.37);
+    backdrop-filter: blur(17.5px);
+}
+
 
 @media only screen and (min-width: 1025px) {
     .two-lines-text {
