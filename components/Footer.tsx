@@ -1,14 +1,14 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+// import {
+//   DropdownMenu,
+//   DropdownMenuContent,
+//   DropdownMenuItem,
+//   DropdownMenuLabel,
+//   DropdownMenuSeparator,
+//   DropdownMenuTrigger,
+// } from "@/components/ui/dropdown-menu";
 import Image from "next/image";
 import {
   busDirections,
@@ -23,9 +23,12 @@ import {
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { useRouter } from "next/navigation";
+import BusRoutesDropdownContent from "@/components/BusRoutesDropdownContent";
+import {AnimatePresence} from "framer-motion";
 
 function Footer() {
   const [width, setWidth] = useState<number>(0);
+  const [showBusRoutesDropdown, setShowBusRoutesDropdown] = useState<boolean>(false);
 
   useEffect(() => {
     setWidth(window.innerWidth);
@@ -72,9 +75,12 @@ function Footer() {
                 </p>
               </div>
               <div className="flex gap-[10px]">
-                <DropdownMenu>
-                  <DropdownMenuTrigger>
-                    <div className="leading-[105%] flex px-[17px] py-[12px] gap-[10px] items-center border-[1px] rounded-[15px] !border-[#fff]/[0.4]">
+                {/*<DropdownMenu>*/}
+                  {/*<DropdownMenuTrigger>*/}
+                <div  className="relative"
+                      onMouseEnter={() => setShowBusRoutesDropdown(true)}
+                      onMouseLeave={() => setShowBusRoutesDropdown(false)}>
+                    <div className="cursor-pointer leading-[105%] flex px-[17px] py-[12px] gap-[10px] items-center border-[1px] rounded-[15px] !border-[#fff]/[0.4]">
                       <div className="flex items-center gap-[6px]">
                         <Image
                           src="/icons/Bus.svg"
@@ -91,27 +97,31 @@ function Footer() {
                         alt=""
                       />
                     </div>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent className="bg-[#2B2B2B] flex flex-col gap-[7px] !mt-[14px] !border-0 px-[17px] py-[13px] rounded-[20px]">
-                    {busDirections.map(
-                      (busDirection: busDirection, i: number) => {
-                        return (
-                          <DropdownMenuLabel
-                            className="p-0 justify-between flex"
-                            key={i}
-                          >
-                            <p className="text-[#fff]/[0.5] w-[225px] leading-[23.2px] uppercase !font-[400]">
-                              {busDirection.location}:
-                            </p>
-                            <p className="text-[#fff] !font-[400] leading-[23.2px] w-[110px] text-right">
-                              {busDirection.routes.join(", ")}
-                            </p>
-                          </DropdownMenuLabel>
-                        );
-                      },
-                    )}
-                  </DropdownMenuContent>
-                </DropdownMenu>
+                  <AnimatePresence>
+                   {showBusRoutesDropdown && <BusRoutesDropdownContent/>}
+                  </AnimatePresence>
+                </div>
+                  {/*</DropdownMenuTrigger>*/}
+                  {/*<DropdownMenuContent className="bg-[#2B2B2B] flex flex-col gap-[7px] !mt-[14px] !border-0 px-[17px] py-[13px] rounded-[20px]">*/}
+                  {/*  {busDirections.map(*/}
+                  {/*    (busDirection: busDirection, i: number) => {*/}
+                  {/*      return (*/}
+                  {/*        <DropdownMenuLabel*/}
+                  {/*          className="p-0 justify-between flex"*/}
+                  {/*          key={i}*/}
+                  {/*        >*/}
+                  {/*          <p className="text-[#fff]/[0.5] w-[225px] leading-[23.2px] uppercase !font-[400]">*/}
+                  {/*            {busDirection.location}:*/}
+                  {/*          </p>*/}
+                  {/*          <p className="text-[#fff] !font-[400] leading-[23.2px] w-[110px] text-right">*/}
+                  {/*            {busDirection.routes.join(", ")}*/}
+                  {/*          </p>*/}
+                  {/*        </DropdownMenuLabel>*/}
+                  {/*      );*/}
+                  {/*    },*/}
+                  {/*  )}*/}
+                  {/*</DropdownMenuContent>*/}
+                {/*</DropdownMenu>*/}
 
                 <Link
                   className="leading-[105%] flex px-[17px] py-[12px] gap-[10px] items-center border-[1px] rounded-[15px] !border-[#fff]/[0.4] !text-[#fff]"

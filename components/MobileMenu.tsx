@@ -25,7 +25,7 @@ function MobileMenu({working, day, setOpen}: {working:boolean; day:number; setOp
                     animate={{opacity: 1}}
                     exit={{opacity: 0}}
         key="menu_overlay">
-            <div className="fixed overflow-scroll bg-[#FFFFFF] h-[60vh] bottom-0 left-0 w-screen p-[15px] rounded-tr-[25px] rounded-tl-[25px]">
+            <div className="fixed overflow-scroll bg-[#FFFFFF] h-[75vh] bottom-0 left-0 w-screen p-[15px] rounded-tr-[25px] rounded-tl-[25px]">
                 <div className="flex items-center justify-between">
                     <h3 className="text-[18px] leading-[18.9px] uppercase">Navigare</h3>
                     <button className="!bg-[#3E404D]/[0.08] rounded-[10px] w-[25px] h-[25px] flex items-center justify-center"
@@ -116,8 +116,8 @@ function MobileMenu({working, day, setOpen}: {working:boolean; day:number; setOp
                             animate="open"
                             // transition={{duration: 0.2}}
                             exit="collapsed"
-                            className="bg-[#fff] py-[12px] px-[15px] rounded-[22px]">
-                            <div className="flex justify-between items-center mb-[8px]">
+                            className="bg-[#fff] px-[15px] rounded-[22px]">
+                            <div className="pt-[12px] flex justify-between items-center mb-[8px]">
                                 <div className="flex items-center gap-[3px]">
                                     <Image src="/icons/ArrowBlue.svg" width={20} height={20} alt=""/>
                                     <h3 className="text-[#00AAF1] text-[16px] leading-[23.2px]">
@@ -147,7 +147,7 @@ function MobileMenu({working, day, setOpen}: {working:boolean; day:number; setOp
                                 </p>
                             </div>
 
-                            <div className="flex justify-between items-center">
+                            <div className="flex pb-[12px] justify-between items-center">
                                 <h3 className="text-[#3E404D]/[0.5] uppercase text-[12px] leading-[17.4px]">
                                     Duminică
                                 </h3>
@@ -161,7 +161,7 @@ function MobileMenu({working, day, setOpen}: {working:boolean; day:number; setOp
 
 
 
-                    <div className="mt-[15px] flex gap-[10px] justify-between">
+                    <div className="flex mt-[15px] gap-[10px] justify-between">
                         <Button className="flex flex-1 max-w-[230px] gap-[7px] items-center">
                             <img
                                 src="/icons/Smile.svg"
