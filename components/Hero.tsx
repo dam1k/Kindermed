@@ -14,7 +14,7 @@ const Hero = () => {
     // }, []);
 
   return (
-    <div className="container max-[1024px]:px-[10px] relative flex flex-col items-center max-[1024px]:!pt-[215px] !pt-[225px]">
+    <div className="container hero max-[1024px]:px-[10px] relative flex flex-col items-center max-[1024px]:!pt-[215px] !pt-[125px]">
       <Image
         className="absolute z-[1] max-[1024px]:hidden top-[78px] rotate-[35deg] left-[50%] translate-x-[-50%]"
         src="/HeroEllipse.svg"
@@ -62,7 +62,7 @@ const Hero = () => {
           <span className="translate-y-[1px]">Programare Online</span>
         </Button>
       </div>
-      <p className="mt-[10px] max-[1400px]:!pb-[322px] !pb-[500px] text-[12px] leading-[145%] text-lightGrey">
+      <p className="mt-[10px] max-[1400px]:!pb-[322px] text-[12px] leading-[145%] text-lightGrey">
         Revenim cu un apel/mesaj!
       </p>
     </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useLayoutEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Call from "./Call";
 import Image from "next/image";
 import { Button } from "./ui/Button";
@@ -10,6 +10,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import ScheduleDropdownContent from "@/components/ScheduleDropdownContent";
 import CallDropdownContent from "@/components/CallDropdownContent";
 import MobileMenu from "../components/MobileMenu";
+import OnlineAppointmentDesktop from "@/components/OnlineAppointmentDesktop";
 
 function Header() {
   const [domLoaded, setDomLoaded] = useState<boolean>(false);
@@ -19,6 +20,7 @@ function Header() {
   const [showScheduleDropdown, setShowScheduleDropdown] =
     useState<boolean>(false);
   const [showCallDropdown, setShowCallDropdown] = useState<boolean>(false);
+  const [showAppointment, setShowAppointment] = useState<boolean>(false);
   const [day, setDay] = useState<number>(0);
   const [working, setWorking] = useState<boolean>(false);
 
@@ -56,16 +58,16 @@ function Header() {
       setShowMobileMenu(false);
     }
   }, [width]);
-
-  useEffect(() => {
-    if(showMobileMenu) {
-      document.body.style.overflow = "hidden"
-      document.body.style.height = "100vh"
-    } else {
-      document.body.style.overflow = "scroll"
-      document.body.style.height = "auto"
-    }
-  }, [showMobileMenu]);
+  //
+  // useEffect(() => {
+  //   if(showMobileMenu || showAppointment) {
+  //     document.body.style.overflow = "hidden"
+  //     // document.body.style.height = "100vh"
+  //   } else if(!showAppointment && !showAppointment) {
+  //     document.body.style.overflow = "scroll"
+  //     // document.body.style.height = "auto"
+  //   }
+  // }, [showMobileMenu, showAppointment]);
 
   return (
     <>
@@ -177,7 +179,7 @@ function Header() {
                 <img
                   src="/Logo.svg"
                   alt="kindermed"
-                  className="max-[1400px]:h-[45px] min-[1401px]:h-[70px]"
+                  className="max-[1400px]:h-[45px] min-[1401px]:h-[65px]"
                 />
               </Link>
 
@@ -218,7 +220,8 @@ function Header() {
                     {showCallDropdown && <CallDropdownContent />}
                   </AnimatePresence>
                 </div>
-                <Button className="flex  max-[1350px]:hidden gap-[7px] items-center">
+                <Button className="flex  max-[1350px]:hidden gap-[7px] items-center"
+                onClick={() => setShowAppointment(true)}>
                   <img
                     src="/icons/Smile.svg"
                     alt="kindermed"
@@ -253,6 +256,9 @@ function Header() {
       </AnimatePresence>
       <AnimatePresence>
         {showMobileMenu && <MobileMenu working={working} day={day} setOpen={setShowMobileMenu} />}
+      </AnimatePresence>
+      <AnimatePresence>
+        {showAppointment && <OnlineAppointmentDesktop setOpen={setShowAppointment} />}
       </AnimatePresence>
     </>
   );

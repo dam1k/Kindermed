@@ -76,9 +76,9 @@
     }
 }
 
-body {
-    overflow-x: hidden;
-}
+/*body, html {*/
+/*    overflow-x: hidden;*/
+/*}*/
 
 .container {
     padding: 0 25px;
@@ -183,4 +183,13 @@ a {
         -webkit-line-clamp: 3 !important;
         align-self: stretch !important;
     }
+}
+
+.flexible-grid {
+    display: grid;
+    grid-template-columns: 515px auto;
+}
+
+.hero {
+    height: calc(100vh - 250px);
 }
