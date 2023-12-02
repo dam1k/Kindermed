@@ -72,12 +72,11 @@ function Header() {
   return (
     <>
       <AnimatePresence mode="wait" initial={false}>
-        {domLoaded && (
           <motion.header
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="container max-[1024px]:!px-[10px] relative h-[41px] min-[1401px]:h-[250px] z-[2] flex flex-col items-center gap-[45px] max-[1400px]:!pt-[19px] !pt-[25px]"
+            className="max-[1024px]:!px-[10px] container relative h-[60px] min-[1401px]:h-[250px] z-[2] flex flex-col items-center gap-[45px] max-[1400px]:!pt-[19px] !pt-[25px]"
           >
             <div className="flex min-[1401px]:justify-between w-full items-center">
               <div className="flex-1 flex items-center gap-[35px] max-[1400px]:hidden">
@@ -179,7 +178,7 @@ function Header() {
                 <img
                   src="/Logo.svg"
                   alt="kindermed"
-                  className="max-[1400px]:h-[45px] min-[1401px]:h-[65px]"
+                  className="max-[1400px]:h-[41px] min-[1401px]:h-[65px]"
                 />
               </Link>
 
@@ -252,7 +251,6 @@ function Header() {
               })}
             </div>
           </motion.header>
-        )}
       </AnimatePresence>
       <AnimatePresence>
         {showMobileMenu && <MobileMenu working={working} day={day} setOpen={setShowMobileMenu} />}
