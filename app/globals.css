@@ -76,9 +76,9 @@
     }
 }
 
-/*body, html {*/
-/*    overflow-x: hidden;*/
-/*}*/
+html, body {
+    scroll-behavior: smooth;
+}
 
 .container {
     padding: 0 25px;
@@ -190,8 +190,12 @@ a {
     grid-template-columns: 515px auto;
 }
 
-.hero {
-    height: calc(100vh - 250px);
+
+@media only screen and (min-width: 1401px) {
+    .hero {
+        height: calc(100vh - 250px);
+        min-height: 800px;
+    }
 }
 
 @media only screen and (max-width: 1400px) {

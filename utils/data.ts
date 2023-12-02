@@ -66,7 +66,7 @@ export const navLinks: navLink[] = [
     },
     {
         text: "Servicii",
-        href: "#servicii",
+        href: "#services",
     },
     {
         text: "Pachete",
@@ -82,7 +82,7 @@ export const navLinks: navLink[] = [
     },
     {
         text: "Contacte",
-        href: "#contacts",
+        href: "#footer",
     },
 ];
 

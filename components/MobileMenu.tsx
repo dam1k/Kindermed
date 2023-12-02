@@ -19,6 +19,11 @@ const variants = {
 };
 function MobileMenu({working, day, setOpen}: {working:boolean; day:number; setOpen: React.Dispatch<React.SetStateAction<boolean>>}) {
     const [showSchedule, setShowSchedule] = useState<boolean>(false);
+
+    function handleCloseBtnClick() {
+        setOpen(false)
+        document.body.style.overflow = "scroll"
+    }
     return (
         <motion.div className="min-[1401px]:hidden fixed top-0 left-0 h-screen w-screen bg-[rgba(26, 26, 32, 0.37)] backdrop-blur-[17.5px] z-[1000]"
                     initial={{opacity: 0}}
@@ -29,7 +34,7 @@ function MobileMenu({working, day, setOpen}: {working:boolean; day:number; setOp
                 <div className="flex items-center justify-between">
                     <h3 className="text-[18px] leading-[18.9px] uppercase">Navigare</h3>
                     <button className="!bg-[#3E404D]/[0.08] rounded-[10px] w-[25px] h-[25px] flex items-center justify-center"
-                    onClick={() => setOpen(false)}>
+                    onClick={handleCloseBtnClick}>
                         <Image src="/icons/Times.svg" alt="" width={15} height={15}/>
                     </button>
                 </div>
@@ -87,7 +92,7 @@ function MobileMenu({working, day, setOpen}: {working:boolean; day:number; setOp
                                     </p>
                                     <div
                                         className={`animate-dot w-[7px] h-[7px] ${
-                                            working ? "bg-[#FF1469]" : "bg-[#36D938]"
+                                            working ? "bg-[#36D938]" : "bg-[#FF1469]"
                                         } rounded-[50%]`}
                                     />
                                 </div>

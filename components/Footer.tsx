@@ -40,7 +40,7 @@ function Footer() {
   
   return (
     <>
-      <div className="bg-[#161616]">
+      <div id="footer" className="bg-[#161616]">
         <div className="text-[#fff] !pt-[100px] lg:!pt-[125px] max-[1023px]:px-[10px] container !pb-[100px] lg:!pb-[125px] grid-cols-1 grid min-[1400px]:grid-cols-2 gap-x-[25px] gap-y-[40px] min-[1400px]:gap-y-[85px]">
             <div className="relative !text-[#fff]">
               <p className="inline absolute top-0 left-0 text-[12px] min-[1025px]:text-[16px] uppercase !text-[#fff]/[0.65] mt-[5px] lg:mt-[10px] ml-[1px] lg:ml-[3px] leading-[105%]">
