@@ -190,11 +190,23 @@ a {
     grid-template-columns: 515px auto;
 }
 
+/*@media only screen and(max-width: 1350px) {*/
+/*    .flexible-grid {*/
+/*        grid-template-columns: 1fr 1fr !important;*/
+/*    }*/
+/*}*/
+
+/*@media only screen and(min-width: 1351px) {*/
+/*    .flexible-grid {*/
+/*        grid-template-columns: 515px auto;*/
+/*    }*/
+/*}*/
+
 
 @media only screen and (min-width: 1401px) {
     .hero {
         height: calc(100vh - 250px);
-        /*min-height: 800px;*/
+        min-height: 615px;
     }
 }
 
@@ -244,4 +256,20 @@ a {
     z-index: 1000 !important;
     background-repeat: no-repeat;
     background-image: url("../public/icons/ChevronDown.svg");
+}
+
+.hide_border:focus {
+    /*-webkit-outline: none;*/
+    /*-webkit-box-shadow: none;*/
+    -moz-outline-style: none;
+    -moz-box-shadow: none !important;
+    -moz-outline-color: #000 !important;
+}
+
+select option {
+    font-family: "Rubik", sans-serif;
+}
+
+input {
+    outline: 0 !important;
 }

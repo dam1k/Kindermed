@@ -15,7 +15,6 @@ function OnlineAppointmentDesktop({setOpen}: {setOpen: React.Dispatch<React.SetS
     const [inputFocused, setInputFocused] = useState<boolean>(false);
     const [activeDepartment, setActiveDepartment] = useState<service>(services[0]);
 
-    const overlayRef = useRef<HTMLDivElement>(null);
     const formRef = useRef<HTMLDivElement>(null);
     const infoBoxRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLDivElement>(null);
@@ -29,7 +28,9 @@ function OnlineAppointmentDesktop({setOpen}: {setOpen: React.Dispatch<React.SetS
 
            if(formRef.current && infoBoxRef.current) {
                //@ts-ignore
-               if(e.target !== formRef && !formRef.current.contains(e.target) && e.target !== infoBoxRef && !infoBoxRef.current.contains(e.target)) {
+               if(e.target !== formRef.current && !formRef.current.contains(e.target) &&
+                   //@ts-ignore
+                   e.target !== infoBoxRef.current && !infoBoxRef.current.contains(e.target)) {
                    setOpen(false);
                    document.body.style.overflowY = "scroll"
                }
@@ -51,11 +52,12 @@ function OnlineAppointmentDesktop({setOpen}: {setOpen: React.Dispatch<React.SetS
     }
 
     return (
-        <motion.div onClick={handleOverlayClick} className="bg-blur items-start px-[285px] flexible-grid gap-[15px] pt-[159px] fixed top-0 left-0 w-screen h-screen z-[10000]"
+        <motion.div onClick={handleOverlayClick}
+                    className="overflow-y-scroll max-[815px]:hidden overflow-x-hidden h-screen pb-[159px] bg-blur items-start px-[150px] min-[1600px]:px-[285px] flexible-grid gap-[15px] pt-[159px] fixed top-0 left-0 w-screen z-[10000]"
         initial={{opacity: 0}}
         animate={{opacity: 1}}
         exit={{opacity: 0}}>
-            <div className="p-[35px] bg-[#fff] rounded-[40px]" ref={formRef}>
+            <div className="p-[35px] bg-[#fff] max-[1350px]:col-span-2 rounded-[40px]" ref={formRef}>
                 <div className="flex items-center justify-between">
                     <div className="flex items-center gap-[8px]">
                         <Image src="/icons/ArrowBlue.svg" width={21} height={21} alt=""/>
@@ -93,7 +95,7 @@ function OnlineAppointmentDesktop({setOpen}: {setOpen: React.Dispatch<React.SetS
                                             value={countryPrefix}
                                             onChange={(e) => setCountryPrefix(e.target.value)}>
                                                 {Object.values(country_prefixes).map((prefix:string, i:number) => {
-                                                    return <option className="cursor-pointer leading-[105%]" key={prefix + Object.keys(country_prefixes)[i]} value={prefix}>{prefix}</option>
+                                                    return <option className=" cursor-pointer leading-[105%]" key={prefix + Object.keys(country_prefixes)[i]} value={prefix}>{prefix}</option>
                                                 })}
                                         </select>
                                     </div>
@@ -144,7 +146,7 @@ function OnlineAppointmentDesktop({setOpen}: {setOpen: React.Dispatch<React.SetS
 
                 </form>
             </div>
-            <div ref={infoBoxRef} className="rounded-[50px] flex flex-col gap-[25px] p-[35px] bg-[#fff]">
+            <div ref={infoBoxRef} className="max-[1350px]:col-span-2 rounded-[50px] flex flex-col gap-[25px] p-[35px] bg-[#fff]">
                 {/*<Image src=""/>*/}
                     <div className="bg-[#E7E9EC] rounded-[30px] h-[400px] w-full" />
                 <div className="">

@@ -11,6 +11,7 @@ import ScheduleDropdownContent from "@/components/ScheduleDropdownContent";
 import CallDropdownContent from "@/components/CallDropdownContent";
 import MobileMenu from "../components/MobileMenu";
 import OnlineAppointmentDesktop from "@/components/OnlineAppointmentDesktop";
+import OnlineAppointmentMobile from "@/components/OnlineAppointmentMobile";
 
 function Header() {
   const [domLoaded, setDomLoaded] = useState<boolean>(false);
@@ -79,11 +80,7 @@ function Header() {
 
   return (
     <>
-      <AnimatePresence mode="wait" initial={false}>
-        <motion.header
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
+        <header
           className="max-[1024px]:!px-[10px] container relative h-[60px] min-[1401px]:h-[250px] z-[2] flex flex-col items-center gap-[45px] max-[1400px]:!pt-[19px] !pt-[25px]"
         >
           <div className="flex min-[1401px]:justify-between w-full items-center">
@@ -271,19 +268,22 @@ function Header() {
               );
             })}
           </div>
-        </motion.header>
-      </AnimatePresence>
+        </header>
       <AnimatePresence>
         {showMobileMenu && (
-          <MobileMenu working={working} day={day} setOpen={setShowMobileMenu} />
+          <MobileMenu working={working} day={day} setAppointmentOpen={setShowAppointment} setMenuOpen={setShowMobileMenu} />
         )}
       </AnimatePresence>
       <AnimatePresence>
-        {showAppointment && (
+        {showAppointment && width >= 815 && (
           <OnlineAppointmentDesktop setOpen={setShowAppointment} />
         )}
+
+        {showAppointment && width < 815 && (
+            <OnlineAppointmentMobile setOpen={setShowAppointment} />
+        )}
       </AnimatePresence>
-    </>
+      </>
   );
 }
 
