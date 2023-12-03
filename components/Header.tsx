@@ -237,7 +237,10 @@ function Header() {
               </div>
               <Button
                 className="flex  max-[1350px]:hidden gap-[7px] items-center"
-                onClick={() => setShowAppointment(true)}
+                onClick={() => {
+                  document.body.style.overflowY = "hidden"
+                  setShowAppointment(true)}
+                }
               >
                 <img
                   src="/icons/Smile.svg"

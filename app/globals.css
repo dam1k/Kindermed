@@ -194,7 +194,7 @@ a {
 @media only screen and (min-width: 1401px) {
     .hero {
         height: calc(100vh - 250px);
-        min-height: 800px;
+        /*min-height: 800px;*/
     }
 }
 
@@ -207,7 +207,7 @@ a {
 .prefix_select::-ms-expand {
     display: none;
 }
-.prefix_select, .phoneNumber {
+.prefix_select, .phoneNumber, .departmentSelect {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -227,6 +227,19 @@ a {
     height: 15px !important;
     top:14px;
     right: 0;
+    pointer-events: none;
+    z-index: 1000 !important;
+    background-repeat: no-repeat;
+    background-image: url("../public/icons/ChevronDown.svg");
+}
+
+.department::after {
+    content:'';
+    position:absolute !important;
+    width: 15px !important;
+    height: 15px !important;
+    top:14px;
+    right: 17px;
     pointer-events: none;
     z-index: 1000 !important;
     background-repeat: no-repeat;

@@ -7,6 +7,7 @@ export interface service {
     name: string;
     desc: string | string[];
     id: number;
+    shortDesc?: string;
 }
 
 export interface busDirection {
@@ -90,62 +91,92 @@ export const services: service[] = [
     {
         name: "PEDIATRIE/NEONATOLOGIE",
         desc: "",
-        id: 1
+        id: 1,
+        shortDesc: `Consultațiile pediatrice sunt importante pentru a urmări starea de sănătăte a copiilor. Acestea nu numai că ajută la monitorizarea
+                    creșterii și dezvoltării copilului, ci și la detectarea precoce a problemelor de sănătate și la prevenirea afecțiunilor posibile.
+                    În general, ar trebui să programați o consultație pediatrică pentru copilul dumneavoastră imediat după naștere, apoi la vârsta de 1
+                    lună, 2 luni, 4 luni, 6 luni, 9 luni, 12 luni și apoi anual până la vârsta adolescenței.`
     },
     {
         name: "ORL",
         desc: "",
-        id: 2
+        id: 2,
+        shortDesc: `Otorinolaringologia sau ORL este specialitatea care face diagnosticul și tratează afecțiunile urechilor , nasului și gâtului atât la copii
+                    cât și la maturi .`
     },
     {
         name: "OFTALMOLOGIE",
         desc: "",
-        id: 3
+        id: 3,
+        shortDesc: `Oftalmologii sunt responsabili pentru diagnosticul, prevenirea și tratamentul afecțiunilor ochilor și problemelor de vedere la copii și
+                    adulți.`
     },
     {
         name: "NEUROLOGIE PEDIATRICĂ",
         desc: "",
-        id: 4
+        id: 4,
+        shortDesc: `Un neurolog este medicul specializat în tratarea afecțiunilor sistemului nervos central și periferic. Neurologia pediatrică este o
+                    ramură a medicinei care se ocupă cu diagnosticul și gestionarea bolilor neurologice la nou-născuți, sugari, copii și adolescenți.`
     },
     {
         name: "PNEUMOLOGIE",
         desc: "",
-        id: 5
+        id: 5,
+        shortDesc: `Pneumologia este specialitatea medicală care se ocupa cu prevenirea, diagnosticarea și tratarea bolilor plămânilor, bronhiilor,
+                    pleurei și mediastinului.`
     },
     {
         name: "ORTOPEDIE",
         desc: "",
-        id: 6
+        id: 6,
+        shortDesc: `Sistemul osteo-articular este cel ce ne dă posibilitate să ne mişcăm, de aceea sănătatea oaselor şi a muşchilor nu trebuie tratată
+                    superficial. Ortopedul este medicul care se ocupă de diagnosticarea, tratarea și prevenirea bolilor și deformațiilor ale sistemului
+                    musculo-scheletic, sistem care include oasele, articulatiile, muschii, tendoanele si ligamentele.`
     },
     {
         name: "DERMATOLOGIE",
         desc: "",
-        id: 7
+        id: 7,
+        shortDesc: `Dermatologia este specialitatea medicală care se ocupă cu studiul afecțiunilor pielii, anexelor acestia (păr, unghii, glande
+                    sudoripare, glande sebacee) și ale mucoaselor adiacente (cavitate bucală și organe genitale).`
     },
     {
         name: "ENDOCRINOLOGIE",
         desc: "",
-        id: 8
+        id: 8,
+        shortDesc: `Dermatologia este specialitatea medicală care se ocupă cu studiul afecțiunilor pielii, anexelor acestia (păr, unghii, glande
+                    sudoripare, glande sebacee) și ale mucoaselor adiacente (cavitate bucală și organe genitale).`
     },
     {
         name: "CHIRURGIE PEDIATRICĂ",
         desc: "",
-        id: 9
+        id: 9,
+        shortDesc: `Chirurgia pediatrică se ocupă cu patologia chirurgicală congenitală sau dobândită a copiilor - din perioada neonatală până la
+                    pubertate. Un copil nu poate fi tratat în același mod ca un pacient adult de talie mai mică. Deși copilul prezintă aceleași organe și
+                    structuri, maturitatea și consistența lor sunt diferite.`
     },
     {
         name: "GINECOLOGIE",
         desc: "",
-        id: 10
+        id: 10,
+        shortDesc: `Ginecolog - este medicul specializat pe diagnosticarea, prevenirea, monitorizarea și tratarea bolilor sistemului reproductiv
+                    feminin, inclusiv a celor care implică hormonii sexuali feminini.`
     },
     {
         name: "MAMOLOGIE",
         desc: "",
-        id: 11
+        id: 11,
+        shortDesc: `Mamologia este o ramură a medicinei care se ocupă cu diagnosticul, tratamentul și profilaxia afecțiunilor sânului.
+                    Competența unui medic mamolog include diagnosticul și tratamentul mai multor boli, așa ca: lactostaza, mastopatiile, chisturile,
+                    fibroamele și cancerul mamar.`
     },
     {
         name: "IMAGISTICĂ",
         desc: "",
-        id: 12
+        id: 12,
+        shortDesc: `Mamologia este o ramură a medicinei care se ocupă cu diagnosticul, tratamentul și profilaxia afecțiunilor sânului.
+                    Competența unui medic mamolog include diagnosticul și tratamentul mai multor boli, așa ca: lactostaza, mastopatiile, chisturile,
+                    fibroamele și cancerul mamar.`
     }
 ]
 
