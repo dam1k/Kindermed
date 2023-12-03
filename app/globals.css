@@ -203,3 +203,32 @@ a {
         height: calc(100vh - 41px);
     }
 }
+
+.prefix_select::-ms-expand {
+    display: none;
+}
+.prefix_select, .phoneNumber {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    cursor: pointer;
+}
+
+.prefix {
+    position:relative;
+    width: 56px;
+}
+
+.prefix::after {
+    content:'';
+    position:absolute !important;
+    width: 15px !important;
+    height: 15px !important;
+    top:14px;
+    right: 0;
+    pointer-events: none;
+    z-index: 1000 !important;
+    background-repeat: no-repeat;
+    background-image: url("../public/icons/ChevronDown.svg");
+}
