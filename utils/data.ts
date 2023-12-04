@@ -62,7 +62,7 @@ export const navLinks: navLink[] = [
         href: "/orar",
     },
     {
-        text: "KinderTeam",
+        text: "KinderMed Team",
         href: "#team",
     },
     {
@@ -93,9 +93,7 @@ export const services: service[] = [
         desc: "",
         id: 1,
         shortDesc: `Consultațiile pediatrice sunt importante pentru a urmări starea de sănătăte a copiilor. Acestea nu numai că ajută la monitorizarea
-                    creșterii și dezvoltării copilului, ci și la detectarea precoce a problemelor de sănătate și la prevenirea afecțiunilor posibile.
-                    În general, ar trebui să programați o consultație pediatrică pentru copilul dumneavoastră imediat după naștere, apoi la vârsta de 1
-                    lună, 2 luni, 4 luni, 6 luni, 9 luni, 12 luni și apoi anual până la vârsta adolescenței.`
+                    creșterii și dezvoltării copilului, ci și la detectarea precoce a problemelor de sănătate și la prevenirea afecțiunilor posibile.`
     },
     {
         name: "ORL",
@@ -363,7 +361,7 @@ export const contacts: contact[] = [
 
 export const footerLinks: navLink[] = [
     {
-        text: "KinderTeam",
+        text: "KinderMed Team",
         href: "#team",
     },
     {

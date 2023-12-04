@@ -1,14 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-// import {
-//   DropdownMenu,
-//   DropdownMenuContent,
-//   DropdownMenuItem,
-//   DropdownMenuLabel,
-//   DropdownMenuSeparator,
-//   DropdownMenuTrigger,
-// } from "@/components/ui/dropdown-menu";
 import Image from "next/image";
 import {
   busDirections,
@@ -25,10 +17,13 @@ import { Button } from "@/components/ui/Button";
 import { useRouter } from "next/navigation";
 import BusRoutesDropdownContent from "@/components/BusRoutesDropdownContent";
 import {AnimatePresence} from "framer-motion";
+import OnlineAppointmentDesktop from "@/components/OnlineAppointmentDesktop";
+import OnlineAppointmentMobile from "@/components/OnlineAppointmentMobile";
 
 function Footer() {
   const [width, setWidth] = useState<number>(0);
   const [showBusRoutesDropdown, setShowBusRoutesDropdown] = useState<boolean>(false);
+  const [showAppointment, setShowAppointment] = useState<boolean>(false);
 
   useEffect(() => {
     setWidth(window.innerWidth);
@@ -157,7 +152,10 @@ function Footer() {
                   Lăsați-ne datele Dvs. de contact, iar noi vom reveni cu un
                   apel/mesaj!
                 </p>
-                <Button className="bg-[#fff] mt-[30px] flex gap-[6px] items-center leading-[105%]">
+                <Button onClick={() => {
+                  document.body.style.overflowY = "hidden"
+                  setShowAppointment(true)}}
+                        className="bg-[#fff] mt-[30px] flex gap-[6px] items-center leading-[105%]">
                   <img
                     alt=""
                     src="/icons/SmileBlack.svg"
@@ -276,6 +274,15 @@ function Footer() {
           />
         </Link>
       </div>
+      <AnimatePresence>
+        {showAppointment && width >= 815 && (
+            <OnlineAppointmentDesktop setOpen={setShowAppointment} />
+        )}
+
+        {showAppointment && width < 815 && (
+            <OnlineAppointmentMobile setOpen={setShowAppointment} />
+        )}
+      </AnimatePresence>
     </>
   );
 }

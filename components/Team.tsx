@@ -79,7 +79,7 @@ function Team() {
       <div className="pr-[10px] relative">
         <p className="absolute top-0 left-0 text-[12px] min-[1025px]:text-[16px] uppercase text-black/[0.65] mt-[5px] min-[1025px]:mt-[10px] ml-[1px] min-[1025px]:ml-[3px] leading-[105%]">
           <span className="min-[1025px]:hidden">TEAM</span>
-          <span className="max-[1024px]:hidden">KINDERTEAM</span>
+          <span className="max-[1024px]:hidden">KINDERMED TEAM</span>
         </p>
         <h2 className="inline ml-[100px] min-[1025px]:ml-[150px] min-[1250px]:ml-[250px] uppercase text-[20px] min-[1025px]:text-[26px] min-[1600px]:text-[35px] text-black leading-[140%] tracking-[-0.35px]">
           Lucrurile cu adevărat mari și frumoase pot fi făcute doar în echipă,

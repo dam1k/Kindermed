@@ -33,6 +33,7 @@ function OnlineAppointmentDesktop({setOpen}: {setOpen: React.Dispatch<React.SetS
                    e.target !== infoBoxRef.current && !infoBoxRef.current.contains(e.target)) {
                    setOpen(false);
                    document.body.style.overflowY = "scroll"
+                   document.body.style.overflowX = "hidden"
                }
            }
         }
@@ -49,6 +50,7 @@ function OnlineAppointmentDesktop({setOpen}: {setOpen: React.Dispatch<React.SetS
         e.preventDefault();
         setOpen(false)
         document.body.style.overflowY = "scroll"
+        document.body.style.overflowX = "hidden"
     }
 
     return (
@@ -143,7 +145,6 @@ function OnlineAppointmentDesktop({setOpen}: {setOpen: React.Dispatch<React.SetS
                         Programează-te online
                         <Image src="/icons/Send.svg" width={15} height={15} alt=""/>
                     </Button>
-
                 </form>
             </div>
             <div ref={infoBoxRef} className="max-[1350px]:col-span-2 rounded-[50px] flex flex-col gap-[25px] p-[35px] bg-[#fff]">

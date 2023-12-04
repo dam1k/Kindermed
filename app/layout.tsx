@@ -20,11 +20,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={rubik.className}>
-        {/*<Provider store={store}>*/}
-        <Header />
-        {children}
-        <Footer />
-        {/*</Provider>*/}
+          <Header />
+          {children}
+          <Footer />
       </body>
     </html>
   );

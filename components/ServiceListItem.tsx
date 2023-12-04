@@ -11,8 +11,7 @@ function ServiceListItem({service, i, grey}:{service:service, i:number, grey?: b
                 <h2 className={`${grey ? " text-black" : "text-[#fff]"} max-[1400px]:text-[16px] min-[1401px]:text-[24px] text-[#fff] leading-[125%] break-words uppercase`}>{service.name}</h2>
             </div>
             <p className={`w-[400px] serviceDesc ${grey ? " text-black/[0.85]" : "text-[#fff]/[0.85]"}`}>
-                Lorem ipsum dolor sit amet, consectetur
-                adipisicing elit. Aspernatur, cumque esse itaque quas quidem quos.
+                {service.shortDesc}
             </p>
         </li>
     );
