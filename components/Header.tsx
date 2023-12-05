@@ -248,12 +248,12 @@ function Header() {
               </Button>
             </div>
           </div>
-          <div className="flex max-[1400px]:hidden gap-[65px]">
+          <div className="flex max-[1400px]:hidden h-[44px] gap-[15px]">
             {navLinks.map((link: navLink) => {
               return (
                 <Link
                   key={link.href}
-                  className="uppercase font-[500] py-[12px] px-[17px] border-[1px] border-[#3E404D]/[0.24] rounded-[57px] flex items-center leading-[105%]"
+                  className="font-[500] text-[18px] py-[10.5px] px-[17px] border-[1px] border-[#3E404D]/[0.24] rounded-[57px] flex items-center leading-[105%]"
                   href={link.href}
                 >
                   <span>{link.text}</span>

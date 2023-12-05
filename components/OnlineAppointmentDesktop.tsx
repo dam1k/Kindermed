@@ -1,10 +1,23 @@
 import React, {useEffect, useState, useRef} from 'react';
 import Image from "next/image"
-import {motion} from "framer-motion"
 import {generateAppointmentDates} from "@/utils/helpers/generateAppointmentDates";
 import {country_prefixes} from "@/utils/data";
 import {services, service} from "@/utils/data";
 import {Button} from "@/components/ui/Button";
+import {motion, AnimatePresence} from "framer-motion"
+
+const variants = {
+    open: {
+        opacity: 1,
+        height: "auto",
+        marginTop: 10,
+    },
+    collapsed: {
+        opacity: 0,
+        height: 0,
+        marginTop: 0,
+    },
+};
 
 function OnlineAppointmentDesktop({setOpen}: {setOpen: React.Dispatch<React.SetStateAction<boolean>>}) {
     const [name, setName] = useState<string>("");
@@ -14,10 +27,12 @@ function OnlineAppointmentDesktop({setOpen}: {setOpen: React.Dispatch<React.SetS
     const [date, setDate] = useState<string>("");
     const [inputFocused, setInputFocused] = useState<boolean>(false);
     const [activeDepartment, setActiveDepartment] = useState<service>(services[0]);
+    const [readMore, setReadMore] = useState<boolean>(false);
 
     const formRef = useRef<HTMLDivElement>(null);
     const infoBoxRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLDivElement>(null);
+    const overlayRef = useRef<HTMLDivElement>(null);
 
     function handleOverlayClick(e:React.MouseEvent<HTMLDivElement>) {
         if(inputRef.current) {
@@ -53,13 +68,29 @@ function OnlineAppointmentDesktop({setOpen}: {setOpen: React.Dispatch<React.SetS
         document.body.style.overflowX = "hidden"
     }
 
+    function handleReadMore(e:React.MouseEvent<HTMLButtonElement>) {
+        e.preventDefault();
+        setReadMore((prev) => !prev);
+    }
+
+    useEffect(() => {
+        if(!readMore) {
+            // setTimeout(() => {
+                if(overlayRef.current) {
+                    overlayRef.current.scrollTo({top: 0, behavior: "smooth"});
+                }
+            // }, 300);
+        }
+    }, [readMore]);
+
     return (
         <motion.div onClick={handleOverlayClick}
+                    ref={overlayRef}
                     className="overflow-y-scroll max-[815px]:hidden overflow-x-hidden h-screen pb-[159px] bg-blur items-start px-[150px] min-[1600px]:px-[285px] flexible-grid gap-[15px] pt-[159px] fixed top-0 left-0 w-screen z-[10000]"
         initial={{opacity: 0}}
         animate={{opacity: 1}}
         exit={{opacity: 0}}>
-            <div className="p-[35px] bg-[#fff] max-[1350px]:col-span-2 rounded-[40px]" ref={formRef}>
+            <div className="p-[35px] bg-[#fff] sticky top-0 max-[1350px]:col-span-2 rounded-[40px]" ref={formRef}>
                 <div className="flex items-center justify-between">
                     <div className="flex items-center gap-[8px]">
                         <Image src="/icons/ArrowBlue.svg" width={21} height={21} alt=""/>
@@ -147,22 +178,38 @@ function OnlineAppointmentDesktop({setOpen}: {setOpen: React.Dispatch<React.SetS
                     </Button>
                 </form>
             </div>
-            <div ref={infoBoxRef} className="max-[1350px]:col-span-2 rounded-[50px] flex flex-col gap-[25px] p-[35px] bg-[#fff]">
-                {/*<Image src=""/>*/}
-                    <div className="bg-[#E7E9EC] rounded-[30px] h-[400px] w-full" />
-                <div className="">
-                    <p className="mb-[12px] text-[20px] leading-[28px]">
-                        {`Despre ${department}`}
-                    </p>
-                    <p className="text-[#3E404D]/[0.8] leading-[24.8px]">
-                        {activeDepartment?.shortDesc}
-                    </p>
-                </div>
-                <Button className="border-[1px] border-[#3E404D]/[0.24] rounded-[19px] leading-[16.8px] h-[50px] bg-white py-[16.5px] text-black">
-                    Citește mai mult
-                </Button>
+            {/*<AnimatePresence>*/}
+                <div ref={infoBoxRef} className=" max-[1350px]:col-span-2 rounded-[50px] flex flex-col gap-[25px] p-[35px] bg-[#fff]">
+                    {/*<Image src=""/>*/}
+                        <div className="bg-[#E7E9EC] rounded-[30px] h-[400px] w-full" />
+                    <div className="">
+                        <p className="mb-[12px] text-[20px] leading-[28px]">
+                            {`Despre ${department}`}
+                        </p>
+                        <p className="text-[#3E404D]/[0.8] leading-[24.8px]">
+                            {activeDepartment?.shortDesc}
+                        </p>
 
-            </div>
+                        <AnimatePresence mode="wait" initial={false}>
+                            {readMore && <motion.p
+                                key="moreInfo"
+                                initial="collapsed"
+                                animate="open"
+                                exit="collapsed"
+                                variants={variants}
+                                // transition={{duration: 0.4}}
+                                className="text-[#3E404D]/[0.8] leading-[24.8px]">
+                                {activeDepartment?.longDesc}
+                            </motion.p>}
+                        </AnimatePresence>
+                    </div>
+                    <Button
+                        onClick={handleReadMore}
+                        className="border-[1px] border-[#3E404D]/[0.24] rounded-[19px] leading-[16.8px] h-[50px] bg-white py-[16.5px] text-black">
+                        {readMore ? "Ascunde" : "Citește mai mult"}
+                    </Button>
+                </div>
+            {/*</AnimatePresence>*/}
         </motion.div>
     );
 }
