@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import {useRouter} from "next/navigation";
 import Call from "./Call";
 import Image from "next/image";
 import { Button } from "./ui/Button";
@@ -14,9 +15,12 @@ import OnlineAppointmentDesktop from "@/components/OnlineAppointmentDesktop";
 import OnlineAppointmentMobile from "@/components/OnlineAppointmentMobile";
 
 function Header() {
+  const [activeLink, setActiveLink] = useState("");
   const [domLoaded, setDomLoaded] = useState<boolean>(false);
   const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false);
   const [width, setWidth] = useState<number>(0);
+
+  const router = useRouter();
 
   const [showScheduleDropdown, setShowScheduleDropdown] =
     useState<boolean>(false);
@@ -77,6 +81,21 @@ function Header() {
      setShowMobileMenu(true)
   }
 
+  function handleLinkClick(href:string) {
+    setActiveLink(href);
+    if(href.startsWith("#")) {
+      router.push(`/${href}`);
+      // console.log(href)
+      // const el = document.querySelector(href);
+      // setTimeout(() => {
+      //   if(el) {
+      //     el.scrollTo(0, 0);
+      //   }
+      // }, 300);
+    } else {
+      router.push(href);
+    }
+  }
 
   return (
     <>
@@ -248,13 +267,13 @@ function Header() {
               </Button>
             </div>
           </div>
-          <div className="flex max-[1400px]:hidden h-[44px] gap-[15px]">
+          <ul className="flex max-[1400px]:hidden h-[44px] gap-[15px]">
             {navLinks.map((link: navLink) => {
               return (
-                <Link
+                <li
                   key={link.href}
-                  className="font-[500] text-[18px] py-[10.5px] px-[17px] border-[1px] border-[#3E404D]/[0.24] rounded-[57px] flex items-center leading-[105%]"
-                  href={link.href}
+                  className={`${link.href === activeLink ? "bg-[#00AAF1] text-[#fff]" : ""} transition-all cursor-pointer font-[500] text-[18px] py-[10.5px] px-[17px] border-[1px] border-[#3E404D]/[0.24] rounded-[57px] flex items-center leading-[105%]`}
+                  onClick={() => handleLinkClick(link.href)}
                 >
                   <span>{link.text}</span>
                   {link.href === "#team" && (
@@ -264,10 +283,10 @@ function Header() {
                       </span>
                     </div>
                   )}
-                </Link>
+                </li>
               );
             })}
-          </div>
+          </ul>
         </header>
       <AnimatePresence>
         {showMobileMenu && (

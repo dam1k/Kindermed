@@ -455,8 +455,8 @@ export const team: doctor[] = [
         img: "/Doctor1.jpg"
     },
     {
-        name: "Druță Ludmila",
-        specialty: "dermatolog",
+        name: " Ciumac Olesea",
+        specialty: "oftalmolog",
         img: "/Doctor1.jpg"
     },
     {

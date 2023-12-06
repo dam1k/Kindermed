@@ -178,7 +178,6 @@ function OnlineAppointmentDesktop({setOpen}: {setOpen: React.Dispatch<React.SetS
                     </Button>
                 </form>
             </div>
-            {/*<AnimatePresence>*/}
                 <div ref={infoBoxRef} className=" max-[1350px]:col-span-2 rounded-[50px] flex flex-col gap-[25px] p-[35px] bg-[#fff]">
                     {/*<Image src=""/>*/}
                         <div className="bg-[#E7E9EC] rounded-[30px] h-[400px] w-full" />
@@ -198,7 +197,7 @@ function OnlineAppointmentDesktop({setOpen}: {setOpen: React.Dispatch<React.SetS
                                 exit="collapsed"
                                 variants={variants}
                                 // transition={{duration: 0.4}}
-                                className="text-[#3E404D]/[0.8] leading-[24.8px]">
+                                className="overflow-hidden text-[#3E404D]/[0.8] leading-[24.8px]">
                                 {activeDepartment?.longDesc}
                             </motion.p>}
                         </AnimatePresence>
@@ -209,7 +208,6 @@ function OnlineAppointmentDesktop({setOpen}: {setOpen: React.Dispatch<React.SetS
                         {readMore ? "Ascunde" : "Citește mai mult"}
                     </Button>
                 </div>
-            {/*</AnimatePresence>*/}
         </motion.div>
     );
 }
