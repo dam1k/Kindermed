@@ -19,14 +19,19 @@ const variants = {
     },
 };
 
-function OnlineAppointmentDesktop({setOpen}: {setOpen: React.Dispatch<React.SetStateAction<boolean>>}) {
+interface IOnlineAppointmentDesktopProps {
+    setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+    selectedDepartment?: string;
+    selectedActiveDepartment?: service;
+}
+function OnlineAppointmentDesktop({setOpen, selectedDepartment, selectedActiveDepartment}: IOnlineAppointmentDesktopProps) {
     const [name, setName] = useState<string>("");
     const [countryPrefix, setCountryPrefix] = useState<string>("+373");
     const [phone, setPhone] = useState<string>("");
-    const [department, setDepartment] = useState<string>(services[0].name);
+    const [department, setDepartment] = useState<string>(selectedDepartment || services[0].name);
     const [date, setDate] = useState<string>("");
     const [inputFocused, setInputFocused] = useState<boolean>(false);
-    const [activeDepartment, setActiveDepartment] = useState<service>(services[0]);
+    const [activeDepartment, setActiveDepartment] = useState<service>(selectedActiveDepartment || services[0]);
     const [readMore, setReadMore] = useState<boolean>(false);
 
     const formRef = useRef<HTMLDivElement>(null);

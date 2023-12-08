@@ -5,7 +5,13 @@ import {country_prefixes, services, service} from "@/utils/data";
 import {generateAppointmentDates} from "@/utils/helpers/generateAppointmentDates";
 import {Button} from "@/components/ui/Button";
 
-function OnlineAppointmentMobile({setOpen}: {setOpen: React.Dispatch<React.SetStateAction<boolean>>}) {
+interface IOnlineAppointmentMobileProps {
+    setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+    selectedDepartment?: string;
+    selectedActiveDepartment?: service;
+}
+
+function OnlineAppointmentMobile({setOpen, selectedDepartment, selectedActiveDepartment}:IOnlineAppointmentMobileProps) {
     const [name, setName] = useState<string>("");
     const [countryPrefix, setCountryPrefix] = useState<string>("+373");
     const [phone, setPhone] = useState<string>("");

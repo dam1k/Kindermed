@@ -81,15 +81,6 @@ const Hero = () => {
             </p>
           </div>
         </div>
-        <AnimatePresence>
-          {showAppointment && width >= 815 && (
-              <OnlineAppointmentDesktop setOpen={setShowAppointment} />
-          )}
-
-          {showAppointment && width < 815 && (
-              <OnlineAppointmentMobile setOpen={setShowAppointment} />
-          )}
-        </AnimatePresence>
         </>
   );
 };

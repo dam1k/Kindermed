@@ -5,7 +5,8 @@ import {services, service, lastServices} from "@/utils/data"
 import {Button} from "@/components/ui/Button"
 import ServiceListItem from "@/components/ServiceListItem";
 import {AnimatePresence, motion} from "framer-motion";
-
+import OnlineAppointmentDesktop from "@/components/OnlineAppointmentDesktop";
+import OnlineAppointmentMobile from "@/components/OnlineAppointmentMobile";
 const initialServices = services.slice(0, 5);
 const showAllServices = services.slice(5);
 
@@ -20,7 +21,10 @@ const variants = {
     },
 };
 const Services = () => {
+    const [showAppointment, setShowAppointment] = useState<boolean>(false);
+    const [width, setWidth] = useState<number>(0);
     const [showAll, setShowAll] = useState<boolean>(false);
+    const [selectedService, setSelectedService] = useState<service | null>(null);
 
     const servicesRef = useRef<HTMLDivElement>(null);
 
@@ -40,6 +44,14 @@ const Services = () => {
             // setShowAll(false)
         }
     }
+
+    useEffect(() => {
+        setWidth(window.innerWidth);
+
+        window.addEventListener("resize", () => setWidth(window.innerWidth));
+        return () =>
+            window.removeEventListener("resize", () => setWidth(window.innerWidth));
+    }, []);
 
     return (
         <div id="services">
@@ -80,7 +92,7 @@ const Services = () => {
 
                 <ul className="relative z-[2] container max-[1400px]:px-[10px]">
                     {initialServices.map((service: service, i: number) => {
-                        return <ServiceListItem key={service.id} service={service} />
+                        return <ServiceListItem width={width} setSelectedService={setSelectedService} showAppointment={showAppointment} setOpen={setShowAppointment} key={service.id} service={service} />
                     })}
                     {!showAll && <li className="max-[1400px]:py-[15px] py-[20px]">
                         <div className="flex max-[1400px]:ml-0 ml-[250px]">
@@ -112,7 +124,7 @@ const Services = () => {
                         exit="collapsed"
                         className="relative z-[2] max-[1400px]:!px-[10px] container">
                         {showAllServices.map((service: service, i: number) => {
-                            return <ServiceListItem key={service.id} service={service}/>
+                            return <ServiceListItem width={width} setSelectedService={setSelectedService} showAppointment={showAppointment} setOpen={setShowAppointment} key={service.id} service={service}/>
                         })}
                         <li className="py-[20px]">
                             <div className="flex max-[1400px]:ml-0 ml-[250px]">
@@ -161,6 +173,16 @@ const Services = () => {
                     })}
                 </ul>
             </div>
+            <AnimatePresence>
+                {showAppointment && width >= 815 && selectedService && (
+                    <OnlineAppointmentDesktop selectedActiveDepartment={selectedService} selectedDepartment={selectedService.name} setOpen={setShowAppointment} />
+                )}
+
+                {showAppointment && width < 815 && selectedService && (
+
+                    <OnlineAppointmentMobile selectedActiveDepartment={selectedService} selectedDepartment={selectedService.name} setOpen={setShowAppointment} />
+                )}
+            </AnimatePresence>
         </div>
     );
 };
