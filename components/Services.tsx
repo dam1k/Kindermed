@@ -27,16 +27,17 @@ const Services = () => {
     function handleClick(action: "open" | "close") {
         if (action === "open") {
             setShowAll(true);
-            setTimeout(() => {
-                if (servicesRef.current) {
-                    servicesRef.current.scrollIntoView({behavior: "smooth", block: "end"})
-                }
-            }, 300)
+            // setTimeout(() => {
+            //     if (servicesRef.current) {
+            //         servicesRef.current.scrollIntoView({behavior: "smooth", block: "end"})
+            //     }
+            // }, 300)
         } else {
             if (servicesRef.current) {
                 servicesRef.current.scrollIntoView({behavior: "smooth"})
             }
             setTimeout(() => setShowAll(false), 500)
+            // setShowAll(false)
         }
     }
 
@@ -64,7 +65,7 @@ const Services = () => {
                         Clinica Kindermed este dotata cu echipament modern,
                         care permite aplicarea tratamentelor în conformitate cu practicile internaționale.
                     </p>
-                    <div className="flex min-[1401px]:pl-[250px] max-[1400px]:!py-[15px] py-[20px]">
+                    <div className="flex min-[1401px]:ml-[250px] max-[1400px]:!py-[15px] py-[20px]">
                         <p className="max-[1700px]:w-[100px] w-[250px] text-[#fff]/[0.65] leading-[145%]">
                             Numărul
                         </p>
@@ -79,10 +80,10 @@ const Services = () => {
 
                 <ul className="relative z-[2] container max-[1400px]:px-[10px]">
                     {initialServices.map((service: service, i: number) => {
-                        return <ServiceListItem key={service.id} service={service} i={i}/>
+                        return <ServiceListItem key={service.id} service={service} />
                     })}
                     {!showAll && <li className="max-[1400px]:py-[15px] py-[20px]">
-                        <div className="flex max-[1400px]:pl-0 pl-[250px]">
+                        <div className="flex max-[1400px]:ml-0 ml-[250px]">
                             {!showAll && <span
                                 className="text-[16px] min-[1025px]:text-[24px] max-[1400px]:w-[100px] w-[250px] leading-[105%] text-[#fff]/[0.5]">
                             {`+${showAllServices.length}`}
@@ -111,10 +112,10 @@ const Services = () => {
                         exit="collapsed"
                         className="relative z-[2] max-[1400px]:!px-[10px] container">
                         {showAllServices.map((service: service, i: number) => {
-                            return <ServiceListItem key={service.id} service={service} i={i}/>
+                            return <ServiceListItem key={service.id} service={service}/>
                         })}
                         <li className="py-[20px]">
-                            <div className="flex max-[1400px]:pl-0 pl-[250px]">
+                            <div className="flex max-[1400px]:ml-0 ml-[250px]">
                                 {!showAll && <span
                                     className="text-[16px] min-[1401px]:text-[24px] max-[1400px]:!w-[100px] text-[]w-[250px] leading-[105%] text-[#fff]/[0.5]">
                                     {`+${showAllServices.length}`}

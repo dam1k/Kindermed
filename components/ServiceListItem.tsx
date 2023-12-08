@@ -1,16 +1,26 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {service} from "@/utils/data";
-
-function ServiceListItem({service, i, grey}:{service:service, i:number, grey?: boolean}) {
+import {motion, AnimatePresence} from "framer-motion"
+function ServiceListItem({service, grey}:{service:service, grey?: boolean}) {
+    const [hovered, setHovered] = useState<boolean>(false);
     return (
-        <li className={`${grey ? "bg-[#E7E9EC] !text-black" : ""} max-[1024px]:grid-cols-1 lg:grid max-[1400px]:py-[15px] grid-cols-2 relative gap-[25px] border-[#fff] py-[20px] pt-[20px] ${service.id === 1 ? "border-t-[1px]" : ""}`}>
+        <li className={`${grey ? "bg-[#E7E9EC] !text-black" : ""} transition-all cursor-pointer max-[1024px]:grid-cols-1 lg:grid max-[1400px]:py-[15px] grid-cols-2 relative gap-[25px] border-[#fff] py-[20px] pt-[20px] ${service.id === 1 ? "border-t-[1px]" : ""}`}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}>
             <div className="absolute left-[250px] bottom-0 h-[1px] bg-white max-[1400px]:left-0 max-[1400px]:w-full w-[calc(100%-250px)]"/>
-            <div className="flex ml-0 min-[1401px]:ml-[250px] max-[1400px]:items-center serviceTitle">
+            <AnimatePresence>
+             {hovered && <motion.div
+                 initial={{opacity: 0}}
+                 animate={{opacity: 1}}
+                 exit={{opacity: 0}}
+                 className="bg-[#fff] absolute top-0 left-0 min-[1400px]:left-[250px] w-full min-[1400px]:w-[calc(100%-250px)] h-full"/>}
+            </AnimatePresence>
+            <div className={`flex relative z-10 ml-0 min-[1401px]:ml-[250px] max-[1400px]:items-center serviceTitle`}>
                                 <span
-                                    className={`w-[250px] max-[1400px]:text-[16px] max-[1700px]:w-[100px] min-[1025px]:text-[24px] leading-[105%] ${grey ? " text-black" : "text-[#fff]/[0.5]"}`}>{`${service.id <= 9 ? "0" : ""}${service.id}`}</span>
-                <h2 className={`${grey ? " text-black" : "text-[#fff]"} max-[1400px]:text-[16px] min-[1401px]:text-[24px] text-[#fff] leading-[125%] break-words uppercase`}>{service.name}</h2>
+                                    className={`w-[250px] max-[1400px]:text-[16px] max-[1700px]:w-[100px] min-[1025px]:text-[24px] leading-[105%] ${(grey || hovered) ? " text-black" : "text-[#fff]/[0.5]"}`}>{`${service.id <= 9 ? "0" : ""}${service.id}`}</span>
+                <h2 className={`${grey || hovered ? " text-black" : "text-[#fff]"} max-[1400px]:text-[16px] min-[1401px]:text-[24px] text-[#fff] leading-[125%] break-words uppercase`}>{service.name}</h2>
             </div>
-            <p className={`w-[400px] serviceDesc ${grey ? " text-black/[0.85]" : "text-[#fff]/[0.85]"}`}>
+            <p className={`w-[400px] serviceDesc ${grey ? "text-black/[0.85]" : hovered ? "text-black/[0.75]" : "text-[#fff]/[0.85]"} relative z-10`}>
                 {service.shortDesc}
             </p>
         </li>

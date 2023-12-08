@@ -41,7 +41,7 @@ export default function Home() {
             {/*<Provider store={store}>*/}
                 <Team />
             {/*</Provider>*/}
-            <Blog />
+            {/*<Blog />*/}
           </div>
         </main>
   );
