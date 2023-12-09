@@ -17,6 +17,7 @@ function ServiceListItem({setOpen, setSelectedService, service, grey, width, sho
         setOpen(true);
         setSelectedService(service);
     }
+
     return (
         <>
             <li className={`${grey ? "bg-[#E7E9EC] !text-black" : ""} transition-all duration-200 cursor-pointer max-[1024px]:grid-cols-1 lg:grid max-[1400px]:py-[15px] grid-cols-2 relative gap-[25px] border-[#fff] py-[20px] pt-[20px] 

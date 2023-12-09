@@ -7,6 +7,7 @@ import ServiceListItem from "@/components/ServiceListItem";
 import {AnimatePresence, motion} from "framer-motion";
 import OnlineAppointmentDesktop from "@/components/OnlineAppointmentDesktop";
 import OnlineAppointmentMobile from "@/components/OnlineAppointmentMobile";
+import GreyServiceItem from "@/components/GreyServiceItem";
 const initialServices = services.slice(0, 5);
 const showAllServices = services.slice(5);
 
@@ -55,7 +56,7 @@ const Services = () => {
 
     return (
         <div id="services">
-            <div ref={servicesRef} className="pb-[35px] min-[1401px]:pb-[85px] relative">
+             <div ref={servicesRef} className="pb-[35px] min-[1401px]:pb-[85px] relative">
                 <img
                     src="/Services.jpg"
                     className="object-cover absolute top-0 left-0 z-[0] w-full h-full"
@@ -150,26 +151,7 @@ const Services = () => {
             <div className="!bg-[#E7E9EC]/[0.5]">
                 <ul className="relative container z-[2] max-[1400px]:px-[10px] max-[1400px]:!pt-[35px] !pt-[95px] max-[1400px]:!pb-[65px] !pb-[125px]">
                     {lastServices.map((service, i: number) => {
-                        return <li key={service.id}
-                                   className={`!text-black" grid min-[1401px]:grid-cols-2 relative max-[1400px]:grid-cols-1 max-[1400px]:gap-y-[15px] min-[1401px]:gap-[25px] border-black max-[1400px]:pt-[15px] min-[1401px]:py-[20px] max-[1400px]:pb-[25px]`}>
-                            {service.id === 13 && <div
-                                className="absolute max-[1400px]:left-0 max-[1400px]:w-full left-[250px] bottom-0 h-[1px] bg-black w-[calc(100%-250px)]"/>}
-                            <div
-                                className="flex max-[1400px]:items-center max-[1400px]:ml-0 ml-[250px] max-[1400px]:col-span-2">
-                                <span
-                                    className={`text-[16px] min-[1025px]:text-[24px] max-[1400px]:w-[100px] w-[250px] leading-[105%] text-black/[0.5]`}>{`${service.id <= 9 ? "0" : ""}${service.id}`}</span>
-                                <h2 className={`text-black min-[1401px]:text-[24px] text-[16px] leading-[125%] break-words uppercase`}>{service.name}</h2>
-                            </div>
-                            <div
-                                className="max-[1400px]:pl-[100px] grid grid-cols-2 max-[1700px]:grid-cols-1 min-[1701px]:w-[825px] gap-[25px] ">
-                                {service.desc.map((p: string, i: number) => {
-                                    return <p key={i}
-                                              className={`min-[1401px]:w-[400px]  max-[1400px]:w-full text-black/[0.85]`}>
-                                        {p}
-                                    </p>
-                                })}
-                            </div>
-                        </li>
+                        return <GreyServiceItem key={i} service={service}/>
                     })}
                 </ul>
             </div>
