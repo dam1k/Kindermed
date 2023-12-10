@@ -1,45 +1,47 @@
 import React from "react";
-import { GraphQLClient, gql } from "graphql-request";
+import {client} from "@/sanity/lib/client";
+import {groq} from "next-sanity"
 import BlogSidebar from "./BlogSidebar";
 
-const client = new GraphQLClient(
-  "https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/clnzv3vau4jnn01t404al79um/master"
-);
 
-const QUERY = gql`
-  query Posts {
-    posts {
-      createdAt
-      excerpt
-      id
-      publishedAt
-      slug
-      title
-      tags
-      updatedAt
-      image {
-        url
-      }
-    }
-    postsConnection {
-      edges {
-        node {
-          image {
-            url
-          }
-          author {
-            name
-            id
-          }
-        }
-      }
-    }
-  }
-`;
+// const client = new GraphQLClient(
+//   "https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/clnzv3vau4jnn01t404al79um/master"
+// );
+//
+// const QUERY = gql`
+//   query Posts {
+//     posts {
+//       createdAt
+//       excerpt
+//       id
+//       publishedAt
+//       slug
+//       title
+//       tags
+//       updatedAt
+//       image {
+//         url
+//       }
+//     }
+//     postsConnection {
+//       edges {
+//         node {
+//           image {
+//             url
+//           }
+//           author {
+//             name
+//             id
+//           }
+//         }
+//       }
+//     }
+//   }
+// `;
 
 async function Blog() {
   //@ts-ignore
-  const { posts } = await client.request(QUERY);
+  const data = await client.fetch(groq`*[_type == "tag"]`);
 
   return (
     <div className="bg-lightGreyBg">
@@ -69,7 +71,7 @@ async function Blog() {
             cu evenimentele importante organizate de KinderMed.”
           </h3>
         </div>
-        {posts && <BlogSidebar posts={posts} />}
+        {/*{posts && <BlogSidebar posts={posts} />}*/}
       </div>
     </div>
   );
