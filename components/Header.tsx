@@ -102,8 +102,8 @@ function Header() {
         <header
           className="max-[1024px]:!px-[10px] container relative h-[60px] min-[1401px]:h-[250px] z-[2] flex flex-col items-center gap-[45px] max-[1400px]:!pt-[19px] !pt-[25px]"
         >
-          <div className="flex min-[1401px]:justify-between w-full items-center">
-            <div className="flex-1 flex items-center gap-[35px] max-[1400px]:hidden">
+          <div className="flex justify-between max-[1400px] w-full items-center">
+            <div className="min-[1401px]:flex-1 flex items-center min-[1401px]:gap-[35px]">
               <div className="flex gap-[8px]">
                 <Link
                   target="_blank"
@@ -136,7 +136,7 @@ function Header() {
                   onMouseEnter={() => setShowScheduleDropdown(true)}
                   onMouseLeave={() => setShowScheduleDropdown(false)}
                 >
-                  <div className="cursor-pointer flex items-center">
+                  <div className="max-[1400px]:hidden cursor-pointer flex items-center">
                     <Image
                       src="/icons/Calendar.svg"
                       width={28}
@@ -181,7 +181,7 @@ function Header() {
                 target="_blank"
                 href="https://www.google.com/maps/place/KinderMed/@47.0166545,28.8292626,17z/data=!3m1!4b1!4m6!3m5!1s0x40c97d5c884a1399:0x85ad0ab5ad7e580a!8m2!3d47.0166509!4d28.8318375!16s%2Fg%2F11hdyjkcmy?entry=ttu"
               >
-                <div className="cursor-pointer flex items-center gap-[10px]">
+                <div className="max-[1400px]:hidden cursor-pointer flex items-center gap-[10px]">
                   <Image
                     src="/icons/Address.svg"
                     width={28}
@@ -207,18 +207,30 @@ function Header() {
               />
             </Link>
 
-            <button
-              className="bg-[#00AAF1] absolute top-[19px] right-[10px] min-[1401px]:hidden h-[41px] w-[41px] z-[10] flex rounded-[15px] items-center justify-center"
-              onClick={() => setShowMobileMenu(true)}
-            >
-              <Image
-                src="/icons/Menu.svg"
-                width={19}
-                height={19}
-                alt=""
-                onClick={handleMobileMenuBtnClick}
-              />
-            </button>
+            <div className="flex gap-[8px]">
+              <a href="tel:+37322111061"
+                 className="border-[1px] bg-[#fff] border-[#00AAF1] min-[1401px]:hidden h-[41px] w-[41px] z-[10] flex rounded-[15px] items-center justify-center"
+              >
+                <Image
+                    src="/icons/PhoneSm.svg"
+                    width={17}
+                    height={17}
+                    alt=""
+                />
+              </a>
+              <button
+                className="bg-[#00AAF1] min-[1401px]:hidden h-[41px] w-[41px] z-[10] flex rounded-[15px] items-center justify-center"
+                onClick={() => setShowMobileMenu(true)}
+              >
+                <Image
+                  src="/icons/Menu.svg"
+                  width={19}
+                  height={19}
+                  alt=""
+                  onClick={handleMobileMenuBtnClick}
+                />
+              </button>
+            </div>
 
             <div className="flex-1 gap-[35px] flex justify-end max-[1400px]:hidden">
               <div

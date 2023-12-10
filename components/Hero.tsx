@@ -6,6 +6,7 @@ import { Button } from "./ui/Button";
 import {AnimatePresence} from "framer-motion";
 import OnlineAppointmentDesktop from "@/components/OnlineAppointmentDesktop";
 import OnlineAppointmentMobile from "@/components/OnlineAppointmentMobile";
+import {useAppointmentModal} from "@/hooks/useAppointmentModal";
 
 const Hero = () => {
   const [showAppointment, setShowAppointment] = useState<boolean>(false);
@@ -70,7 +71,8 @@ const Hero = () => {
                 variant="transparent"
                 onClick={() => {
                   document.body.style.overflowY = "hidden"
-                  setShowAppointment(true)}
+                  setShowAppointment(true);
+                }
                 }
               >
                 <span className="translate-y-[1px]">Programare Online</span>
@@ -81,6 +83,15 @@ const Hero = () => {
             </p>
           </div>
         </div>
+        <AnimatePresence>
+          {showAppointment && width >= 815 && (
+              <OnlineAppointmentDesktop setOpen={setShowAppointment} />
+          )}
+
+          {showAppointment && width < 815 && (
+              <OnlineAppointmentMobile setOpen={setShowAppointment} />
+          )}
+        </AnimatePresence>
         </>
   );
 };

@@ -24,6 +24,7 @@ interface IOnlineAppointmentDesktopProps {
     selectedDepartment?: string;
     selectedActiveDepartment?: service;
 }
+
 const allServices = [...services, ...lastServices]
 function OnlineAppointmentDesktop({setOpen, selectedDepartment, selectedActiveDepartment}: IOnlineAppointmentDesktopProps) {
     const [name, setName] = useState<string>("");
@@ -40,6 +41,14 @@ function OnlineAppointmentDesktop({setOpen, selectedDepartment, selectedActiveDe
     const inputRef = useRef<HTMLDivElement>(null);
     const overlayRef = useRef<HTMLDivElement>(null);
 
+    function handleClose(e?:React.MouseEvent) {
+        if(e) {
+            e.preventDefault();
+        }
+        setOpen(false);
+        document.body.style.overflowY = "scroll"
+        document.body.style.overflowX = "hidden"
+    }
     function handleOverlayClick(e:React.MouseEvent<HTMLDivElement>) {
         if(inputRef.current) {
             //@ts-ignore
@@ -52,9 +61,7 @@ function OnlineAppointmentDesktop({setOpen, selectedDepartment, selectedActiveDe
                if(e.target !== formRef.current && !formRef.current.contains(e.target) &&
                    //@ts-ignore
                    e.target !== infoBoxRef.current && !infoBoxRef.current.contains(e.target)) {
-                   setOpen(false);
-                   document.body.style.overflowY = "scroll"
-                   document.body.style.overflowX = "hidden"
+                   handleClose()
                }
            }
         }
@@ -66,13 +73,6 @@ function OnlineAppointmentDesktop({setOpen, selectedDepartment, selectedActiveDe
            setActiveDepartment(foundDepartment);
        }
     }, [department])
-
-    function handleClose(e:React.MouseEvent) {
-        e.preventDefault();
-        setOpen(false)
-        document.body.style.overflowY = "scroll"
-        document.body.style.overflowX = "hidden"
-    }
 
     function handleReadMore(e:React.MouseEvent<HTMLButtonElement>) {
         e.preventDefault();
