@@ -1,12 +1,24 @@
 import React, {useState} from 'react';
-import {lastService} from "@/utils/data";
+import {lastService, service} from "@/utils/data";
 import {AnimatePresence, motion} from "framer-motion";
 
-function GreyServiceItem({service}: {service: lastService}) {
+interface  IGreyServiceItemProps {
+    setOpen: React.Dispatch<React.SetStateAction<boolean>>
+    service:lastService;
+    setSelectedService:  React.Dispatch<React.SetStateAction<service | lastService | null>>;
+}
+function GreyServiceItem({service, setOpen, setSelectedService}: IGreyServiceItemProps) {
     const [hovered, setHovered] = useState<boolean>(false);
+
+    function handleServiceClick() {
+        setOpen(true);
+        setSelectedService(service);
+    }
+
     return (
         <li onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
+            onClick={handleServiceClick}
             className={`cursor-pointer grid min-[1401px]:grid-cols-2 relative max-[1400px]:grid-cols-1 max-[1400px]:gap-y-[15px] min-[1401px]:gap-[25px] border-black max-[1400px]:pt-[15px] min-[1401px]:py-[20px] max-[1400px]:pb-[25px]`}>
             {service.id === 13 && <div
                 className="absolute max-[1400px]:left-0 max-[1400px]:w-full left-[250px] bottom-0 h-[1px] bg-black w-[calc(100%-250px)]"/>}

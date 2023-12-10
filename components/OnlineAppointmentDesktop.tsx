@@ -1,7 +1,7 @@
 import React, {useEffect, useState, useRef} from 'react';
 import Image from "next/image"
 import {generateAppointmentDates} from "@/utils/helpers/generateAppointmentDates";
-import {country_prefixes} from "@/utils/data";
+import {country_prefixes, lastService, lastServices} from "@/utils/data";
 import {services, service} from "@/utils/data";
 import {Button} from "@/components/ui/Button";
 import {motion, AnimatePresence} from "framer-motion"
@@ -24,6 +24,7 @@ interface IOnlineAppointmentDesktopProps {
     selectedDepartment?: string;
     selectedActiveDepartment?: service;
 }
+const allServices = [...services, ...lastServices]
 function OnlineAppointmentDesktop({setOpen, selectedDepartment, selectedActiveDepartment}: IOnlineAppointmentDesktopProps) {
     const [name, setName] = useState<string>("");
     const [countryPrefix, setCountryPrefix] = useState<string>("+373");
@@ -60,7 +61,7 @@ function OnlineAppointmentDesktop({setOpen, selectedDepartment, selectedActiveDe
     }
 
     useEffect(() => {
-        const foundDepartment = services.find((service: service) => service.name === department);
+        const foundDepartment = allServices.find((service: service) => service.name === department);
        if(foundDepartment) {
            setActiveDepartment(foundDepartment);
        }
@@ -88,14 +89,15 @@ function OnlineAppointmentDesktop({setOpen, selectedDepartment, selectedActiveDe
         }
     }, [readMore]);
 
+
     return (
         <motion.div onClick={handleOverlayClick}
                     ref={overlayRef}
-                    className="overflow-y-scroll max-[815px]:hidden overflow-x-hidden h-screen pb-[159px] bg-blur items-start px-[150px] min-[1600px]:px-[285px] flexible-grid gap-[15px] pt-[159px] fixed top-0 left-0 w-screen z-[10000]"
+                    className={`max-[815px]:hidden overflow-y-scroll overflow-x-hidden h-screen pb-[159px] bg-blur items-start px-[150px] min-[1600px]:px-[285px] flexible-grid gap-[15px] pt-[159px] fixed top-0 left-0 w-screen z-[10000]`}
         initial={{opacity: 0}}
         animate={{opacity: 1}}
         exit={{opacity: 0}}>
-            <div className="p-[35px] bg-[#fff] sticky top-0 max-[1350px]:col-span-2 rounded-[40px]" ref={formRef}>
+            <div className="p-[35px] bg-[#fff] min-[1351px]:sticky top-0 max-[1350px]:col-span-2 rounded-[40px]" ref={formRef}>
                 <div className="flex items-center justify-between">
                     <div className="flex items-center gap-[8px]">
                         <Image src="/icons/ArrowBlue.svg" width={21} height={21} alt=""/>
@@ -152,7 +154,7 @@ function OnlineAppointmentDesktop({setOpen, selectedDepartment, selectedActiveDe
                                 className="w-full transition-all focus:border-[#00AAF1] rounded-[17px] border-[#3E404D]/[0.24] px-[17px] h-[48px] border-[1px] leading-[16.8px] pt-4 bg-transparent pb-[15px] departmentSelect outline-0"
                                 value={department}
                                 onChange={(e) => setDepartment(e.target.value)}>
-                                {services.map((service:service, i:number) => {
+                                {allServices.map((service:service, i:number) => {
                                     return <option className="cursor-pointer leading-[105%]" key={i} value={service.name}>{service.name}</option>
                                 })}
                             </select>
@@ -194,24 +196,23 @@ function OnlineAppointmentDesktop({setOpen, selectedDepartment, selectedActiveDe
                             {activeDepartment?.shortDesc}
                         </p>
 
-                        <AnimatePresence mode="wait" initial={false}>
+                        {activeDepartment?.longDesc && <AnimatePresence mode="wait" initial={false}>
                             {readMore && <motion.p
                                 key="moreInfo"
                                 initial="collapsed"
                                 animate="open"
                                 exit="collapsed"
                                 variants={variants}
-                                // transition={{duration: 0.4}}
                                 className="overflow-hidden text-[#3E404D]/[0.8] leading-[24.8px]">
                                 {activeDepartment?.longDesc}
                             </motion.p>}
-                        </AnimatePresence>
+                        </AnimatePresence>}
                     </div>
-                    <Button
+                    {activeDepartment?.longDesc && <Button
                         onClick={handleReadMore}
                         className="border-[1px] border-[#3E404D]/[0.24] rounded-[19px] leading-[16.8px] h-[50px] bg-white py-[16.5px] text-black">
                         {readMore ? "Ascunde" : "Citește mai mult"}
-                    </Button>
+                    </Button>}
                 </div>
         </motion.div>
     );

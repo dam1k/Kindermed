@@ -6,11 +6,9 @@ interface  IServiceListItemProps {
     setOpen: React.Dispatch<React.SetStateAction<boolean>>
     service:service;
     grey?: boolean;
-    width: number;
-    showAppointment: boolean;
     setSelectedService:  React.Dispatch<React.SetStateAction<service | null>>;
 }
-function ServiceListItem({setOpen, setSelectedService, service, grey, width, showAppointment}:IServiceListItemProps) {
+function ServiceListItem({setOpen, setSelectedService, service, grey}:IServiceListItemProps) {
     const [hovered, setHovered] = useState<boolean>(false);
 
     function handleServiceClick() {
