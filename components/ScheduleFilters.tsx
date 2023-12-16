@@ -1,17 +1,25 @@
-import React from 'react';
+'use client'
+
+import React, {useEffect} from 'react';
+import {useActiveDepartments} from "@/hooks/useActiveDepartments";
 
 interface IScheduleFiltersProps {
-    activeDepartments: string[];
-    setActiveDepartments:React.Dispatch<React.SetStateAction<string[]>>;
-    departments: string[];
+    departments: any[];
 }
-function ScheduleFilters({departments, setActiveDepartments, activeDepartments}: IScheduleFiltersProps) {
-    function handleClick(department:string) {
-      if(activeDepartments.includes(department)) {
-          setActiveDepartments((prev) => prev.filter((item) => item !== department));
+function ScheduleFilters({departments}: IScheduleFiltersProps) {
+    const {setActiveDepartments, activeDepartments} = useActiveDepartments();
+    useEffect(() => {
+        console.log(activeDepartments);
+    }, [activeDepartments]);
+    // const [activeDepartments, setActiveDepartments] = useState<string[]>([]);
+    function handleClick(newDepartment:string) {
+        let newActiveDepartments:string[];
+      if(activeDepartments.includes(newDepartment)) {
+          newActiveDepartments = activeDepartments.filter((department:string) => department !== newDepartment)
       } else {
-          setActiveDepartments((prev:any) => [...prev, department]);
+          newActiveDepartments = [newDepartment, ...activeDepartments]
       }
+        setActiveDepartments(newActiveDepartments);
     }
 
     return (
@@ -23,9 +31,6 @@ function ScheduleFilters({departments, setActiveDepartments, activeDepartments}:
                     {`${department.slice(0, 1).toUpperCase()}${department.slice(1)}`}
                 </button>
             })}
-            <div className="">
-
-            </div>
         </div>
     );
 }

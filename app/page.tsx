@@ -6,14 +6,13 @@ import React from "react";
 import Footer from "@/components/Footer";
 import {client} from "@/sanity/lib/client";
 import {groq} from "next-sanity";
+import {useAppointmentModal} from "@/hooks/useAppointmentModal";
 
 export default async function Home() {
   const team = await client.fetch(groq`*[_type == "doctor"] {
   ...,
   schedule[]->
   }`);
-
-  console.log(team);
 
   return (
     <>
