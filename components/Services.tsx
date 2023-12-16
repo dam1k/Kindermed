@@ -54,11 +54,6 @@ const Services = () => {
             window.removeEventListener("resize", () => setWidth(window.innerWidth));
     }, []);
 
-    useEffect(() => {
-        console.log(selectedService)
-    }, [selectedService]);
-
-
     return (
         <div id="services">
              <div ref={servicesRef} className="pb-[35px] min-[1401px]:pb-[85px] relative">

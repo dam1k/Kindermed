@@ -3,17 +3,19 @@
 import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
-import { team } from "@/utils/data";
+// import { team } from "@/utils/data";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import {urlForImage} from "../sanity/lib/image"
 
-function Team() {
+function Team({team}:{team:any}) {
   const [width, setWidth] = useState<number>(0);
   const [scrolling, setScrolling] = useState<boolean>(false);
   const [currentSlide, setCurrentSlide] = useState<number>(1);
   const sliderRef = useRef<HTMLDivElement>(null);
   const mobileSliderRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
+
 
   useEffect(() => {
     setWidth(window.innerWidth);
@@ -118,62 +120,6 @@ function Team() {
         cel mai înalt nivel.
       </p>
 
-      {/*<div className="flex items-start min-[1025px]:hidden pb-[30px]">*/}
-      {/*  <div className="shrink-0 flex w-[100px] justify-between">*/}
-      {/*    <div className="flex flex-shrink-0 gap-[15px] items-center">*/}
-      {/*      <Image*/}
-      {/*        width={24}*/}
-      {/*        alt=""*/}
-      {/*        height={24}*/}
-      {/*        className="hover:scale-125 transition-all cursor-pointer"*/}
-      {/*        src="/icons/ChevronRight.svg"*/}
-      {/*        onClick={() => {*/}
-      {/*          if (!scrolling) handleClick("left");*/}
-      {/*        }}*/}
-      {/*      />*/}
-      {/*      <Image*/}
-      {/*        width={24}*/}
-      {/*        alt=""*/}
-      {/*        height={24}*/}
-      {/*        className="hover:scale-125 transition-all cursor-pointer"*/}
-      {/*        src="/icons/ChevronLeft.svg"*/}
-      {/*        onClick={() => {*/}
-      {/*          if (!scrolling) handleClick("right");*/}
-      {/*        }}*/}
-      {/*      />*/}
-      {/*    </div>*/}
-      {/*  </div>*/}
-      {/*  <div*/}
-      {/*    className="team-slider no-scrollbar w-full overflow-scroll flex gap-[10px]"*/}
-      {/*    ref={mobileSliderRef}*/}
-      {/*  >*/}
-      {/*    {team.map((doctor, i) => {*/}
-      {/*      return (*/}
-      {/*        <div className="flex flex-col gap-[25px]" key={i}>*/}
-      {/*          <div className="w-[165px]">*/}
-      {/*            <img alt="" className="w-full" src={doctor.img} />*/}
-      {/*          </div>*/}
-      {/*          <div>*/}
-      {/*            <h3 className="text-[15px] uppercase leading-[140%]">*/}
-      {/*              {doctor.name}*/}
-      {/*            </h3>*/}
-      {/*            <p className="text-[14px] leading-[135%] text-black/[0.5]">*/}
-      {/*              {doctor.specialty.slice(0, 1).toUpperCase() +*/}
-      {/*                doctor.specialty.slice(1)}*/}
-      {/*            </p>*/}
-      {/*          </div>*/}
-      {/*          /!*<Link*!/*/}
-      {/*          /!*  className="leading-[140%] underline text-darkGrey"*!/*/}
-      {/*          /!*  href="/"*!/*/}
-      {/*          /!*>*!/*/}
-      {/*          /!*  Vezi orarul*!/*/}
-      {/*          /!*</Link>*!/*/}
-      {/*        </div>*/}
-      {/*      );*/}
-      {/*    })}*/}
-      {/*  </div>*/}
-      {/*</div>*/}
-
       <div className="flex gap-[8px] min-[1025px]:hidden">
         <Button
           className="border-[1px] text-black border-[#3E404D]/[0.24] bg-transparent flex gap-[8px]"
@@ -242,25 +188,25 @@ function Team() {
             className="team-slider no-scrollbar w-full overflow-scroll flex gap-[10px] min-[1025px]:gap-[25px]"
             ref={sliderRef}
         >
-          {team.map((doctor, i) => {
+          {team.map((doctor:any, i:number) => {
             return (
                 <div className={`flex flex-col gap-[12px] min-[1025px]:gap-[25px] ${i === team.length -1 ? "mr-[10px] min-[1025px]:mr-[25px]" : ""}`} key={i}>
                   <div
-                      className={`${
+                      className={`rounded-[15px] overflow-hidden ${
                           i === 0
                               ? "w-[165px] h-[220px] min-[1025px]:w-[350px] min-[1025px]:h-[468px] min-[1250px]:w-[405px] min-[1250px]:h-[540px]"
                               : "w-[165px] h-[220px] min-[1025px]:w-[262px] min-[1025px]:h-[348px] min-[1250px]:w-[300px] min-[1250px]:h-[400px]"
                       }`}
                   >
-                    <img alt="" className={`w-full h-full object-cover`} src={doctor.img} />
+                    <img alt="" className={`w-full h-full object-cover`} src={doctor.mainImage ? urlForImage(doctor.mainImage) : "/Doctor2.jpg"} />
                   </div>
                   <div>
                     <h3 className="text-[15px] min-[1025px]:text-[20px] leading-[140%] uppercase min-[1025px]:leading-[105%]">
-                      {doctor.name}
+                      {doctor.fullName}
                     </h3>
                     <p className="text-[14px] max-[1024px]:mt-[3px]min-[1025px]:text-[16px] leading-[135%] text-black/[0.5]">
-                      {doctor.specialty.slice(0, 1).toUpperCase() +
-                          doctor.specialty.slice(1)}
+                      {doctor.department.slice(0, 1).toUpperCase() +
+                          doctor.department.slice(1)}
                     </p>
                   </div>
                   <Link

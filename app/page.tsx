@@ -4,8 +4,17 @@ import Team from "@/components/Team";
 import Blog from "@/components/Blog";
 import React from "react";
 import Footer from "@/components/Footer";
+import {client} from "@/sanity/lib/client";
+import {groq} from "next-sanity";
 
-export default function Home() {
+export default async function Home() {
+  const team = await client.fetch(groq`*[_type == "doctor"] {
+  ...,
+  schedule[]->
+  }`);
+
+  console.log(team);
+
   return (
     <>
       <main>
@@ -28,7 +37,7 @@ export default function Home() {
         <div className="relative z-[2]">
           <Hero />
           <Services />
-          <Team />
+          <Team team={team}/>
           <Blog />
         </div>
       </main>
