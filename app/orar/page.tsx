@@ -1,27 +1,31 @@
 import React from 'react';
-// import {team} from "@/utils/data"
 import ScheduleFilters from "@/components/ScheduleFilters";
 import {client} from "@/sanity/lib/client";
 import {groq} from "next-sanity";
 import DepartmentSchedule from "@/components/DepartmentSchedule";
+import Footer from "../../components/Footer"
 
 async function Schedule() {
-    const team = await client.fetch(groq`*[_type == "doctor"] {
+    const departments = await client.fetch(groq`*[_type == "department"] | order(_createdAt asc) {
+  ...,
+  doctors[]-> {
   ...,
   schedule[]->
+  }
   }`);
-    const departments:any[] = [...Array.from(new Set(team.map((doctor:any) => doctor.department)))]
+
+    const departmentsNames = departments.map((department:any) => department.specialty);
+
     return (
         <>
-            <div className="!mt-[50px] container">
-                <h3 className="text-[16px] mb-[10px] uppercase">Funția</h3>
-               <ScheduleFilters departments={departments}/>
-                <div className="mt-[25px]">
-                    {departments.map((department:string) => {
-                        return <DepartmentSchedule key={department} team={team} department={department}/>
+            <div className="!mt-[50px] mb-[100px] container">
+                <h3 className="text-[16px] mb-[10px] uppercase">Funcția</h3>
+               <ScheduleFilters departments={departmentsNames}/>
+                    {departments.map((department:any) => {
+                        return <DepartmentSchedule key={department._id} department={department}/>
                     })}
-                </div>
             </div>
+            <Footer/>
         </>
     );
 }

@@ -15,7 +15,7 @@ export const token = assertValue(
     process.env.NEXT_PUBLIC_SANITY_SECRET_TOKEN,
     'Missing environment variable: NEXT_PUBLIC_SANITY_SECRET_TOKEN'
 )
-export const useCdn = true
+export const useCdn = false
 
 function assertValue<T>(v: T | undefined, errorMessage: string): T {
   if (v === undefined) {

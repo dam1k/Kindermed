@@ -3,10 +3,9 @@
 import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
-// import { team } from "@/utils/data";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import {urlForImage} from "../sanity/lib/image"
+import {urlForImage} from "@/sanity/lib/image"
 
 function Team({team}:{team:any}) {
   const [width, setWidth] = useState<number>(0);
@@ -205,8 +204,8 @@ function Team({team}:{team:any}) {
                       {doctor.fullName}
                     </h3>
                     <p className="text-[14px] max-[1024px]:mt-[3px]min-[1025px]:text-[16px] leading-[135%] text-black/[0.5]">
-                      {doctor.department.slice(0, 1).toUpperCase() +
-                          doctor.department.slice(1)}
+                      {doctor.department[0].specialty.slice(0, 1).toUpperCase() +
+                          doctor.department[0].specialty.slice(1)}
                     </p>
                   </div>
                   <Link

@@ -13,7 +13,8 @@ export default defineType({
         defineField({
             name: 'department',
             title: 'Department',
-            type: 'string',
+            type: 'array',
+            of: [{type: 'reference', to: {type: 'department'}}],
         }),
         defineField({
             name: 'mainImage',

@@ -11,6 +11,11 @@ export default defineType({
             type: 'string',
         }),
         defineField({
+            name: 'specialty',
+            title: 'Specialty',
+            type: 'string',
+        }),
+        defineField({
             name: 'doctors',
             title: 'Doctors',
             type: 'array',

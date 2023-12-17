@@ -9,9 +9,10 @@ import {groq} from "next-sanity";
 import {useAppointmentModal} from "@/hooks/useAppointmentModal";
 
 export default async function Home() {
-  const team = await client.fetch(groq`*[_type == "doctor"] {
+  const team = await client.fetch(groq`*[_type == "doctor"] | order(_createdAt asc) {
   ...,
-  schedule[]->
+  schedule[]->,
+  department[]->
   }`);
 
   return (
