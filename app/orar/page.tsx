@@ -1,4 +1,4 @@
-import React from 'react';
+ import React from 'react';
 import ScheduleFilters from "@/components/ScheduleFilters";
 import {client} from "@/sanity/lib/client";
 import {groq} from "next-sanity";
