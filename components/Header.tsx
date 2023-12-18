@@ -82,9 +82,9 @@ function Header() {
   }
 
   function handleLinkClick(href:string) {
-    setActiveLink(href);
     if(href.startsWith("#")) {
       router.push(`/${href}`);
+      setActiveLink("");
       // console.log(href)
       // const el = document.querySelector(href);
       // setTimeout(() => {
@@ -94,6 +94,7 @@ function Header() {
       // }, 300);
     } else {
       router.push(href);
+      setActiveLink(href);
     }
   }
 
@@ -197,6 +198,7 @@ function Header() {
             </div>
 
             <Link
+                onClick={() => setActiveLink("")}
               href="/"
               className="max-[1400px]:flex-1 max-[1400px]:flex max-[1400px]:justify-center"
             >
@@ -209,7 +211,7 @@ function Header() {
 
             <div className="flex gap-[8px]">
               <a href="tel:+37322111061"
-                 className="border-[1px] bg-[#fff] border-[#00AAF1] min-[1401px]:hidden h-[41px] w-[41px] z-[10] flex rounded-[15px] items-center justify-center"
+                 className="border-[1px] bg-[transparent] border-[#00AAF1] min-[1401px]:hidden h-[41px] w-[41px] z-[10] flex rounded-[15px] items-center justify-center"
               >
                 <Image
                     src="/icons/PhoneSm.svg"

@@ -1,4 +1,4 @@
- "use client";
+"use client";
 
 import React, { useState, useEffect } from "react";
 import { useActiveDepartments } from "@/hooks/useActiveDepartments";
@@ -30,16 +30,17 @@ function DepartmentSchedule({ department }: { department: any }) {
               // animate="open"
               // transition={{duration: 0.3}}
               // exit="collapsed"
-              className="max-[1315px]:flex-col flex py-[25px] border-b-[1px] border-[#C9CACE]/[0.5]">
-              <div className="shrink-0 w-[250px] flex gap-[10px]">
+              className="max-[1315px]:flex-col mb-[6px] flex py-[25px] border-b-[1px] border-[#C9CACE]/[0.5]">
+              <div className="mb-[6px] max-[1024px]:pl-[10px] min-[1025px]:pl-[25px] shrink-0 w-full min-[500px]:w-[250px] pr-[10px] min-[500px]:justify-start justify-between flex gap-[10px]">
                 <h2 className="text-[25px] leading-[35px] uppercase">
                   {department.specialty}
                 </h2>
                   <h2 className="text-[25px] leading-[35px] text-[#3e404d]/[0.5]">{department.doctors.length}</h2>
               </div>
               <div className="flex gap-[25px] no-scrollbar overflow-x-scroll">
-                    {department.doctors.map((doctor:any) => {
-                        return <div className="shrink-0" key={doctor._id}>
+                    {department.doctors.map((doctor:any, i:number) => {
+                        return <div className={`shrink-0 ${i === 0 ? "max-[1024px]:pl-[10px] max-[1315px]:pl-[25px]" : i === department.doctors.length-1 ? "pr-[10px]" : ""}`}
+                                    key={doctor._id}>
                             <div className="w-[230px] h-[230px] mb-[17px]">
                                 <img className="rounded-[15px] w-full h-full object-cover object-top" src={doctor.mainImage ? urlForImage(doctor.mainImage) : "/Doctor2.jpg"} alt=""/>
                             </div>

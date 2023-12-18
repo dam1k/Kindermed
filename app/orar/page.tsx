@@ -1,4 +1,4 @@
- import React from 'react';
+import React from 'react';
 import ScheduleFilters from "@/components/ScheduleFilters";
 import {client} from "@/sanity/lib/client";
 import {groq} from "next-sanity";
@@ -18,9 +18,11 @@ async function Schedule() {
 
     return (
         <>
-            <div className="!mt-[50px] mb-[100px] container !pr-0 ">
-                <h3 className="text-[16px] mb-[10px] uppercase">Funcția</h3>
-               <ScheduleFilters departments={departmentsNames}/>
+            <div className="!mt-[50px] mb-[100px] max-[1315px]:!pr-0">
+                <div className="">
+                    <h3 className="container max-[1300px]:pr-[0] max-[1024px]:pl-[10px] text-[16px] mb-[10px] uppercase">Funcția</h3>
+                    <ScheduleFilters departments={departmentsNames}/>
+                </div>
                     {departments.map((department:any) => {
                         return <DepartmentSchedule key={department._id} department={department}/>
                     })}
