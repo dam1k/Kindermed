@@ -18,8 +18,17 @@ function ScheduleFilters({departments}: IScheduleFiltersProps) {
         setActiveDepartments(newActiveDepartments);
     }
 
+    function handleAllClick() {
+        setActiveDepartments([]);
+    }
+
     return (
         <div className="flex gap-[10px] border-b-[1px] border-[#C9CACE]/[0.5] pb-[25px] pt-[10px] w-full no-scrollbar overflow-scroll">
+            <button onClick={(e) => {
+                handleAllClick()
+            }} className={`${activeDepartments.length === 0 ? "bg-blue text-white" : "bg-[#3E404D]/[0.05]"} transition-all leading-[16.8px] py-2 px-[14px] rounded-[50px]`}>
+               Toate
+            </button>
             {departments.map((department:string) => {
                 return <button value={department} onClick={(e) => {
                     handleClick(department)

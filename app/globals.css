@@ -266,6 +266,10 @@ a {
     -moz-outline-color: #000 !important;
 }
 
+.mobile_department_grid {
+    grid-template-columns: 1fr 1fr;
+}
+
 select option {
     font-family: "Rubik", sans-serif;
 }
