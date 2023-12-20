@@ -2,7 +2,11 @@ import React from 'react';
 
 function Vaccination() {
     return (
-        <div></div>
+        <div className="overflow-auto min-[1400px]:flex min-[1400px]:items-center min-[1400px]:justify-center !my-[100px] ">
+            <div className="shrink-0 h-[743px] w-[1350px]">
+                <img src="/Vaccination.svg" className=" w-full"/>
+            </div>
+        </div>
     );
 }
 

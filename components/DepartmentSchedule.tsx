@@ -19,7 +19,7 @@ const variants = {
         paddingBottom: 0
     },
 }
-function DepartmentSchedule({ department }: { department: any }) {
+function DepartmentSchedule({ department, i, departments }: { department: any, i:number, departments: any[] }) {
     const {activeDepartments} = useActiveDepartments()
   return (
       <AnimatePresence mode="wait" initial={false}>
@@ -30,7 +30,7 @@ function DepartmentSchedule({ department }: { department: any }) {
               // animate="open"
               // transition={{duration: 0.3}}
               // exit="collapsed"
-              className="max-[1315px]:flex-col mb-[6px] flex py-[25px] border-b-[1px] border-[#C9CACE]/[0.5]">
+              className={`max-[1315px]:flex-col mb-[6px] flex py-[25px] ${i !== departments.length - 1 ? "border-b-[1px] border-[#C9CACE]/[0.5]" : ""}`}>
               <div className="mb-[6px] max-[1024px]:pl-[10px] min-[1025px]:pl-[25px] shrink-0 w-full min-[500px]:w-[250px] pr-[10px] min-[500px]:justify-start justify-between flex gap-[10px]">
                 <h2 className="text-[25px] leading-[35px] uppercase">
                   {department.specialty}

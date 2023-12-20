@@ -23,8 +23,8 @@ async function Schedule() {
                     <h3 className="container max-[1300px]:pr-[0] max-[1024px]:pl-[10px] text-[16px] mb-[10px] uppercase">Funcția</h3>
                     <ScheduleFilters departments={departmentsNames}/>
                 </div>
-                    {departments.map((department:any) => {
-                        return <DepartmentSchedule key={department._id} department={department}/>
+                    {departments.map((department:any, i:number) => {
+                        return <DepartmentSchedule key={department._id} i={i} departments={departments} department={department}/>
                     })}
             </div>
             <Footer/>

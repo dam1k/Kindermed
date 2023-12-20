@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import {useRouter} from "next/navigation";
+import {useRouter, usePathname} from "next/navigation";
 import Call from "./Call";
 import Image from "next/image";
 import { Button } from "./ui/Button";
@@ -21,6 +21,7 @@ function Header() {
   const [width, setWidth] = useState<number>(0);
 
   const router = useRouter();
+  const pathname = usePathname()
 
   const [showScheduleDropdown, setShowScheduleDropdown] =
     useState<boolean>(false);
@@ -64,6 +65,13 @@ function Header() {
       document.body.style.overflowY = "scroll"
     }
   }, [width]);
+
+
+  useEffect(() => {
+    if(pathname.length > 1) {
+      setActiveLink(pathname);
+    }
+  }, [pathname]);
 
   // useEffect(() => {
   //   if(width <= 1400) {
