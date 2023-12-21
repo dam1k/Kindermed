@@ -40,7 +40,6 @@ import BlogSidebar from "./BlogSidebar";
 // `;
 
 async function Blog() {
-  //@ts-ignore
   const posts = await client.fetch(groq`*[_type == "post"] {
   ...,
   tags[]->

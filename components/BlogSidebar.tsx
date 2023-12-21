@@ -50,27 +50,40 @@ const BlogSidebar = ({ posts }: { posts: any }) => {
                   </h3>
                   <div className="flex max-[1024px]:mt-[4px] justify-between items-center ">
                     <div className="min-[1025px]:hidden flex mb-[8px] gap-[15px]">
-                      {post.tags.map((tag: string) => {
-                        return (
-                          <span
-                            key={tag}
-                            className={`
-                                ${
-                                  tag === "important"
-                                    ? "text-pink"
-                                    : tag === "info"
-                                      ? "text-yellow"
-                                      : tag === "lifehacks"
-                                        ? "text-purple"
-                                        : ""
-                                }
-                                text-xs leading-[120%]
-                                `}
-                          >
-                            {"#" + tag}
-                          </span>
-                        );
-                      })}
+                      {/*{post.tags.map((tag: string) => {*/}
+                      {/*  return (*/}
+                      {/*    <span*/}
+                      {/*      key={tag}*/}
+                      {/*      className={`*/}
+                      {/*          ${*/}
+                      {/*            tag === "important"*/}
+                      {/*              ? "text-pink"*/}
+                      {/*              : tag === "info"*/}
+                      {/*                ? "text-yellow"*/}
+                      {/*                : tag === "lifehacks"*/}
+                      {/*                  ? "text-purple"*/}
+                      {/*                  : ""*/}
+                      {/*          }*/}
+                      {/*          text-xs leading-[120%]*/}
+                      {/*          `}*/}
+                      {/*    >*/}
+                      {/*      {"#" + tag}*/}
+                      {/*    </span>*/}
+                      {/*  );*/}
+                      {/*})}*/}
+                        {post.tags.map((tag: any) => {
+                            return (
+                                <span
+                                    key={tag}
+                                    style={{
+                                        color: tag.color,
+                                        fontSize: 12,
+                                    }}
+                                >
+                          {"#" + tag.title}
+                        </span>
+                            );
+                        })}
                     </div>
                     <p className="max-[1024px]:text-[12px] min-[1025px]:mt-[32px] leading-[105%] text-lightGrey">
                       {formatDate(new Date(post?.publishedAt))}

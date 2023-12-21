@@ -23,8 +23,10 @@ interface IMobileMenuProps {
     day:number;
     setMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
     setAppointmentOpen: React.Dispatch<React.SetStateAction<boolean>>
+    handleLinkClick: (href:string) => void;
 }
-function MobileMenu({working, day, setMenuOpen, setAppointmentOpen}:IMobileMenuProps) {
+
+function MobileMenu({working, day, setMenuOpen, setAppointmentOpen, handleLinkClick}:IMobileMenuProps) {
     const [showSchedule, setShowSchedule] = useState<boolean>(false);
 
     const menuRef = useRef<HTMLDivElement>(null);
@@ -47,6 +49,7 @@ function MobileMenu({working, day, setMenuOpen, setAppointmentOpen}:IMobileMenuP
         setAppointmentOpen(true);
     }
 
+
     return (
         <motion.div className="min-[1401px]:hidden fixed top-0 left-0 h-screen w-screen bg-[rgba(26, 26, 32, 0.37)] backdrop-blur-[17.5px] z-[1000]"
                     initial={{opacity: 0}}
@@ -62,22 +65,25 @@ function MobileMenu({working, day, setMenuOpen, setAppointmentOpen}:IMobileMenuP
                         <Image src="/icons/Times.svg" alt="" width={15} height={15}/>
                     </button>
                 </div>
-                <div className="mt-[20px] flex items-start self-stretch flex-wrap gap-[8px]">
+                <ul className="mt-[20px] flex items-start self-stretch flex-wrap gap-[8px]">
                     {navLinks.map((link: navLink) => {
                         return (
-                            <Link key={link.href}
+                            <li key={link.href}
                                   className="uppercase text-[14px] font-[500] py-[10px] px-[17px] border-[1px] border-[#3E404D]/[0.24] rounded-[57px] flex items-center leading-[105%]"
-                                  href={link.href}>
+                                  onClick={() => {
+                                      handleLinkClick(link.href)
+                                      handleClose();
+                                  }}>
                                 <span>{link.text}</span>
                                 {link.href === "#team" && <div
                                     className="flex items-center justify-center text-[#fff] h-[17px] w-[17px] rounded-[7px] ml-[8px] bg-blue">
                                 <span
                                     className="!text-[10px] leading-[9px]">13</span>
                                 </div>}
-                            </Link>
+                            </li>
                         );
                     })}
-                </div>
+                </ul>
                 <div className="mt-[35px] flex gap-[35px]">
                     <div className="flex flex-col gap-[3px]">
                         <p className="text-[12px] leading-[105%]">Adresa:</p>

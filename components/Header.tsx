@@ -68,8 +68,14 @@ function Header() {
 
 
   useEffect(() => {
+    // setShowMobileMenu(false);
+    // document.body.style.overflowY = "scroll"
+
     if(pathname.length > 1) {
       setActiveLink(pathname);
+    }
+    else {
+      setActiveLink("/");
     }
   }, [pathname]);
 
@@ -312,7 +318,7 @@ function Header() {
         </header>
       <AnimatePresence>
         {showMobileMenu && (
-          <MobileMenu working={working} day={day} setAppointmentOpen={setShowAppointment} setMenuOpen={setShowMobileMenu} />
+          <MobileMenu working={working} handleLinkClick={handleLinkClick} day={day} setAppointmentOpen={setShowAppointment} setMenuOpen={setShowMobileMenu} />
         )}
       </AnimatePresence>
       <AnimatePresence>
