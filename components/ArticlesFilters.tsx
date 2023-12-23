@@ -1,13 +1,18 @@
 'use client'
 
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useActiveTags} from "@/hooks/useActiveTags";
 
 interface IScheduleFiltersProps {
     tags: any[];
 }
+
 function ArticlesFilters({tags}: IScheduleFiltersProps) {
     const {setActiveTags, activeTags} = useActiveTags();
+
+    // useEffect(() => {
+    //     console.log(activeTags);
+    // }, [activeTags]);
     function handleClick(tag:any) {
         let newActiveTags:string[];
         if(activeTags.includes(tag._id)) {
@@ -17,14 +22,13 @@ function ArticlesFilters({tags}: IScheduleFiltersProps) {
         }
         setActiveTags(newActiveTags);
     }
-    console.log(tags);
 
     function handleAllClick() {
         setActiveTags([]);
     }
 
     return (
-        <div className="flex gap-[10px] pb-[40px] pt-[10px] w-full no-scrollbar overflow-scroll">
+        <div className="flex gap-[10px] pb-[45px] pt-[10px] w-full no-scrollbar overflow-scroll">
             <button onClick={handleAllClick}
                     className={`${activeTags.length === 0 ? "bg-blue text-white" : "bg-[#3E404D]/[0.05]"} ml-[10px] min-[1025px]:ml-[25px] transition-all leading-[16.8px] py-2 px-[14px] rounded-[50px]`}>
                 Toate articolele
