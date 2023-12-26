@@ -7,7 +7,8 @@ import author from './schemas/author'
 import doctor from './schemas/doctor';
 import department from "./schemas/department";
 import doctorSchedule from "@/sanity/schemas/doctorSchedule";
-
+import pachet from "@/sanity/schemas/pachet";
+import price from "@/sanity/schemas/price";
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [post, doctorSchedule,  author, tag, blockContent, doctor, department],
+  types: [post, doctorSchedule, pachet, price, author, tag, blockContent, doctor, department],
 }

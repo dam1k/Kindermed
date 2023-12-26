@@ -21,7 +21,6 @@ function Article({article}:{article:any}) {
     }, [article, activeTags]);
 
 
-
     return (
         <>
         {(showArticle || activeTags.length === 0) &&
