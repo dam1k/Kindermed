@@ -76,10 +76,14 @@
     }
 }
 
-html, body {
-    scroll-behavior: smooth;
+body {
     overflow-x:hidden;
 }
+
+html, body {
+    scroll-behavior: smooth;
+}
+
 
 .container {
     padding: 0 25px;

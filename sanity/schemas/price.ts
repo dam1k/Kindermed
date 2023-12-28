@@ -13,7 +13,7 @@ export default defineType({
         defineField({
             name: 'currentPrice',
             title: 'Prețul curent',
-            type: 'string',
+            type: 'number',
         }),
     ]
 })
