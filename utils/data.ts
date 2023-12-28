@@ -72,7 +72,7 @@ export const navLinks: navLink[] = [
     },
     {
         text: "Pachete",
-        href: "#pachete",
+        href: "/pachete",
     },
     {
         text: "Vaccinare",

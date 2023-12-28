@@ -23,7 +23,7 @@ function ScheduleFilters({departments}: IScheduleFiltersProps) {
     }
 
     return (
-        <div className="flex gap-[10px] border-b-[1px] border-[#C9CACE]/[0.5] pb-[25px] pt-[10px] w-full no-scrollbar overflow-scroll">
+        <div className="flex gap-[10px] pb-[25px] pt-[10px] w-full no-scrollbar overflow-scroll">
             <button onClick={handleAllClick}
                     className={`${activeDepartments.length === 0 ? "bg-blue text-white" : "bg-[#3E404D]/[0.05]"} ml-[10px] min-[1025px]:ml-[25px] transition-all leading-[16.8px] py-2 px-[14px] rounded-[50px]`}>
                Toate

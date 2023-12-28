@@ -18,9 +18,9 @@ async function Schedule() {
 
     return (
         <>
-            <div className="!mt-[50px] mb-[100px] max-[1315px]:!pr-0">
+            <div className="!mt-[50px] !mb-[100px] max-[1315px]:!pr-0">
                 <div className="">
-                    <h3 className="container max-[1300px]:pr-[0] max-[1024px]:pl-[10px] text-[16px] mb-[10px] uppercase">Funcția</h3>
+                    <h3 className="ml-[10px] min-[1025px]:ml-[25px] text-[16px] uppercase">Funcția</h3>
                     <ScheduleFilters departments={departmentsNames}/>
                 </div>
                     {departments.map((department:any, i:number) => {
