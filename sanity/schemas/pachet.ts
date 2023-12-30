@@ -62,7 +62,7 @@ export default defineType({
             name: 'prices',
             title: 'Prices',
             type: 'array',
-            of: [{type: 'reference', to: {type: 'price'}}]
+            of: [{type: 'string'}]
         }),
         defineField({
             name: 'sale',

@@ -57,12 +57,7 @@ async function Blog() {
                   Blog
                 </p>
                 <h2 className="ml-[100px] min-[1025px]:ml-[225px] min-[1815px]:ml-[250px] inline uppercase text-[20px] min-[1025px]:text-[35px] text-black leading-[140%] tracking-[-0.35px]">
-                  Informează-te despre{" "}
-                  <span className="max-[1024px]:hidden text-blue">
-                    cele mai noi
-                  </span>
-                  {" "}
-                  noutăți și evenimente de la KinderMed
+                  Informează-te despre noutăți și evenimente de la KinderMed
                 </h2>
               </div>
             <div className="max-[1601px]:hidden" />

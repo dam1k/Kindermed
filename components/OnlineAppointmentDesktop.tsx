@@ -1,7 +1,7 @@
 import React, {useEffect, useState, useRef} from 'react';
 import Image from "next/image"
 import {generateAppointmentDates} from "@/utils/helpers/generateAppointmentDates";
-import {country_prefixes, lastService, lastServices} from "@/utils/data";
+import {country_prefixes} from "@/utils/data";
 import {services, service} from "@/utils/data";
 import {Button} from "@/components/ui/Button";
 import {motion, AnimatePresence} from "framer-motion"
@@ -25,7 +25,7 @@ interface IOnlineAppointmentDesktopProps {
     selectedActiveDepartment?: service;
 }
 
-const allServices = [...services, ...lastServices]
+const allServices = [...services]
 function OnlineAppointmentDesktop({setOpen, selectedDepartment, selectedActiveDepartment}: IOnlineAppointmentDesktopProps) {
     const [name, setName] = useState<string>("");
     const [countryPrefix, setCountryPrefix] = useState<string>("+373");

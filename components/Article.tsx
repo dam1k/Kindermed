@@ -4,10 +4,17 @@ import React, { useState, useEffect } from "react";
 import {urlForImage} from "@/sanity/lib/image";
 import formatDate from "@/utils/helpers/formatDate";
 import {useActiveTags} from "@/hooks/useActiveTags";
+import {useRouter} from "next/navigation";
 
 function Article({article}:{article:any}) {
     const [showArticle, setShowArticle] = useState<boolean>(true);
-    const {activeTags} = useActiveTags()
+    const {activeTags} = useActiveTags();
+    const router = useRouter();
+
+    function handleArticleClick() {
+        // console.log(article.slug.current);
+        router.push(`/blog/${article.slug.current}`);
+    }
 
     useEffect(() => {
         const ids = article.tags.map((tag:any) => tag._id);
@@ -24,7 +31,7 @@ function Article({article}:{article:any}) {
     return (
         <>
         {(showArticle || activeTags.length === 0) &&
-            <div>
+            <div className="cursor-pointer" onClick={handleArticleClick}>
                 <div className="relative w-full h-[215px] min-[770px]:w-[750px] min-[650px]:h-[400px] rounded-[14px] overflow-hidden">
                     <img
                         className="w-full h-full object-cover"

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { useActiveDepartments } from "@/hooks/useActiveDepartments";
+import { useActiveDepartment } from "@/hooks/useActiveDepartment";
 import {urlForImage} from "@/sanity/lib/image";
 import {AnimatePresence, motion} from "framer-motion";
 
@@ -20,10 +20,10 @@ const variants = {
     },
 }
 function DepartmentSchedule({ department, i, departments }: { department: any, i:number, departments: any[] }) {
-    const {activeDepartments} = useActiveDepartments()
+    const {activeDepartment} = useActiveDepartment();
   return (
       <>
-          {(activeDepartments.includes(department.specialty) || activeDepartments.length === 0) ? <div
+          {(activeDepartment === department.specialty || !activeDepartment) ? <div
               className={`max-[1315px]:flex-col mb-[6px] flex py-[25px] min-[1316px]:border-t-[1px] min-[1316px]:border-[#C9CACE]/[0.5]`}>
               <div className="mb-[6px] max-[1024px]:pl-[10px] min-[1025px]:pl-[25px] shrink-0 w-full min-[500px]:w-[250px] pr-[10px] min-[500px]:justify-start justify-between flex gap-[10px]">
                 <h2 className="text-[25px] leading-[35px] uppercase">

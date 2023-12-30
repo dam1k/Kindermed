@@ -34,6 +34,7 @@ export default defineType({
       lists: [{title: 'Bullet', value: 'bullet'}],
       // Marks let you mark up inline text in the Portable Text Editor
       marks: {
+
         // Decorators usually describe a single property – e.g. a typographic
         // preference or highlighting
         decorators: [

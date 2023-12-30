@@ -7,10 +7,7 @@ import Package from "@/components/Package";
 
 async function Packages() {
     const packages = await client.fetch(
-        groq`*[_type == "pachet"] | order(_createdAt asc) {
-        ...,
-        prices[]->
-        }`
+        groq`*[_type == "pachet"] | order(_createdAt asc)`
     );
 
     return (

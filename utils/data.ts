@@ -554,8 +554,8 @@ export const phoneNumbers: phoneNumber[] = [
 
 export const contacts: contact[] = [
     {
-        name: "kindermed19@gmail.com",
-        href: "mailto:kindermed19@gmail.com",
+        name: "info.kindermed@gmail.com",
+        href: "mailto:info.kindermed@gmail.com",
         icon: "/icons/Mail.svg"
     },
     {

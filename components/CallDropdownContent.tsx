@@ -16,9 +16,9 @@ function CallDropdownContent() {
                     <span>{number.phone}</span>
                 </a>
             })}
-            <a href="mailto: kindermed19@gmail.com" className="text-[#3E404D]/[0.5] leading-[145%]">
+            <a href="mailto:info.kindermed@gmail.com" className="text-[#3E404D]/[0.5] leading-[145%]">
                  <span className="uppercase pr-[10px]">Email</span>
-                <span>kindermed19@gmail.com</span>
+                <span>info.kindermed@gmail.com</span>
             </a>
         </motion.div>
     );

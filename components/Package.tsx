@@ -127,20 +127,20 @@ function Package({pachet, i}:{pachet:any, i:number}) {
           )}
           {pachet.prices && (
             <div className="flex gap-[12px] items-start flex-wrap content-start min-[500px]:w-[476px]">
-              {pachet.prices.map((packagePrice: any, i: number) => {
+              {pachet.prices.map((packagePrice: string, i: number) => {
                 return (
                   <div
                     className="flex gap-[6px] min-[1025px]:gap-[12px] items-start"
-                    key={packagePrice._id}
+                    key={i}
                   >
                     <p className="text-blue min-[1025px]:text-[30px] text-[20px] font-[500] uppercase">
                       {i > 0 &&
                         Array.from(Array(i).keys()).map((_: number) => "*")}
-                      {packagePrice.currentPrice} lei
+                      {packagePrice} lei
                     </p>
-                    <p className="text-[12px] leading-[150%] text-black/[0.65] line-through">
-                      ({packagePrice.oldPrice} lei)
-                    </p>
+                    {/*<p className="text-[12px] leading-[150%] text-black/[0.65] line-through">*/}
+                    {/*  ({packagePrice.oldPrice} lei)*/}
+                    {/*</p>*/}
                     {i !== pachet.prices.length - 1 && (
                       <span className="text-blue leading-[150%] font-medium text-[30px]">
                         /
