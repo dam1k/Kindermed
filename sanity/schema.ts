@@ -8,6 +8,7 @@ import doctor from './schemas/doctor';
 import department from "./schemas/department";
 import doctorSchedule from "@/sanity/schemas/doctorSchedule";
 import pachet from "@/sanity/schemas/pachet";
+// import sectionTitle from "@/sanity/objects/sectionTitle";
 // import price from "@/sanity/schemas/price";
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [post, doctorSchedule, pachet, author, tag, blockContent, doctor, department],

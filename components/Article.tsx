@@ -62,12 +62,12 @@ function Article({article}:{article:any}) {
                         {article.title}
                     </h1>
                     <div className="mt-[15px]">
-                        {article.body.slice(0, 1).map((item: any, i: number) => {
-                            return <p key={i} className="!text-[#3E404D]/[0.8] text-[14px] min-[650px]:text-[16px] leading-[21.7px] min-[650px]:leading-[24.8px]">
-                                {item.children[0]?.text}
-                                <br/>
+                        {/*{article.body.slice(0, 1).map((item: any, i: number) => {*/}
+                        <p className="!text-[#3E404D]/[0.8] text-[14px] min-[650px]:text-[16px] leading-[21.7px] min-[650px]:leading-[24.8px]">
+                            {article.excerpt}
+                                {/*<br/>*/}
                             </p>
-                        })}
+
                     </div>
                 </div>
             </div>}

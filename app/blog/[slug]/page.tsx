@@ -4,53 +4,24 @@ import {client} from "@/sanity/lib/client";
 import {PortableText} from "@portabletext/react"
 import formatDate from "@/utils/helpers/formatDate";
 import Image from "next/image"
+import {urlForImage} from "@/sanity/lib/image";
+import Footer from "@/components/Footer"
+
 async function Article({params}: {params: {slug:string}}) {
     const {slug} = params
     const article = await client.fetch(groq`*[_type == "post" && slug.current == '${slug}'][0]`);
     console.log(article.body);
-    // const ptComponents = {
-    //     types: {
-    //         image: ({ value }) => {
-    //             if (!value?.asset?._ref) {
-    //                 return null
-    //             }
-    //             return (
-    //                 <img
-    //                     alt={value.alt || ' '}
-    //                     loading="lazy"
-    //                     src={urlFor(value).width(320).height(240).fit('max').auto('format')}
-    //                 />
-    //             )
-    //         }
-    //     }
-    // }
-    // title,
-    //     "name": author->name,
-    //     "categories": categories[]->title,
-    //     "authorImage": author->image
-    // console.log(router.query.slug);
-
-    // useEffect(() => {
-    //    async function fetchPosts() {
-    //        const slug = params.slug;
-    //        if(params.slug) {
-    //            const post = await client.fetch(groq`*[_type == "post" && slug.current == '${slug}'][0]`);
-    //            return post
-    //        }
-    //        console.log(params.slug)
-    //    }
-    //     console.log(fetchPosts().then((data) => console.log(data)))
-    // }, [params.slug]);
 
     const myPortableTextComponents = {
         types: {
-            image: ({value}:{value: {imageUrl:string}}) => <Image fill src={value.imageUrl} alt=""/>,
+            image: ({value}:{value:any}) => <img alt="" style={{ width: '100%', height: 'auto' }}  src={urlForImage(value)}/>,
             callToAction: ({value, isInline}:{value:{url:string, text:string}, isInline:boolean}) =>
                 isInline ? (
                     <a href={value.url}>{value.text}</a>
                 ) : (
                     <div className="callToAction">{value.text}</div>
                 ),
+            h4: ({value}:{value: {text:string}}) => <h4 className="text-[18px]">{value.text}</h4>,
         },
         marks: {
             link: ({children, value}:any) => {
@@ -65,6 +36,7 @@ async function Article({params}: {params: {slug:string}}) {
     }
 
     return (
+        <>
         <div className="mt-[100px] min-[1400px]:mt-[50px] mb-[100px] w-full min-[770px]:w-[750px] mx-auto">
             {/*{article.body.slice(0, 1).map((item: any, i: number) => {*/}
             {/*    return <p key={i} className="!text-[#3E404D]/[0.8] text-[14px] min-[650px]:text-[16px] leading-[21.7px] min-[650px]:leading-[24.8px]">*/}
@@ -80,8 +52,12 @@ async function Article({params}: {params: {slug:string}}) {
                     {article.title}
                 </h1>
             </div>
-            <PortableText value={article.body} components={myPortableTextComponents}/>
+            <div className="prose">
+                <PortableText value={article.body} components={myPortableTextComponents}/>
+            </div>
         </div>
+            <Footer/>
+        </>
     );
 }
 
