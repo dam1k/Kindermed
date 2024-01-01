@@ -4,41 +4,6 @@ import {groq} from "next-sanity"
 import BlogSidebar from "./BlogSidebar";
 
 
-// const client = new GraphQLClient(
-//   "https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/clnzv3vau4jnn01t404al79um/master"
-// );
-//
-// const QUERY = gql`
-//   query Posts {
-//     posts {
-//       createdAt
-//       excerpt
-//       id
-//       publishedAt
-//       slug
-//       title
-//       tags
-//       updatedAt
-//       image {
-//         url
-//       }
-//     }
-//     postsConnection {
-//       edges {
-//         node {
-//           image {
-//             url
-//           }
-//           author {
-//             name
-//             id
-//           }
-//         }
-//       }
-//     }
-//   }
-// `;
-
 async function Blog() {
   const posts = await client.fetch(groq`*[_type == "post"] {
   ...,
@@ -77,3 +42,4 @@ async function Blog() {
 }
 
 export default Blog;
+export const dynamic = 'force-dynamic'

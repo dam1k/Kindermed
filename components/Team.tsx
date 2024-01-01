@@ -210,7 +210,7 @@ function Team({team}:{team:any}) {
                   </div>
                   <Link
                       className="leading-[140%] max-[1024px]:hidden underline text-darkGrey"
-                      href="/"
+                      href={`/orar#${doctor.department[0].name.toLowerCase()}`}
                   >
                     Vezi orarul
                   </Link>

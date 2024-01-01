@@ -14,6 +14,7 @@ import MobileMenu from "../components/MobileMenu";
 import OnlineAppointmentDesktop from "@/components/OnlineAppointmentDesktop";
 import OnlineAppointmentMobile from "@/components/OnlineAppointmentMobile";
 
+
 function Header() {
   const [activeLink, setActiveLink] = useState("");
   const [domLoaded, setDomLoaded] = useState<boolean>(false);
@@ -28,25 +29,27 @@ function Header() {
   const [showCallDropdown, setShowCallDropdown] = useState<boolean>(false);
   const [showAppointment, setShowAppointment] = useState<boolean>(false);
   const [day, setDay] = useState<number>(0);
-  const [working, setWorking] = useState<boolean>(false);
+  const [working, setWorking] = useState<boolean>(true);
 
   useEffect(() => {
     setWidth(window.innerWidth);
     const date = new Date();
     const today = date.getDay();
     const hours = date.getHours();
-    const minutes = date.getMinutes();
+    const minutes = date.getMinutes() + date.getHours() * 60;
+    const starting = 8 * 60 + 30
+    const closing = 18 * 60 + 30
     setDay(today);
     if (today === 0) {
       setWorking(false);
     } else if (today === 6) {
-      if (hours >= 9 && hours < 18) {
+      if (hours >= 9 && hours <= 18) {
         setWorking(true);
       } else {
         setWorking(false);
       }
     } else {
-      if (hours >= 8 && minutes >= 30 && hours <= 18 && minutes < 30) {
+      if(minutes > starting && minutes < closing) {
         setWorking(true);
       } else {
         setWorking(false);

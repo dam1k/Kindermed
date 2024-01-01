@@ -3,14 +3,15 @@ import {groq} from "next-sanity";
 import {client} from "@/sanity/lib/client";
 import {PortableText} from "@portabletext/react"
 import formatDate from "@/utils/helpers/formatDate";
-import Image from "next/image"
 import {urlForImage} from "@/sanity/lib/image";
 import Footer from "@/components/Footer"
 
 async function Article({params}: {params: {slug:string}}) {
     const {slug} = params
-    const article = await client.fetch(groq`*[_type == "post" && slug.current == '${slug}'][0]`);
-    console.log(article.body);
+    const article = await client.fetch(groq`*[_type == "post" && slug.current == '${slug}'][0] {
+    ...,
+    tags[]->
+    }`);
 
     const myPortableTextComponents = {
         types: {
@@ -51,6 +52,17 @@ async function Article({params}: {params: {slug:string}}) {
                 <h1 className="uppercase min-[650px]:text-[35px] leading-[22.4px] min-[650px]:leading-[49px] inline ml-[125px] min-[650px]:ml-[150px]">
                     {article.title}
                 </h1>
+                <div className="mt-[15px] flex gap-[8px]">
+                    {article.tags.map((tag:any) => {
+                        return <div key={tag._id} className={`border-[1px] text-[12px] leading-[14.4px] py-[5px] px-[10px] rounded-[10px]`}
+                        style={{
+                            borderColor: tag.color,
+                            color: tag.color
+                        }}>
+                            #{tag.title}
+                        </div>
+                    })}
+                </div>
             </div>
             <div className="prose">
                 <PortableText value={article.body} components={myPortableTextComponents}/>
