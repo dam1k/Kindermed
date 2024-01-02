@@ -10,6 +10,7 @@ import OnlineAppointmentMobile from "@/components/OnlineAppointmentMobile";
 import GreyServiceItem from "@/components/GreyServiceItem";
 const initialServices = services.slice(0, 5);
 const showAllServices = services.slice(5);
+import Image from "next/image"
 
 const variants = {
     open: {
@@ -57,9 +58,10 @@ const Services = () => {
     return (
         <div id="services">
              <div ref={servicesRef} className="pb-[35px] min-[1401px]:pb-[85px] relative">
-                <img
+                <Image
+                    fill
                     src="/Services.jpg"
-                    className="object-cover absolute top-0 left-0 z-[0] w-full h-full"
+                    className="object-cover absolute top-0 left-0 z-[0]"
                     alt=""
                 />
                 <div className="bg-blue/[0.85] absolute top-0 z-[1] left-0 w-full h-full"/>

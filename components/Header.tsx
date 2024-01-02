@@ -118,7 +118,7 @@ function Header() {
   return (
     <>
         <header
-          className="max-[1024px]:!px-[10px] container relative h-[60px] min-[1401px]:h-[250px] z-[2] flex flex-col items-center gap-[45px] max-[1400px]:!pt-[19px] !pt-[25px]"
+          className="relative z-[3] max-[1024px]:!px-[10px] container h-[60px] min-[1401px]:h-[250px]  flex flex-col items-center gap-[45px] max-[1400px]:!pt-[19px] !pt-[25px]"
         >
           <div className="flex justify-between max-[1400px] w-full items-center">
             <div className="min-[1401px]:flex-1 flex items-center min-[1401px]:gap-[35px]">
@@ -303,17 +303,17 @@ function Header() {
               return (
                 <li
                   key={link.href}
-                  className={`${link.href === activeLink ? "bg-[#00AAF1] text-[#fff] !border-transparent" : ""} transition-all cursor-pointer font-[500] text-[18px] py-[10.5px] px-[17px] border-[1px] border-[#3E404D]/[0.24] rounded-[57px] flex items-center leading-[105%]`}
+                  className={`relative z-[3] ${link.href === activeLink ? "bg-[#00AAF1] text-[#fff] !border-transparent" : ""} transition-all cursor-pointer font-[500] text-[18px] py-[10.5px] px-[17px] border-[1px] border-[#3E404D]/[0.24] rounded-[57px] flex items-center leading-[105%]`}
                   onClick={() => handleLinkClick(link.href)}
                 >
                   <span>{link.text}</span>
-                  {link.href === "#team" && (
-                    <div className="relative text-[#fff] h-[21px] w-[22px] rounded-[8px] ml-[8px] bg-blue text-[12px]">
-                      <span className="absolute top-[50%] left-[50%] leading-[105%] translate-x-[-50%] translate-y-[-50%]">
-                        13
-                      </span>
-                    </div>
-                  )}
+                  {/*{link.href === "#team" && (*/}
+                  {/*  <div className="relative text-[#fff] h-[21px] w-[22px] rounded-[8px] ml-[8px] bg-blue text-[12px]">*/}
+                      {/*<span className="absolute top-[50%] left-[50%] leading-[105%] translate-x-[-50%] translate-y-[-50%]">*/}
+                      {/*  13*/}
+                      {/*</span>*/}
+                  {/*  </div>*/}
+                  {/*)}*/}
                 </li>
               );
             })}

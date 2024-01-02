@@ -75,11 +75,11 @@ function MobileMenu({working, day, setMenuOpen, setAppointmentOpen, handleLinkCl
                                       handleClose();
                                   }}>
                                 <span>{link.text}</span>
-                                {link.href === "#team" && <div
-                                    className="flex items-center justify-center text-[#fff] h-[17px] w-[17px] rounded-[7px] ml-[8px] bg-blue">
-                                <span
-                                    className="!text-[10px] leading-[9px]">13</span>
-                                </div>}
+                                {/*{link.href === "#team" && <div*/}
+                                {/*    className="flex items-center justify-center text-[#fff] h-[17px] w-[17px] rounded-[7px] ml-[8px] bg-blue">*/}
+                                {/*<span*/}
+                                {/*    className="!text-[10px] leading-[9px]">13</span>*/}
+                                {/*</div>}*/}
                             </li>
                         );
                     })}
@@ -199,10 +199,11 @@ function MobileMenu({working, day, setMenuOpen, setAppointmentOpen, handleLinkCl
                     <div className="flex mt-[15px] gap-[10px] justify-between">
                         <Button className="flex flex-1 max-w-[230px] gap-[7px] items-center"
                         onClick={handleAppointmentBtn}>
-                            <img
+                            <Image
+                                width={16}
+                                height={16}
                                 src="/icons/Smile.svg"
                                 alt="kindermed"
-                                className="w-[16px] h-[16px]"
                             />
                             Programare Online
                         </Button>

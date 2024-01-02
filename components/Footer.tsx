@@ -139,10 +139,11 @@ function Footer() {
             <div className="flex flex-col gap-[85px] min-[1451px]:gap-[75px] max-[1024px]:pt-[45px]">
               <div>
                 <div className="flex gap-[8px]">
-                  <img
+                  <Image
+                      width={21}
+                      height={21}
                     alt=""
                     src="/icons/ArrowNarrow.svg"
-                    className="w-[21px] h-[21px]"
                   />
                   <h3 className="uppercase text-[16px] !text-[#fff] min-[1024px]:text-[20px] leading-[21px]">
                     Programează-te online
@@ -156,18 +157,21 @@ function Footer() {
                   document.body.style.overflowY = "hidden"
                   setShowAppointment(true)}}
                         className="bg-[#fff] mt-[30px] flex gap-[6px] items-center leading-[105%]">
-                  <img
+                  <Image
+                      width={17}
+                      height={17}
                     alt=""
                     src="/icons/SmileBlack.svg"
-                    className="w-[17px] h-[17px]"
                   />
                   <span className="!text-black">Programare Online</span>
                 </Button>
               </div>
               <div>
                 <div className="flex gap-[8px]">
-                  <img
+                  <Image
                     alt=""
+                    width={21}
+                    height={21}
                     src="/icons/ArrowNarrow.svg"
                   />
                   <h3 className="uppercase !text-[#fff] text-[16px] min-[1025px]:text-[20px] leading-[16.8px] min-[1025px]:leading-[21px]">
@@ -183,7 +187,9 @@ function Footer() {
                         href={contact.href}
                         key={contact.href}
                       >
-                        <img
+                        <Image
+                            width={17}
+                            height={17}
                           alt=""
                           className="w-[17px] h-[17px]"
                           src={contact.icon}
@@ -198,10 +204,11 @@ function Footer() {
 
             <div className="">
               <div className="flex gap-[8px]">
-                <img
+                <Image
+                    width={21}
+                    height={21}
                   alt=""
                   src="/icons/ArrowNarrow.svg"
-                  className="w-[21px] h-[21px]"
                 />
                 <h3 className="uppercase !text-[#fff] text-[16px] min-[1025px]:text-[20px] leading-[16.8px] min-[1025px]:leading-[21px]">
                   Telefoane de contact
@@ -219,8 +226,9 @@ function Footer() {
                       }
                       className="leading-[105%] flex px-[17px] py-[12px] gap-[10px] items-center border-[1px] rounded-[15px] !border-[#fff]/[0.4] !text-[#fff]"
                     >
-                      <img
-                          className="w-[17px] h-[17px]"
+                      <Image
+                          width={17}
+                          height={17}
                         alt=""
                         src={i === 3 ? "/icons/Viber.svg" : "/icons/Phone.svg"}
                       />
@@ -267,8 +275,10 @@ function Footer() {
           href="https://dreamsite.md"
         >
           Developed by
-          <img
-              className="shrink-0 h-[29px] w-[12.65px]"
+          <Image
+              className="shrink-0"
+              width={12.65}
+              height={29}
             src="/icons/DreamSiteLogo.svg"
             alt=""
           />

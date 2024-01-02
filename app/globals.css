@@ -282,3 +282,7 @@ select option {
 input {
     outline: 0 !important;
 }
+
+.grey-boxshadow {
+    box-shadow: 0 4px 25px  rgba(0, 0, 0, 0.07);
+}

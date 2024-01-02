@@ -9,7 +9,7 @@ function CallDropdownContent() {
             initial={{opacity: 0}}
             animate={{opacity: 1}}
             exit={{opacity: 0}}
-            className="absolute w-[300px] flex flex-col gap-[7px] bg-[#fff] left-[-17px] top-[57px] py-[14px] px-[17px] rounded-[22px]">
+            className="grey-boxshadow absolute z-[100] w-[300px] flex flex-col gap-[7px] bg-[#fff] left-[-17px] top-[57px] py-[14px] px-[17px] rounded-[22px]">
             {phoneNumbers.map((number:phoneNumber, i) => {
                 return <a href={`${number?.viber ? `viber://chat?number=%2B${number.viber}` : `tel:${number.phone}`}`} key={i} className="leading-[145%]">
                     {number?.viber && <span className="uppercase pr-[10px]">Viber</span>}

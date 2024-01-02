@@ -25,6 +25,7 @@ function Package({pachet, i}:{pachet:any, i:number}) {
         {packagesIcons[i]?.src &&
           <Image
             src={packagesIcons[i].src}
+            className="mt-[25px] min-[1400px]:mt-0"
             width={packagesIcons[i].sizes[0]}
             height={packagesIcons[i].sizes[1]}
             alt=""
@@ -37,7 +38,7 @@ function Package({pachet, i}:{pachet:any, i:number}) {
         <div className="flex flex-col gap-[22px]">
           {pachet.specialists && (
             <div className="flex">
-              <div className="w-[145px] min-[1025px]:w-[180px]">
+              <div className="shrink-0 w-[180px] min-[1025px]:w-[180px]">
                 <h1 className="uppercase min-[1025px]:text-[20px]">
                   Specialiști
                 </h1>

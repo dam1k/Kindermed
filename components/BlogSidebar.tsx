@@ -1,12 +1,23 @@
 "use client";
 
-import React from "react";
+import React, {useEffect, useState} from "react";
 import formatDate from "@/utils/helpers/formatDate";
 import { useRouter } from "next/navigation";
 import { Button } from "./ui/Button";
 import { urlForImage } from "@/sanity/lib/image";
+import Image from "next/image"
 
 const BlogSidebar = ({ posts }: { posts: any }) => {
+    const [width, setWidth] = useState<number>(0);
+
+    useEffect(() => {
+        setWidth(window.innerWidth);
+
+        window.addEventListener("resize", () => setWidth(window.innerWidth));
+        return () =>
+            window.removeEventListener("resize", () => setWidth(window.innerWidth));
+    }, []);
+
   const router = useRouter();
   return (
     <div className="min-[1601px]:mr-[225px]">
@@ -22,9 +33,11 @@ const BlogSidebar = ({ posts }: { posts: any }) => {
                 className="flex gap-[10px] min-[1025px]:gap-[25px]"
                 key={post._id}
               >
-                <img
+                <Image
                   className="object-cover rounded-[14px] max-[1024px]:h-[90px] max-[1024px]:w-[90px] min-[1025px]:w-[200px] min-[1025px]:h-[125px]"
                   src={urlForImage(post.mainImage)}
+                  width={width > 1024 ? 90 : 200}
+                  height={width > 1024 ? 90 : 125}
                   alt=""
                 />
                 <div className="">

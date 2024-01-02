@@ -93,7 +93,7 @@ function OnlineAppointmentDesktop({setOpen, selectedDepartment, selectedActiveDe
     return (
         <motion.div onClick={handleOverlayClick}
                     ref={overlayRef}
-                    className={`max-[815px]:hidden overflow-y-scroll overflow-x-hidden h-screen pb-[159px] bg-blur items-start px-[150px] min-[1600px]:px-[285px] flexible-grid gap-[15px] pt-[159px] fixed top-0 left-0 w-screen z-[10000]`}
+                    className={`max-[815px]:hidden overflow-y-scroll overflow-x-hidden h-screen pb-[159px] bg-blur items-start px-[150px] min-[1600px]:px-[285px] flexible-grid gap-[15px] pt-[159px] fixed top-0 left-0 w-screen z-[11]`}
         initial={{opacity: 0}}
         animate={{opacity: 1}}
         exit={{opacity: 0}}>
