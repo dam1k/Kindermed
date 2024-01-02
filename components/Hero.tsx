@@ -21,7 +21,7 @@ const Hero = () => {
   }, []);
 
   return (
-      <div className="relative z-[11]">
+      <>
         <div className="container hero max-[1024px]:px-[10px] relative flex flex-col items-center justify-center">
           <div className="flex relative flex-col items-center justify-center translate-y-[-30px] min-[1401px]:translate-y-[-125px]">
             <Image
@@ -50,27 +50,28 @@ const Hero = () => {
                 {/*  +13*/}
                 {/*</span>*/}
               {/*</div>*/}
-              <Image
-                src="/icons/DoctorIcon1.svg"
-                alt=""
-                width={width > 1024 ? 55 : 44}
-                height={width > 1024 ? 55 : 44}
-                className="relative z-[3] "
-              />
-              <Image
-                  width={width > 1024 ? 55 : 44}
-                  height={width > 1024 ? 55 : 44}
-                src="/icons/DoctorIcon2.svg"
-                alt=""
-                className="ml-[-21px] z-[2]"
-              />
-              <Image
-                  width={width > 1024 ? 55 : 44}
-                  height={width > 1024 ? 55 : 44}
-                src="/icons/DoctorIcon3.svg"
-                alt=""
-                className="ml-[-21px] z-[1]"
-              />
+
+                <div className="relative z-[3] h-[44px] min-[1025px]:h-[55px] w-[44px] min-[1025px]:w-[55px]">
+                    <Image
+                        src="/icons/DoctorIcon1.png"
+                        alt=""
+                        fill
+                    />
+                </div>
+                <div className="relative h-[44px] ml-[-21px] z-[2] min-[1025px]:h-[55px] w-[44px] min-[1025px]:w-[55px]">
+                        <Image
+                            fill
+                            src="/icons/DoctorIcon2.png"
+                            alt=""
+                        />
+                </div>
+                <div className="relative ml-[-21px] z-[1] h-[44px] min-[1025px]:h-[55px] w-[44px] min-[1025px]:w-[55px]">
+                  <Image
+                      src="/icons/DoctorIcon3.png"
+                      alt=""
+                      fill
+                  />
+                </div>
               <Button
                 className="flex uppercase max-[1024px]:!py-[11.5px] max-[1024px]:!leading-[16.8px]  max-[1024px]:h-[40px] max-[1024px]:px-[25px] max-[1024px]:text-[12px] ml-[-21px] px-[30px]"
                 size="lg"
@@ -98,7 +99,7 @@ const Hero = () => {
                   <OnlineAppointmentMobile setOpen={setShowAppointment} />
               )}
             </AnimatePresence>
-        </div>
+        </>
   );
 };
 

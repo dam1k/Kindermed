@@ -42,8 +42,7 @@ function Footer() {
                 Detalii
               </p>
               <h2 className="inline ml-[100px] min-[1024px]:ml-[150px] min-[1600px]:ml-[250px] uppercase text-[20px] min-[1025px]:text-[35px] leading-[140%] !text-[#fff] tracking-[-0.35px]">
-                Echipa noastră este la dispoziția Informează-te despre dvs. pentru a oferi asistență și consultații medicale la doar un
-                apel distanță
+                Echipa noastră este la dispoziția dvs. pentru a oferi asistență și consultații medicale la doar un apel distanță
               </h2>
             </div>
             {/*<h2 className="uppercase text-[20px] lg:text-[35px] leading-[140%] !text-[#fff] tracking-[-0.35px]">*/}

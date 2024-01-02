@@ -68,7 +68,7 @@ async function Article({params}: {params: {slug:string}}) {
                     })}
                 </div>
             </div>
-            <div className="prose">
+            <div className="prose max-w-full">
                 <PortableText value={article.body} components={myPortableTextComponents}/>
             </div>
         </div>

@@ -118,7 +118,7 @@ function Header() {
   return (
     <>
         <header
-          className="relative z-[3] max-[1024px]:!px-[10px] container h-[60px] min-[1401px]:h-[250px]  flex flex-col items-center gap-[45px] max-[1400px]:!pt-[19px] !pt-[25px]"
+          className="relative z-[3] max-[1024px]:!px-[10px] container h-[60px] min-[1401px]:h-[250px] flex flex-col items-center gap-[45px] max-[1400px]:!pt-[19px] !pt-[25px]"
         >
           <div className="flex justify-between max-[1400px] w-full items-center">
             <div className="min-[1401px]:flex-1 flex items-center min-[1401px]:gap-[35px]">
@@ -289,9 +289,11 @@ function Header() {
                   setShowAppointment(true)}
                 }
               >
-                <img
+                <Image
                   src="/icons/Smile.svg"
                   alt="kindermed"
+                  width={16}
+                  height={16}
                   className="w-[16px] h-[16px]"
                 />
                 Programare Online

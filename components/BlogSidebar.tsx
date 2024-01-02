@@ -8,6 +8,7 @@ import { urlForImage } from "@/sanity/lib/image";
 import Image from "next/image"
 
 const BlogSidebar = ({ posts }: { posts: any }) => {
+    const router = useRouter();
     const [width, setWidth] = useState<number>(0);
 
     useEffect(() => {
@@ -18,7 +19,10 @@ const BlogSidebar = ({ posts }: { posts: any }) => {
             window.removeEventListener("resize", () => setWidth(window.innerWidth));
     }, []);
 
-  const router = useRouter();
+    // function handlePostClick() {
+    //     router.push()
+    // }
+
   return (
     <div className="min-[1601px]:mr-[225px]">
       <div className="flex flex-col gap-[15px] min-[1025px]:gap-[25px]">
@@ -30,8 +34,9 @@ const BlogSidebar = ({ posts }: { posts: any }) => {
           posts.map((post: any) => {
             return (
               <div
-                className="flex gap-[10px] min-[1025px]:gap-[25px]"
+                className="flex gap-[10px] min-[1025px]:gap-[25px] cursor-pointer"
                 key={post._id}
+                onClick={() => router.push(`/blog/${post.slug.current}`)}
               >
                 <Image
                   className="object-cover rounded-[14px] max-[1024px]:h-[90px] max-[1024px]:w-[90px] min-[1025px]:w-[200px] min-[1025px]:h-[125px]"

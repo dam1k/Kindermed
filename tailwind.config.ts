@@ -11,6 +11,7 @@ module.exports = {
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
       "./app/blog/[slug]",
+      "./app/pachete"
   ],
   theme: {
     extend: {

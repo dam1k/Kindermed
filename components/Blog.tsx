@@ -10,6 +10,7 @@ async function Blog() {
   tags[]->
   }`);
 
+
   return (
       <>
         <div className="bg-lightGreyBg">
@@ -34,7 +35,7 @@ async function Blog() {
                 cu evenimentele importante organizate de KinderMed.”
               </h3>
             </div>
-            {posts.length && <BlogSidebar posts={posts.slice(1)} />}
+            {posts.length && <BlogSidebar posts={posts} />}
           </div>
         </div>
         </>
@@ -42,4 +43,3 @@ async function Blog() {
 }
 
 export default Blog;
-export const dynamic = 'force-dynamic'

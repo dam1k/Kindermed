@@ -38,14 +38,14 @@ function Package({pachet, i}:{pachet:any, i:number}) {
         <div className="flex flex-col gap-[22px]">
           {pachet.specialists && (
             <div className="flex">
-              <div className="shrink-0 w-[180px] min-[1025px]:w-[180px]">
+              <div className="shrink-0  w-[145px] min-[1025px]:w-[180px]">
                 <h1 className="uppercase min-[1025px]:text-[20px]">
                   Specialiști
                 </h1>
                 {pachet.specialistsDesc &&
                   pachet.specialistsDesc.map((desc: string, i: number) => {
                     return (
-                      <p className="text-[14px] text-black/[0.65]" key={i}>
+                      <p className="text-[12px] w-[85%] min-[1025px]:text-[14px] text-black/[0.65]" key={i}>
                         {desc}
                       </p>
                     );
@@ -60,14 +60,14 @@ function Package({pachet, i}:{pachet:any, i:number}) {
           )}
           {pachet.consultations && (
             <div className="flex">
-              <div className="w-[145px] min-[1025px]:w-[180px]">
+              <div className="shrink-0 w-[145px] min-[1025px]:w-[180px]">
                 <h1 className="mb-[3px] uppercase min-[1025px]:text-[20px]">
                   Consultații
                 </h1>
                 {pachet.consultationsDesc &&
                   pachet.consultationsDesc.map((desc: string, i: number) => {
                     return (
-                      <p className="text-[14px] text-black/[0.65]" key={i}>
+                      <p className="text-[12px] w-[85%] min-[1025px]:text-[14px] text-black/[0.65]" key={i}>
                         {desc}
                       </p>
                     );
@@ -82,14 +82,14 @@ function Package({pachet, i}:{pachet:any, i:number}) {
           )}
           {pachet.investigations && (
             <div className="flex">
-              <div className="w-[145px] min-[1025px]:w-[180px]">
+              <div className="shrink-0 w-[145px] min-[1025px]:w-[180px]">
                 <h1 className="mb-[3px] uppercase min-[1025px]:text-[20px]">
                   Investigații
                 </h1>
                 {pachet.investigationsDesc &&
                   pachet.investigationsDesc.map((desc: string, i: number) => {
                     return (
-                      <p className="text-[14px] text-black/[0.65]" key={i}>
+                      <p className="text-[12px] w-[85%] min-[1025px]:text-[14px] text-black/[0.65]" key={i}>
                         {desc}
                       </p>
                     );
@@ -106,14 +106,14 @@ function Package({pachet, i}:{pachet:any, i:number}) {
           )}
           {pachet.examinations && (
             <div className="flex">
-              <div className="w-[145px] min-[1025px]:w-[180px]">
-                <h1 className="uppercase min-[1025px]:text-[20px] w-[180px]">
+              <div className="shrink-0 w-[145px] min-[1025px]:w-[180px]">
+                <h1 className="uppercase min-[1025px]:text-[20px]">
                   Examinări
                 </h1>
                 {pachet.examinationsDesc &&
                   pachet.examinationsDesc.map((desc: string, i: number) => {
                     return (
-                      <p className="text-[14px] text-black/[0.65]" key={i}>
+                      <p className="text-[12px] w-[85%] min-[1025px]:text-[14px] text-black/[0.65]" key={i}>
                         {desc}
                       </p>
                     );
@@ -143,7 +143,7 @@ function Package({pachet, i}:{pachet:any, i:number}) {
                     {/*  ({packagePrice.oldPrice} lei)*/}
                     {/*</p>*/}
                     {i !== pachet.prices.length - 1 && (
-                      <span className="text-blue leading-[150%] font-medium text-[30px]">
+                      <span className="text-blue leading-[150%] font-medium min-[1025px]:text-[30px] text-[20px]">
                         /
                       </span>
                     )}
