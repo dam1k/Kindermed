@@ -23,7 +23,14 @@ async function Article({params}: {params: {slug:string}}) {
                 ) : (
                     <div className="callToAction">{value.text}</div>
                 ),
-            h4: ({value}:{value: {text:string}}) => <h4 className="text-[18px]">{value.text}</h4>,
+        },
+        block: {
+            //@ts-ignore
+            h3: ({children}) => <h3 className="!text-[18px] leading-[25.2px] min-[770px]:leading-[28px] uppercase text-black !font-[400]">{children}</h3>,
+            //@ts-ignore
+            h4: ({children}) => <h4 className="!text-[18px] leading-[25.2px] min-[770px]:leading-[28px] text-black !font-[400]">{children}</h4>,
+            //@ts-ignore
+            normal: ({children}) => <p className="text-[14px] leading-[21.7px] text-black/[0.8] min-[770px]:leading-[24.8px] min-[770px]:text-[16px] !font-[400]">{children}</p>,
         },
         marks: {
             link: ({children, value}:any) => {
@@ -53,7 +60,7 @@ async function Article({params}: {params: {slug:string}}) {
                 <p className="text-[#068FFF] absolute left-0 text-[16px] min-[650px]:text-[16px] top-[9px] leading-[16.8px]">
                     {formatDate(new Date(article?.publishedAt), ".")}
                 </p>
-                <h1 className="uppercase min-[650px]:text-[35px] leading-[22.4px] min-[650px]:leading-[49px] inline ml-[125px] min-[650px]:ml-[150px]">
+                <h1 className="uppercase min-[650px]:text-[35px] text-black leading-[22.4px] min-[650px]:leading-[49px] inline ml-[125px] min-[650px]:ml-[150px]">
                     {article.title}
                 </h1>
                 <div className="mt-[15px] flex gap-[8px]">
@@ -69,6 +76,7 @@ async function Article({params}: {params: {slug:string}}) {
                 </div>
             </div>
             <div className="prose max-w-full">
+                {/*@ts-ignore*/}
                 <PortableText value={article.body} components={myPortableTextComponents}/>
             </div>
         </div>
