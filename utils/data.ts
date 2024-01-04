@@ -9,6 +9,7 @@ export interface service {
     id: number;
     shortDesc?: string;
     longDesc?: string;
+    img?:string;
 }
 
 export interface busDirection {

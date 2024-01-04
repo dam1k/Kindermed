@@ -4,6 +4,7 @@ import {navLink, navLinks, schedule} from "@/utils/data";
 import Link from "next/link";
 import {AnimatePresence, motion} from "framer-motion"
 import {Button} from "@/components/ui/Button";
+// import ContactInfoMobile from "@/components/ContactInfoMobile";
 
 const variants = {
     open: {
@@ -28,6 +29,7 @@ interface IMobileMenuProps {
 
 function MobileMenu({working, day, setMenuOpen, setAppointmentOpen, handleLinkClick}:IMobileMenuProps) {
     const [showSchedule, setShowSchedule] = useState<boolean>(false);
+    const [showContactInfo, setShowContactInfo] = useState<boolean>(false);
 
     const menuRef = useRef<HTMLDivElement>(null);
 
@@ -98,12 +100,12 @@ function MobileMenu({working, day, setMenuOpen, setAppointmentOpen, handleLinkCl
                                 +373 22 111 061
                             </a>
                         </div>
-                        {/*<Image*/}
-                        {/*    src="/icons/ChevronDown.svg"*/}
-                        {/*    width={17}*/}
-                        {/*    height={17}*/}
-                        {/*    alt=""*/}
-                        {/*/>*/}
+                        <Image
+                            src="/icons/ChevronDown.svg"
+                            width={17}
+                            height={17}
+                            alt=""
+                        />
                     </div>
                 </div>
                 <div className="mt-[17px] !bg-[#686A74]/[0.1] rounded-[24px] p-[15px]">

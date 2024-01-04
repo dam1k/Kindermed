@@ -175,12 +175,12 @@ function Team({team}:{team:any}) {
                   if (!scrolling) handleClick("left");
                 }}
             />
-            <Image
+            <img
                 alt=""
                 className="hover:scale-125 transition-all cursor-pointer"
                 src="/icons/ChevronLeft.svg"
-                width={40}
-                height={40}
+                width={24}
+                height={24}
                 onClick={() => {
                   if (!scrolling) handleClick("right");
                 }}
