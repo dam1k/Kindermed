@@ -4,9 +4,10 @@ import {navLink, navLinks, schedule} from "@/utils/data";
 import Link from "next/link";
 import {AnimatePresence, motion} from "framer-motion"
 import {Button} from "@/components/ui/Button";
-// import ContactInfoMobile from "@/components/ContactInfoMobile";
+import ContactInfoMobile from "@/components/ContactInfoMobile";
+import CallDropdownContent from "@/components/CallDropdownContent";
 
-const variants = {
+const scheduleVariants = {
     open: {
         opacity: 1,
         height: "auto",
@@ -18,6 +19,20 @@ const variants = {
         marginTop: 0,
     },
 };
+
+const contactsVariants = {
+    open: {
+        opacity: 1,
+        height: "auto",
+        marginTop: 17,
+    },
+    collapsed: {
+        opacity: 0,
+        height: 0,
+        marginTop: 0,
+    },
+};
+
 
 interface IMobileMenuProps {
     working:boolean;
@@ -87,27 +102,40 @@ function MobileMenu({working, day, setMenuOpen, setAppointmentOpen, handleLinkCl
                     })}
                 </ul>
                 <div className="mt-[35px] flex gap-[35px]">
-                    <div className="flex flex-col gap-[3px]">
-                        <p className="text-[12px] leading-[105%]">Adresa:</p>
-                        <p className="text-[14px] leading-[105%]">
-                            Str. Vasile Alecsandri 87
-                        </p>
-                    </div>
-                    <div className="flex cursor-pointer items-center">
+                    <div className="relative flex cursor-pointer items-center">
                         <div className="ml-[10px] mr-[7px] flex flex-col justify-center items-start text-black gap-[3px]">
                             <p className="text-[12px] leading-[105%]">Apelează-ne</p>
                             <a href="tel:+37322111061" className="text-[14px] leading-[105%]">
                                 +373 22 111 061
                             </a>
                         </div>
+                        <button onClick={() => setShowContactInfo((prev) => !prev)}>
                         <Image
                             src="/icons/ChevronDown.svg"
                             width={17}
                             height={17}
                             alt=""
                         />
+                        </button>
+                    </div>
+                    <div className="flex flex-col gap-[3px]">
+                        <p className="text-[12px] leading-[105%]">Adresa:</p>
+                        <p className="text-[14px] leading-[105%]">
+                            Str. Vasile Alecsandri 87
+                        </p>
                     </div>
                 </div>
+                <AnimatePresence mode="wait" initial={false}>
+                    {showContactInfo &&  <motion.div
+                            variants={contactsVariants}
+                            key="contacts_mobile"
+                            initial="collapsed"
+                            animate="open"
+                            exit="collapsed">
+                        <CallDropdownContent className="relative !bg-[#686A74]/[0.1] top-0 left-0 w-full min-[500px]:w-[300px]"/>
+                    </motion.div>}
+                </AnimatePresence>
+
                 <div className="mt-[17px] !bg-[#686A74]/[0.1] rounded-[24px] p-[15px]">
                     <div className="cursor-pointer flex items-center justify-between" onClick={() => setShowSchedule((prev) => !prev)}>
                         <div className="flex items-center">
@@ -147,7 +175,7 @@ function MobileMenu({working, day, setMenuOpen, setAppointmentOpen, handleLinkCl
 
                     <AnimatePresence mode="wait" initial={false}>
                         {showSchedule && <motion.div
-                            variants={variants}
+                            variants={scheduleVariants}
                             key="schedule"
                             initial="collapsed"
                             animate="open"
@@ -194,8 +222,6 @@ function MobileMenu({working, day, setMenuOpen, setAppointmentOpen, handleLinkCl
                             </div>
                         </motion.div>}
                     </AnimatePresence>
-
-
 
 
                     <div className="flex mt-[15px] gap-[10px] justify-between">

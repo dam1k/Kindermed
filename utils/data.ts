@@ -93,6 +93,7 @@ export const services: service[] = [
     {
         name: "PEDIATRIE/NEONATOLOGIE",
         desc: "",
+        img: "Pediatrie.jpg",
         id: 1,
         shortDesc: `Consultațiile pediatrice sunt importante pentru a urmări starea de sănătăte a copiilor. Acestea nu numai că ajută la monitorizarea
                     creșterii și dezvoltării copilului, ci și la detectarea precoce a problemelor de sănătate și la prevenirea afecțiunilor posibile.`,
@@ -106,11 +107,12 @@ export const services: service[] = [
                     nou-nascutul prematur.
                     La clinica KinderMed Pediatric & Family Care, vă puteți programa de luni până sâmbătă la unul pediatrii clinicii, atât pentru o
                     consultație de rutină, cât și pentru o consultație de urgență, în cazul unei eventuale probleme de sănătate a micuțului
-                    dumneavoastră.`
+                    dumneavoastră.`,
     },
     {
         name: "ORL",
         desc: "",
+        img: "ORL.jpg",
         id: 2,
         shortDesc: `Otorinolaringologia sau ORL este specialitatea care face diagnosticul și tratează afecțiunile urechilor , nasului și gâtului atât la copii
                     cât și la maturi .`,
@@ -131,6 +133,7 @@ export const services: service[] = [
     {
         name: "OFTALMOLOGIE",
         desc: "",
+        img: "Oftalmologie.jpg",
         id: 3,
         shortDesc: `Oftalmologii sunt responsabili pentru diagnosticul, prevenirea și tratamentul afecțiunilor ochilor și problemelor de vedere la copii și
                     adulți.`,
@@ -158,6 +161,7 @@ export const services: service[] = [
     {
         name: "NEUROLOGIE PEDIATRICĂ",
         desc: "",
+        img: "Neurologie.jpg",
         id: 4,
         shortDesc: `Un neurolog este medicul specializat în tratarea afecțiunilor sistemului nervos central și periferic. Neurologia pediatrică este o
                     ramură a medicinei care se ocupă cu diagnosticul și gestionarea bolilor neurologice la nou-născuți, sugari, copii și adolescenți.`,
@@ -186,6 +190,7 @@ export const services: service[] = [
     {
         name: "PNEUMOLOGIE",
         desc: "",
+        img: "Pneumologie.jpg",
         id: 5,
         shortDesc: `Pneumologia este specialitatea medicală care se ocupa cu prevenirea, diagnosticarea și tratarea bolilor plămânilor, bronhiilor,
                     pleurei și mediastinului.`,
@@ -207,6 +212,7 @@ export const services: service[] = [
     {
         name: "ORTOPEDIE",
         desc: "",
+        img: "Ortopedie.jpg",
         id: 6,
         shortDesc: `Sistemul osteo-articular este cel ce ne dă posibilitate să ne mişcăm, de aceea sănătatea oaselor şi a muşchilor nu trebuie tratată
                     superficial. Ortopedul este medicul care se ocupă de diagnosticarea, tratarea și prevenirea bolilor și deformațiilor ale sistemului
@@ -229,6 +235,7 @@ export const services: service[] = [
     {
         name: "DERMATOLOGIE",
         desc: "",
+        img: "Dermatologie.jpg",
         id: 7,
         shortDesc: `Dermatologia este specialitatea medicală care se ocupă cu studiul afecțiunilor pielii, anexelor acestia (păr, unghii, glande
                     sudoripare, glande sebacee) și ale mucoaselor adiacente (cavitate bucală și organe genitale).`,
@@ -252,6 +259,7 @@ export const services: service[] = [
     {
         name: "ENDOCRINOLOGIE",
         desc: "",
+        img: "Endocrinologie.jpg",
         id: 8,
         shortDesc: `Endocrinologia este o ramură a medicinei care se ocupă de sistemul endocrin și de bolile acestuia. Domeniul se concentrează pe
                     glandele endocrine și pe secrețiile acestora, numite hormoni.`,
@@ -271,6 +279,7 @@ export const services: service[] = [
     {
         name: "CHIRURGIE PEDIATRICĂ",
         desc: "",
+        img: "Chirurgie.jpg",
         id: 9,
         shortDesc: `Chirurgia pediatrică se ocupă cu patologia chirurgicală congenitală sau dobândită a copiilor - din perioada neonatală până la
                     pubertate. Un copil nu poate fi tratat în același mod ca un pacient adult de talie mai mică. Deși copilul prezintă aceleași organe și
@@ -301,6 +310,7 @@ export const services: service[] = [
     {
         name: "GINECOLOGIE",
         desc: "",
+        img: "Ginecologie.jpg",
         id: 10,
         shortDesc: `Ginecolog - este medicul specializat pe diagnosticarea, prevenirea, monitorizarea și tratarea bolilor sistemului reproductiv
                     feminin, inclusiv a celor care implică hormonii sexuali feminini.`,
@@ -336,6 +346,7 @@ export const services: service[] = [
     {
         name: "MAMOLOGIE",
         desc: "",
+        img: "Mamologie.jpg",
         id: 11,
         shortDesc: `Mamologia este o ramură a medicinei care se ocupă cu diagnosticul, tratamentul și profilaxia afecțiunilor sânului.
                     Competența unui medic mamolog include diagnosticul și tratamentul mai multor boli, așa ca: lactostaza, mastopatiile, chisturile,
@@ -364,6 +375,7 @@ export const services: service[] = [
     {
         name: "IMAGISTICĂ",
         desc: "",
+        img: "Imagistica.jpg",
         id: 12,
         shortDesc: `Ecografia este metoda prin care se pot vizualiza diferite structuri anatomice cu ajutorul ultrasunetelor.`,
         longDesc: `La momnet, ecografia este principala metodă de screening în medicină, datorită avantajelor pe care le oferă: rapiditatea obținerii

@@ -187,7 +187,10 @@ function OnlineAppointmentDesktop({setOpen, selectedDepartment, selectedActiveDe
             </div>
                 <div ref={infoBoxRef} className=" max-[1350px]:col-span-2 rounded-[50px] flex flex-col gap-[25px] p-[35px] bg-[#fff]">
                     {/*<Image src=""/>*/}
-                        <div className="bg-[#E7E9EC] rounded-[30px] h-[400px] w-full" />
+                    {/*    <div className="bg-[#E7E9EC] rounded-[30px] h-[400px] w-full" />*/}
+                    <div className="h-[400px] w-full relative">
+                        <Image src={`/${activeDepartment.img}`} fill alt="" className="rounded-[30px] object-cover w-full h-[400px]" />
+                    </div>
                     <div className="">
                         <p className="mb-[12px] text-[20px] leading-[28px]">
                             {`Despre ${department}`}

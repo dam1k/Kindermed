@@ -9,7 +9,6 @@ interface ContactInfoMobileProps {
 function ContactInfoMobile({handleClose}:ContactInfoMobileProps) {
     const menuRef = useRef<HTMLDivElement>(null);
 
-
     function handleOverlayClick(e:React.MouseEvent<HTMLDivElement>) {
         if(menuRef.current) {
             //@ts-ignore
@@ -18,6 +17,7 @@ function ContactInfoMobile({handleClose}:ContactInfoMobileProps) {
             }
         }
     }
+
     return (
         <motion.div className="min-[1401px]:hidden fixed top-0 left-0 h-screen w-screen bg-[rgba(26, 26, 32, 0.37)] backdrop-blur-[17.5px] z-[1000]"
                     initial={{opacity: 0}}
