@@ -189,7 +189,7 @@ function OnlineAppointmentDesktop({setOpen, selectedDepartment, selectedActiveDe
                     {/*<Image src=""/>*/}
                     {/*    <div className="bg-[#E7E9EC] rounded-[30px] h-[400px] w-full" />*/}
                     <div className="h-[400px] w-full relative">
-                        <Image src={`/${activeDepartment.img}`} fill alt="" className="rounded-[30px] object-cover w-full h-[400px]" />
+                        <Image src={activeDepartment?.img || ""} fill alt="" className="rounded-[30px] object-cover w-full h-[400px]" />
                     </div>
                     <div className="">
                         <p className="mb-[12px] text-[20px] leading-[28px]">
