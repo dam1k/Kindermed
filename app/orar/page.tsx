@@ -33,4 +33,3 @@ async function Schedule() {
 }
 
 export default Schedule;
-export const dynamic = 'force-dynamic'

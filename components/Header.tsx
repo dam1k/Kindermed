@@ -102,13 +102,6 @@ function Header() {
     if(href.startsWith("#")) {
       router.push(`/${href}`);
       setActiveLink("");
-      // console.log(href)
-      // const el = document.querySelector(href);
-      // setTimeout(() => {
-      //   if(el) {
-      //     el.scrollTo(0, 0);
-      //   }
-      // }, 300);
     } else {
       router.push(href);
       setActiveLink(href);

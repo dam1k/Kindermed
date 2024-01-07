@@ -36,7 +36,7 @@ function DepartmentSchedule({ department, i, departments }: { department: any, i
                         return <div className={`shrink-0 ${i === 0 ? "max-[1024px]:pl-[10px] max-[1315px]:pl-[25px]" : i === department.doctors.length-1 ? "pr-[10px]" : ""}`}
                                     key={doctor._id}>
                             <div className="w-[230px] h-[230px] mb-[17px]">
-                                <img className="rounded-[15px] w-full h-full object-cover object-top" src={doctor.mainImage ? urlForImage(doctor.mainImage) : "/Doctor2.jpg"} alt=""/>
+                                <img className="rounded-[15px] w-full h-full object-cover object-top" src={doctor.mainImage ? urlForImage(doctor.mainImage) : "/doctorImgNotFoundSquare.png"} alt=""/>
                             </div>
                            <div className="mb-[20px]">
                                <h3 className="uppercase text-[20px] leading-[105%]">{doctor.fullName}</h3>

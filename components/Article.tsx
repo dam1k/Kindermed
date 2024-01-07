@@ -12,7 +12,6 @@ function Article({article}:{article:any}) {
     const router = useRouter();
 
     function handleArticleClick() {
-        // console.log(article.slug.current);
         router.push(`/blog/${article.slug.current}`);
     }
 

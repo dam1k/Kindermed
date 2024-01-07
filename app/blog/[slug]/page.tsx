@@ -86,5 +86,3 @@ async function Article({params}: {params: {slug:string}}) {
 }
 
 export default Article;
-
-export const dynamic = 'force-dynamic'

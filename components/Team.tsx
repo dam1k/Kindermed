@@ -201,7 +201,7 @@ function Team({team}:{team:any}) {
                               : "w-[165px] h-[220px] min-[1025px]:w-[262px] min-[1025px]:h-[348px] min-[1250px]:w-[300px] min-[1250px]:h-[400px]"
                       }`}
                   >
-                    <img alt="" className={`w-full h-full object-cover`} src={doctor.mainImage ? urlForImage(doctor.mainImage) : "/Doctor2.jpg"} />
+                    <img alt="" className={`w-full h-full object-cover`} src={doctor.mainImage ? urlForImage(doctor.mainImage) : "/doctorImgNotFound.png"} />
                   </div>
                   <div>
                     <h3 className="text-[15px] min-[1025px]:text-[20px] leading-[140%] uppercase min-[1025px]:leading-[105%]">
