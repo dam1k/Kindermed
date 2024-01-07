@@ -11,13 +11,14 @@ module.exports = {
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
       "./app/blog/[slug]",
-      "./app"
+      "./app/page.tsx"
   ],
   theme: {
     extend: {
       colors: {
         black: "#141A20",
         blue: "#00AAF1",
+        red: "#D2122E",
         lightGrey: "rgba(62, 64, 77, 0.50)",
         lightGreyBg: "rgba(231, 233, 236, 0.50)",
         darkGrey: "#3E404D",

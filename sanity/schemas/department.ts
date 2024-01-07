@@ -15,6 +15,31 @@ export default defineType({
             title: 'Specialty',
             type: 'string',
         }),
+        // defineField({
+        //     name: 'mainImage',
+        //     title: 'Main image',
+        //     type: 'image',
+        //     options: {
+        //         hotspot: true,
+        //     },
+        //     fields: [
+        //         {
+        //             name: 'alt',
+        //             type: 'string',
+        //             title: 'Alternative Text',
+        //         }
+        //     ]
+        // }),
+        // defineField({
+        //     name: 'shortDesc',
+        //     title: 'Descriere scurtă',
+        //     type: 'string',
+        // }),
+        // defineField({
+        //     name: 'longDesc',
+        //     title: 'Descriere lungă',
+        //     type: 'string',
+        // }),
         defineField({
             name: 'doctors',
             title: 'Doctors',
@@ -22,11 +47,4 @@ export default defineType({
             of: [{type: 'reference', to: {type: 'doctor'}}],
         }),
     ],
-    // preview: {
-    //     select: {
-    //         title: 'title',
-    //         author: 'author.name',
-    //         media: 'mainImage',
-    //     }
-    // },
 })

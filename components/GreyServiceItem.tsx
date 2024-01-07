@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {lastService, service} from "@/utils/data";
 import {AnimatePresence, motion} from "framer-motion";
 
-interface  IGreyServiceItemProps {
+interface IGreyServiceItemProps {
     setOpen: React.Dispatch<React.SetStateAction<boolean>>
     service:lastService;
     setSelectedService:  React.Dispatch<React.SetStateAction<service | lastService | null>>;
@@ -31,14 +31,14 @@ function GreyServiceItem({service, setOpen, setSelectedService}: IGreyServiceIte
             <div
                 className="relative z-10 flex max-[1400px]:items-center max-[1400px]:ml-0 ml-[250px] max-[1400px]:col-span-2">
                                 <span
-                                    className={`text-[16px] min-[1025px]:text-[24px] max-[1400px]:w-[100px] w-[250px] leading-[105%] transition-all ${hovered ? "text-black" : "text-black/[0.5]"} ${hovered ? "translate-x-[20px]" : ""}`}>{`${service.id <= 9 ? "0" : ""}${service.id}`}</span>
+                                    className={`w-[250px] transition-all duration-200 max-[1400px]:text-[16px] max-[1700px]:w-[100px] min-[1025px]:text-[24px] leading-[105%] ${hovered ? "text-black" : "text-black/[0.5]"} ${hovered ? "translate-x-[20px]" : ""}`}>{`${service.id <= 9 ? "0" : ""}${service.id}`}</span>
                 <h2 className={`${hovered ? "text-black" : "text-black/[0.85]"} min-[1401px]:text-[24px] text-[16px] leading-[125%] break-words uppercase`}>{service.name}</h2>
             </div>
             <div
                 className="relative z-10 max-[1400px]:pl-[100px] grid grid-cols-2 max-[1700px]:grid-cols-1 min-[1701px]:w-[825px] gap-[25px] ">
                 {service.desc.map((p: string, i: number) => {
                     return <p key={i}
-                              className={`min-[1401px]:w-[400px] max-[1400px]:w-full ${hovered ? "text-black" : "text-black/[0.85]"}`}>
+                              className={`text-[14px] min-[1401px]:text-[16px] min-[1401px]:w-[400px] max-[1400px]:w-full ${hovered ? "text-black" : "text-black/[0.85]"}`}>
                         {p}
                     </p>
                 })}

@@ -1,10 +1,11 @@
 import React, {useEffect, useState, useRef} from 'react';
 import Image from "next/image"
 import {generateAppointmentDates} from "@/utils/helpers/generateAppointmentDates";
-import {country_prefixes} from "@/utils/data";
-import {services, service} from "@/utils/data";
+import {countries, services, service} from "@/utils/data";
 import {Button} from "@/components/ui/Button";
 import {motion, AnimatePresence} from "framer-motion"
+import {validateEmail, validatePhone} from "@/utils/helpers/validateData";
+
 
 const variants = {
     open: {
@@ -25,11 +26,21 @@ interface IOnlineAppointmentDesktopProps {
     selectedActiveDepartment?: service;
 }
 
+interface country {
+    locale: string;
+    prefix:string
+}
+
+
 const allServices = [...services]
 function OnlineAppointmentDesktop({setOpen, selectedDepartment, selectedActiveDepartment}: IOnlineAppointmentDesktopProps) {
     const [name, setName] = useState<string>("");
+    const [nameError, setNameError] = useState<boolean>(false);
+    const [email, setEmail] = useState<string>("");
+    const [emailError, setEmailError] = useState<boolean>(false);
     const [countryPrefix, setCountryPrefix] = useState<string>("+373");
     const [phone, setPhone] = useState<string>("");
+    const [phoneError, setPhoneError] = useState<boolean>(false);
     const [department, setDepartment] = useState<string>(selectedDepartment || services[0].name);
     const [date, setDate] = useState<string>("");
     const [inputFocused, setInputFocused] = useState<boolean>(false);
@@ -48,23 +59,6 @@ function OnlineAppointmentDesktop({setOpen, selectedDepartment, selectedActiveDe
         setOpen(false);
         document.body.style.overflowY = "scroll"
         document.body.style.overflowX = "hidden"
-    }
-    function handleOverlayClick(e:React.MouseEvent<HTMLDivElement>) {
-        if(inputRef.current) {
-            //@ts-ignore
-            if(e.target !== inputRef.current && !inputRef.current.contains(e.target)) {
-                setInputFocused(false);
-            }
-
-           if(formRef.current && infoBoxRef.current) {
-               //@ts-ignore
-               if(e.target !== formRef.current && !formRef.current.contains(e.target) &&
-                   //@ts-ignore
-                   e.target !== infoBoxRef.current && !infoBoxRef.current.contains(e.target)) {
-                   handleClose()
-               }
-           }
-        }
     }
 
     useEffect(() => {
@@ -89,6 +83,57 @@ function OnlineAppointmentDesktop({setOpen, selectedDepartment, selectedActiveDe
         }
     }, [readMore]);
 
+    function handleSubmit(e: React.FormEvent) {
+        e.preventDefault();
+        const foundCountry = countries.find((country: country) => country.prefix === countryPrefix);
+        if(foundCountry) {
+            //@ts-ignore
+            const validPhone = validatePhone(countryPrefix + phone, foundCountry.locale);
+            const validName = name.length;
+            const validEmail = validateEmail(email);
+            if(validName && validPhone && validEmail) {
+                //...submit form
+            } else {
+                if(!validName) {
+                    setNameError(true);
+                }
+                if(!validPhone) {
+                    setPhoneError(true);
+                }
+                if(!validEmail) {
+                    setEmailError(true);
+                }
+            }
+        }
+    }
+
+    function handleOverlayClick(e:React.MouseEvent<HTMLDivElement>) {
+        if(inputRef.current) {
+            //@ts-ignore
+            if(e.target !== inputRef.current && !inputRef.current.contains(e.target)) {
+                setInputFocused(false);
+                const foundCountry = countries.find((country: country) => country.prefix === countryPrefix);
+                if(foundCountry) {
+                    const validPhone = validatePhone(countryPrefix + phone, foundCountry.locale);
+                    if(!validPhone && phone.length) {
+                        setPhoneError(true);
+                    } else {
+                        setPhoneError(false);
+                    }
+                }
+            }
+
+            if(formRef.current && infoBoxRef.current) {
+                //@ts-ignore
+                if(e.target !== formRef.current && !formRef.current.contains(e.target) &&
+                    //@ts-ignore
+                    e.target !== infoBoxRef.current && !infoBoxRef.current.contains(e.target)) {
+                    handleClose()
+                }
+            }
+        }
+    }
+
 
     return (
         <motion.div onClick={handleOverlayClick}
@@ -108,7 +153,7 @@ function OnlineAppointmentDesktop({setOpen, selectedDepartment, selectedActiveDe
                         <Image src="/icons/TimesBlack.svg" alt="" width={17} height={17}/>
                     </button>
                 </div>
-                <form className="pt-[35px] flex flex-col gap-[17px]">
+                <form onSubmit={handleSubmit} className="pt-[35px] flex flex-col gap-[17px]">
                     <div className="flex gap-[12px]">
                         <div className="relative flex-1">
                             <span className="text-[12px] leading-[12.6px] top-[-6px] left-[12px] pointer-events-none absolute bg-[#fff] text-[#3E404D]/[0.5] px-[5px] flex gap-[4px] items-center">
@@ -117,8 +162,9 @@ function OnlineAppointmentDesktop({setOpen, selectedDepartment, selectedActiveDe
                             </span>
                             <input type="text"
                                    value={name}
+                                   onBlur={() => setNameError(!name.length)}
                                    placeholder="ex. Anton Mihai"
-                                   className="w-full transition-all border-[1px] border-[#3E404D]/[0.24] focus:border-[#00AAF1] rounded-[17px] outline-0 pt-4 pb-[15px] px-[17px] leading-[16.8px] h-[48px] placeholder:text-[#3E404D]/[0.5]"
+                                   className={`${nameError ? "border-red" : "border-[#3E404D]/[0.24]"} w-full transition-all border-[1px] border-[#3E404D]/[0.24] focus:border-[#00AAF1] rounded-[17px] outline-0 pt-4 pb-[15px] px-[17px] leading-[16.8px] h-[48px] placeholder:text-[#3E404D]/[0.5]`}
                                    onChange={(e) => setName(e.target.value)}/>
                         </div>
                         <div className="relative flex-1 flex items-center justify-center">
@@ -128,20 +174,33 @@ function OnlineAppointmentDesktop({setOpen, selectedDepartment, selectedActiveDe
                             </span>
                             <div ref={inputRef}
                                  onClick={() => setInputFocused(true)}
-                                 className={`${inputFocused ? "border-[#00AAF1]" : "border-[#3E404D]/[0.24]"} transition-all border-[1px] relative flex gap-[6px] items-center justify-center w-full h-[48px] rounded-[17px] pt-4 pb-[15px] px-[17px] leading-[16.8px]`}>
+                                 className={`${inputFocused ? "border-[#00AAF1]" : phoneError ? "border-red" : "border-[#3E404D]/[0.24]"} transition-all border-[1px] relative flex gap-[6px] items-center justify-center w-full h-[48px] rounded-[17px] pt-4 pb-[15px] px-[17px] leading-[16.8px]`}>
                                     <div className="prefix shrink-0">
                                         <select
                                             className="leading-[16.8px] pt-4 bg-transparent pb-[15px] prefix_select outline-0"
                                             value={countryPrefix}
                                             onChange={(e) => setCountryPrefix(e.target.value)}>
-                                                {Object.values(country_prefixes).map((prefix:string, i:number) => {
-                                                    return <option className=" cursor-pointer leading-[105%]" key={prefix + Object.keys(country_prefixes)[i]} value={prefix}>{prefix}</option>
+                                                {countries.map((country:{locale: string; prefix:string }, i:number) => {
+                                                    return <option className="cursor-pointer leading-[105%]" key={country.prefix + country.locale} value={country.prefix}>{country.prefix}</option>
                                                 })}
                                         </select>
                                     </div>
                                 <input value={phone} placeholder="00 000 000" type="tel" className="phoneNumber placeholder:text-[#3E404D]/[0.5] outline-0 bg-transparent" onChange={(e) => setPhone(e.target.value)}/>
                             </div>
                         </div>
+                    </div>
+
+                    <div className="relative flex-1">
+                            <span className="text-[12px] leading-[12.6px] top-[-6px] left-[12px] pointer-events-none absolute bg-[#fff] text-[#3E404D]/[0.5] px-[5px] flex gap-[4px] items-center">
+                                <Image src="/icons/InfoCircleSm.svg" alt="" width={11} height={11}/>
+                                Email
+                            </span>
+                        <input type="text"
+                               value={email}
+                               onBlur={() => setEmailError(!validateEmail(email))}
+                               placeholder="ex. yourname@gmail.comb"
+                               className={`${emailError ? "border-red" : "border-[#3E404D]/[0.24]"} w-full transition-all border-[1px] border-[#3E404D]/[0.24] focus:border-[#00AAF1] rounded-[17px] outline-0 pt-4 pb-[15px] px-[17px] leading-[16.8px] h-[48px] placeholder:text-[#3E404D]/[0.5]`}
+                               onChange={(e) => setEmail(e.target.value)}/>
                     </div>
 
                     <div className="relative flex-1">
@@ -178,8 +237,7 @@ function OnlineAppointmentDesktop({setOpen, selectedDepartment, selectedActiveDe
                         </div>
                     </div>
 
-                    <Button className="h-[55px] flex gap-[6px] leading-[16.8px] rounded-[19px] items-center bg-[#00AAF1] pt-[16px] pb-[15px] text-white"
-                    onClick={handleClose}>
+                    <Button className="h-[55px] flex gap-[6px] leading-[16.8px] rounded-[19px] items-center bg-[#00AAF1] pt-[16px] pb-[15px] text-white">
                         Programează-te online
                         <Image src="/icons/Send.svg" width={15} height={15} alt=""/>
                     </Button>
@@ -189,7 +247,7 @@ function OnlineAppointmentDesktop({setOpen, selectedDepartment, selectedActiveDe
                     {/*<Image src=""/>*/}
                     {/*    <div className="bg-[#E7E9EC] rounded-[30px] h-[400px] w-full" />*/}
                     <div className="h-[400px] w-full relative">
-                        <Image src={activeDepartment?.img || ""} fill alt="" className="rounded-[30px] object-cover w-full h-[400px]" />
+                        <Image priority={true} src={activeDepartment?.img || ""} fill alt="" className="rounded-[30px] object-cover w-full h-[400px]" />
                     </div>
                     <div className="">
                         <p className="mb-[12px] text-[20px] leading-[28px]">

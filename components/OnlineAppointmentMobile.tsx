@@ -1,9 +1,10 @@
 import React, {useRef, useState} from 'react';
 import {motion} from "framer-motion"
 import Image from "next/image";
-import {country_prefixes, services, service} from "@/utils/data";
+import {countries, services, service} from "@/utils/data";
 import {generateAppointmentDates} from "@/utils/helpers/generateAppointmentDates";
 import {Button} from "@/components/ui/Button";
+import {validatePhone, validateEmail} from "@/utils/helpers/validateData";
 
 interface IOnlineAppointmentMobileProps {
     setOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -11,11 +12,21 @@ interface IOnlineAppointmentMobileProps {
     selectedActiveDepartment?: service;
 }
 
+interface country {
+    locale: string;
+    prefix:string
+}
+
+
 function OnlineAppointmentMobile({setOpen, selectedDepartment, selectedActiveDepartment}:IOnlineAppointmentMobileProps) {
     const [name, setName] = useState<string>("");
+    const [nameError, setNameError] = useState<boolean>(false);
+    const [email, setEmail] = useState<string>("");
+    const [emailError, setEmailError] = useState<boolean>(false);
     const [countryPrefix, setCountryPrefix] = useState<string>("+373");
     const [phone, setPhone] = useState<string>("");
-    const [department, setDepartment] = useState<string>(services[0].name);
+    const [phoneError, setPhoneError] = useState<boolean>(false);
+    const [department, setDepartment] = useState<string>(selectedDepartment || services[0].name);
     const [date, setDate] = useState<string>("");
     const [inputFocused, setInputFocused] = useState<boolean>(false);
     const menuRef = useRef<HTMLDivElement>(null);
@@ -27,7 +38,23 @@ function OnlineAppointmentMobile({setOpen, selectedDepartment, selectedActiveDep
         document.body.style.overflow = "scroll"
     }
 
+
     function handleOverlayClick(e:React.MouseEvent<HTMLDivElement>) {
+        if(inputRef.current) {
+            //@ts-ignore
+            if(e.target !== inputRef.current && !inputRef.current.contains(e.target)) {
+                setInputFocused(false);
+                const foundCountry = countries.find((country: country) => country.prefix === countryPrefix);
+                if(foundCountry) {
+                    const validPhone = validatePhone(countryPrefix + phone, foundCountry.locale);
+                    if(!validPhone && phone.length) {
+                        setPhoneError(true);
+                    } else {
+                        setPhoneError(false);
+                    }
+                }
+            }
+        }
         if(menuRef.current) {
             //@ts-ignore
             if(e.target !== menuRef.current && !menuRef.current.contains(e.target)) {
@@ -35,6 +62,32 @@ function OnlineAppointmentMobile({setOpen, selectedDepartment, selectedActiveDep
             }
         }
     }
+
+    function handleSubmit(e: React.FormEvent) {
+        e.preventDefault();
+        const foundCountry = countries.find((country: country) => country.prefix === countryPrefix);
+        if(foundCountry) {
+            //@ts-ignore
+            const validPhone = validatePhone(countryPrefix + phone, foundCountry.locale);
+            const validName = name.length;
+            const validEmail = validateEmail(email);
+            if(validName && validPhone && validEmail) {
+                //...submit form
+            } else {
+                if(!validName) {
+                    setNameError(true);
+                }
+                if(!validPhone) {
+                    setPhoneError(true);
+                }
+                if(!validEmail) {
+                    setEmailError(true);
+                }
+            }
+        }
+    }
+
+
 
     return (
         <motion.div className="min-[816px]:hidden fixed top-0 left-0 h-screen w-screen bg-[rgba(26, 26, 32, 0.37)] backdrop-blur-[17.5px] z-[1000]"
@@ -53,7 +106,7 @@ function OnlineAppointmentMobile({setOpen, selectedDepartment, selectedActiveDep
                         <Image src="/icons/Times.svg" alt="" width={15} height={15}/>
                     </button>
                 </div>
-                <form className="pt-[35px] flex flex-col gap-[17px]">
+                <form onSubmit={handleSubmit} className="pt-[35px] flex flex-col gap-[17px]">
                         <div className="relative flex-1">
                             <span className="text-[12px] leading-[12.6px] top-[-6px] left-[12px] pointer-events-none absolute bg-[#fff] text-[#3E404D]/[0.5] px-[5px] flex gap-[4px] items-center">
                                 <Image src="/icons/InfoCircleSm.svg" alt="" width={11} height={11}/>
@@ -61,9 +114,22 @@ function OnlineAppointmentMobile({setOpen, selectedDepartment, selectedActiveDep
                             </span>
                             <input type="text"
                                    value={name}
+                                   onBlur={() => setNameError(!name.length)}
                                    placeholder="ex. Anton Mihai"
-                                   className="w-full transition-all border-[1px] border-[#3E404D]/[0.24] focus:border-[#00AAF1] rounded-[17px] outline-0 text-[14px] leading-[14.7px] pt-4 pb-[15px] px-[17px] h-[46px] placeholder:text-[#3E404D]/[0.5]"
+                                   className={`${nameError ? "border-red" : "border-[#3E404D]/[0.24]"} w-full transition-all border-[1px] border-[#3E404D]/[0.24] focus:border-[#00AAF1] rounded-[17px] outline-0 text-[14px] leading-[14.7px] pt-4 pb-[15px] px-[17px] h-[46px] placeholder:text-[#3E404D]/[0.5]`}
                                    onChange={(e) => setName(e.target.value)}/>
+                        </div>
+                        <div className="relative flex-1">
+                                <span className="text-[12px] leading-[12.6px] top-[-6px] left-[12px] pointer-events-none absolute bg-[#fff] text-[#3E404D]/[0.5] px-[5px] flex gap-[4px] items-center">
+                                    <Image src="/icons/InfoCircleSm.svg" alt="" width={11} height={11}/>
+                                    Email
+                                </span>
+                            <input type="text"
+                                   value={email}
+                                   onBlur={() => setEmailError(!validateEmail(email))}
+                                   placeholder="ex. yourname@gmail.com"
+                                   className={`${emailError ? "border-red" : "border-[#3E404D]/[0.24]"} w-full transition-all border-[1px] focus:border-[#00AAF1] rounded-[17px] outline-0 text-[14px] leading-[14.7px] pt-4 pb-[15px] px-[17px] h-[46px] placeholder:text-[#3E404D]/[0.5]`}
+                                   onChange={(e) => setEmail(e.target.value)}/>
                         </div>
                         <div className="relative flex-1 flex items-center justify-center">
                             <span className="text-[12px] leading-[12.6px] top-[-6px] left-[12px] pointer-events-none absolute bg-[#fff] z-[100] text-[#3E404D]/[0.5] px-[5px] flex gap-[4px] items-center">
@@ -72,14 +138,14 @@ function OnlineAppointmentMobile({setOpen, selectedDepartment, selectedActiveDep
                             </span>
                             <div ref={inputRef}
                                  onClick={() => setInputFocused(true)}
-                                 className={`${inputFocused ? "border-[#00AAF1]" : "border-[#3E404D]/[0.24]"} transition-all border-[1px] relative flex gap-[6px] items-center justify-center w-full h-[46px] rounded-[17px] pt-4 pb-[15px] px-[17px] leading-[16.8px]`}>
+                                 className={`${inputFocused ? "border-[#00AAF1]" : phoneError ? "border-red" : "border-[#3E404D]/[0.24]"} transition-all border-[1px] relative flex gap-[6px] items-center justify-center w-full h-[46px] rounded-[17px] pt-4 pb-[15px] px-[17px] leading-[16.8px]`}>
                                 <div className="prefix shrink-0">
                                     <select
                                         className="pt-4 bg-transparent text-[14px] leading-[14.7px] pb-[15px] prefix_select outline-0"
                                         value={countryPrefix}
                                         onChange={(e) => setCountryPrefix(e.target.value)}>
-                                        {Object.values(country_prefixes).map((prefix:string, i:number) => {
-                                            return <option className=" cursor-pointer leading-[105%]" key={prefix + Object.keys(country_prefixes)[i]} value={prefix}>{prefix}</option>
+                                        {countries.map((country: country, i:number) => {
+                                            return <option className=" cursor-pointer leading-[105%]" key={country.prefix + country.locale} value={country.prefix}>{country.prefix}</option>
                                         })}
                                     </select>
                                 </div>
@@ -121,8 +187,7 @@ function OnlineAppointmentMobile({setOpen, selectedDepartment, selectedActiveDep
                         </div>
                     </div>
 
-                    <Button className="h-[50px] flex gap-[6px] leading-[14.7px] text-[14px] rounded-[19px] items-center bg-[#00AAF1] pt-[16px] pb-[15px] text-white"
-                            onClick={handleClose}>
+                    <Button className="h-[50px] flex gap-[6px] leading-[14.7px] text-[14px] rounded-[19px] items-center bg-[#00AAF1] pt-[16px] pb-[15px] text-white">
                         Programează-te online
                         <Image src="/icons/Send.svg" width={15} height={15} alt=""/>
                     </Button>

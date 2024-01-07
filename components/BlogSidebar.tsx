@@ -31,10 +31,10 @@ const BlogSidebar = ({ posts }: { posts: any }) => {
         </p>
 
         {posts &&
-          posts.map((post: any) => {
+          posts.slice(0,3).map((post: any) => {
             return (
               <div
-                className="flex gap-[10px] min-[1025px]:gap-[25px] cursor-pointer"
+                className="flex gap-[10px] min-[1025px]:gap-[25px] cursor-pointer "
                 key={post._id}
                 onClick={() => router.push(`/blog/${post.slug.current}`)}
               >
@@ -61,10 +61,10 @@ const BlogSidebar = ({ posts }: { posts: any }) => {
                     })}
                   </div>
                   <h3 className="uppercase text-[16px] min-[1025px]:text-[20px] leading-[135%] w-full two-lines-text ellipsis three-lines-text">
-                    {post.title.split(" ").slice(0, 4).join(" ")}
-                    <br />
-                    {post.title.split(" ").slice(4).join(" ")}
                     {post.title}
+                    {/*<br />*/}
+                    {/*{post.title.split(" ").slice(4).join(" ")}*/}
+                    {/*{post.title}*/}
                   </h3>
                   <div className="flex max-[1024px]:mt-[4px] justify-between items-center ">
                     <div className="min-[1025px]:hidden flex mb-[8px] gap-[15px]">

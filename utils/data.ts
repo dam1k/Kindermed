@@ -1,3 +1,16 @@
+import Mamologie from "../public/Mamologie.jpg"
+import Chirurgie from "../public/Chirurgie.jpg"
+import Endocrinologie from "../public/Endocrinologie.jpg"
+import Imagistica from "../public/Imagistica.jpg"
+import Dermatologie from "../public/Dermatologie.jpg"
+import Ginecologie from "../public/Ginecologie.jpg"
+import Neurologie from "../public/Neurologie.jpg"
+import ORL from "../public/ORL.jpg"
+import Pneumologie from "../public/Pneumologie.jpg"
+import Pediatrie from "../public/Pediatrie.jpg"
+import Ortopedie from "../public/Ortopedie.jpg"
+import Oftalmologie from "../public/Oftalmologie.jpg"
+
 export interface navLink {
     text: string;
     href: string;
@@ -9,7 +22,7 @@ export interface service {
     id: number;
     shortDesc?: string;
     longDesc?: string;
-    img?:string;
+    img?:any;
 }
 
 export interface busDirection {
@@ -93,7 +106,7 @@ export const services: service[] = [
     {
         name: "PEDIATRIE/NEONATOLOGIE",
         desc: "",
-        img: "/Pediatrie.jpg",
+        img: Pediatrie,
         id: 1,
         shortDesc: `Consultațiile pediatrice sunt importante pentru a urmări starea de sănătăte a copiilor. Acestea nu numai că ajută la monitorizarea
                     creșterii și dezvoltării copilului, ci și la detectarea precoce a problemelor de sănătate și la prevenirea afecțiunilor posibile.`,
@@ -112,7 +125,7 @@ export const services: service[] = [
     {
         name: "ORL",
         desc: "",
-        img: "/ORL.jpg",
+        img: ORL,
         id: 2,
         shortDesc: `Otorinolaringologia sau ORL este specialitatea care face diagnosticul și tratează afecțiunile urechilor , nasului și gâtului atât la copii
                     cât și la maturi .`,
@@ -133,7 +146,7 @@ export const services: service[] = [
     {
         name: "OFTALMOLOGIE",
         desc: "",
-        img: "/Oftalmologie.jpg",
+        img: Oftalmologie,
         id: 3,
         shortDesc: `Oftalmologii sunt responsabili pentru diagnosticul, prevenirea și tratamentul afecțiunilor ochilor și problemelor de vedere la copii și
                     adulți.`,
@@ -161,7 +174,7 @@ export const services: service[] = [
     {
         name: "NEUROLOGIE PEDIATRICĂ",
         desc: "",
-        img: "/Neurologie.jpg",
+        img: Neurologie,
         id: 4,
         shortDesc: `Un neurolog este medicul specializat în tratarea afecțiunilor sistemului nervos central și periferic. Neurologia pediatrică este o
                     ramură a medicinei care se ocupă cu diagnosticul și gestionarea bolilor neurologice la nou-născuți, sugari, copii și adolescenți.`,
@@ -190,7 +203,7 @@ export const services: service[] = [
     {
         name: "PNEUMOLOGIE",
         desc: "",
-        img: "/Pneumologie.jpg",
+        img: Pneumologie,
         id: 5,
         shortDesc: `Pneumologia este specialitatea medicală care se ocupa cu prevenirea, diagnosticarea și tratarea bolilor plămânilor, bronhiilor,
                     pleurei și mediastinului.`,
@@ -212,7 +225,7 @@ export const services: service[] = [
     {
         name: "ORTOPEDIE",
         desc: "",
-        img: "/Ortopedie.jpg",
+        img: Ortopedie,
         id: 6,
         shortDesc: `Sistemul osteo-articular este cel ce ne dă posibilitate să ne mişcăm, de aceea sănătatea oaselor şi a muşchilor nu trebuie tratată
                     superficial. Ortopedul este medicul care se ocupă de diagnosticarea, tratarea și prevenirea bolilor și deformațiilor ale sistemului
@@ -235,7 +248,7 @@ export const services: service[] = [
     {
         name: "DERMATOLOGIE",
         desc: "",
-        img: "/Dermatologie.jpg",
+        img: Dermatologie,
         id: 7,
         shortDesc: `Dermatologia este specialitatea medicală care se ocupă cu studiul afecțiunilor pielii, anexelor acestia (păr, unghii, glande
                     sudoripare, glande sebacee) și ale mucoaselor adiacente (cavitate bucală și organe genitale).`,
@@ -259,7 +272,7 @@ export const services: service[] = [
     {
         name: "ENDOCRINOLOGIE",
         desc: "",
-        img: "/Endocrinologie.jpg",
+        img: Endocrinologie,
         id: 8,
         shortDesc: `Endocrinologia este o ramură a medicinei care se ocupă de sistemul endocrin și de bolile acestuia. Domeniul se concentrează pe
                     glandele endocrine și pe secrețiile acestora, numite hormoni.`,
@@ -279,7 +292,7 @@ export const services: service[] = [
     {
         name: "CHIRURGIE PEDIATRICĂ",
         desc: "",
-        img: "/Chirurgie.jpg",
+        img: Chirurgie,
         id: 9,
         shortDesc: `Chirurgia pediatrică se ocupă cu patologia chirurgicală congenitală sau dobândită a copiilor - din perioada neonatală până la
                     pubertate. Un copil nu poate fi tratat în același mod ca un pacient adult de talie mai mică. Deși copilul prezintă aceleași organe și
@@ -310,7 +323,7 @@ export const services: service[] = [
     {
         name: "GINECOLOGIE",
         desc: "",
-        img: "/Ginecologie.jpg",
+        img: Ginecologie,
         id: 10,
         shortDesc: `Ginecolog - este medicul specializat pe diagnosticarea, prevenirea, monitorizarea și tratarea bolilor sistemului reproductiv
                     feminin, inclusiv a celor care implică hormonii sexuali feminini.`,
@@ -346,7 +359,7 @@ export const services: service[] = [
     {
         name: "MAMOLOGIE",
         desc: "",
-        img: "/Mamologie.jpg",
+        img: Mamologie,
         id: 11,
         shortDesc: `Mamologia este o ramură a medicinei care se ocupă cu diagnosticul, tratamentul și profilaxia afecțiunilor sânului.
                     Competența unui medic mamolog include diagnosticul și tratamentul mai multor boli, așa ca: lactostaza, mastopatiile, chisturile,
@@ -375,7 +388,7 @@ export const services: service[] = [
     {
         name: "IMAGISTICĂ",
         desc: "",
-        img: "/Imagistica.jpg",
+        img: Imagistica,
         id: 12,
         shortDesc: `Ecografia este metoda prin care se pot vizualiza diferite structuri anatomice cu ajutorul ultrasunetelor.`,
         longDesc: `La momnet, ecografia este principala metodă de screening în medicină, datorită avantajelor pe care le oferă: rapiditatea obținerii
@@ -625,56 +638,105 @@ export const schedule:schedule = {
     sun: "Zi liberă"
 }
 
-export const country_prefixes = {
-    "Albania": "+355",
-    "Andorra": "+376",
-    "Armenia": "+374",
-    "Austria": "+43",
-    "Azerbaijan": "+994",
-    "Belarus": "+375",
-    "Belgium": "+32",
-    "Bosnia and Herzegovina": "+387",
-    "Bulgaria": "+359",
-    "Croatia": "+385",
-    "Cyprus": "+357",
-    "Czech Republic": "+420",
-    "Denmark": "+45",
-    "Estonia": "+372",
-    "Finland": "+358",
-    "France": "+33",
-    "Georgia": "+995",
-    "Germany": "+49",
-    "Greece": "+30",
-    "Hungary": "+36",
-    "Iceland": "+354",
-    "Ireland": "+353",
-    "Italy": "+39",
-    "Kazakhstan": "+7",
-    "Kosovo": "+383",
-    "Latvia": "+371",
-    "Liechtenstein": "+423",
-    "Lithuania": "+370",
-    "Luxembourg": "+352",
-    "Malta": "+356",
-    "Moldova": "+373",
-    "Monaco": "+377",
-    "Montenegro": "+382",
-    "Netherlands": "+31",
-    "North Macedonia": "+389",
-    "Norway": "+47",
-    "Poland": "+48",
-    "Portugal": "+351",
-    "Romania": "+40",
-    "Russia": "+7",
-    "San Marino": "+378",
-    "Serbia": "+381",
-    "Slovakia": "+421",
-    "Slovenia": "+386",
-    "Spain": "+34",
-    "Sweden": "+46",
-    "Switzerland": "+41",
-    "Turkey": "+90",
-    "Ukraine": "+380",
-    "United Kingdom": "+44",
-    "Vatican City": "+379"
-}
+// export const country_prefixes = {
+//     "Albania": "+355",
+//     "Andorra": "+376",
+//     "Armenia": "+374",
+//     "Austria": "+43",
+//     "Azerbaijan": "+994",
+//     "Belarus": "+375",
+//     "Belgium": "+32",
+//     "Bosnia and Herzegovina": "+387",
+//     "Bulgaria": "+359",
+//     "Croatia": "+385",
+//     "Cyprus": "+357",
+//     "Czech Republic": "+420",
+//     "Denmark": "+45",
+//     "Estonia": "+372",
+//     "Finland": "+358",
+//     "France": "+33",
+//     "Georgia": "+995",
+//     "Germany": "+49",
+//     "Greece": "+30",
+//     "Hungary": "+36",
+//     "Iceland": "+354",
+//     "Ireland": "+353",
+//     "Italy": "+39",
+//     "Kazakhstan": "+7",
+//     "Kosovo": "+383",
+//     "Latvia": "+371",
+//     "Liechtenstein": "+423",
+//     "Lithuania": "+370",
+//     "Luxembourg": "+352",
+//     "Malta": "+356",
+//     "Moldova": "+373",
+//     "Monaco": "+377",
+//     "Montenegro": "+382",
+//     "Netherlands": "+31",
+//     "North Macedonia": "+389",
+//     "Norway": "+47",
+//     "Poland": "+48",
+//     "Portugal": "+351",
+//     "Romania": "+40",
+//     "Russia": "+7",
+//     "San Marino": "+378",
+//     "Serbia": "+381",
+//     "Slovakia": "+421",
+//     "Slovenia": "+386",
+//     "Spain": "+34",
+//     "Sweden": "+46",
+//     "Switzerland": "+41",
+//     "Turkey": "+90",
+//     "Ukraine": "+380",
+//     "United Kingdom": "+44",
+//     "Vatican City": "+379"
+// }
+
+export const countries = [
+    { prefix: '+355', locale: 'SQ' },
+    { prefix: '+376', locale: 'CA' },
+    { prefix: '+43', locale: 'DE' },
+    { prefix: '+375', locale: 'BE' },
+    { prefix: '+32', locale: 'NL' },
+    { prefix: '+387', locale: 'BS' },
+    { prefix: '+359', locale: 'BG' },
+    { prefix: '+385', locale: 'HR' },
+    { prefix: '+357', locale: 'EL' },
+    { prefix: '+420', locale: 'CS' },
+    { prefix: '+45', locale: 'DA' },
+    { prefix: '+372', locale: 'ET' },
+    { prefix: '+358', locale: 'FI' },
+    { prefix: '+33', locale: 'FR' },
+    { prefix: '+49', locale: 'DE' },
+    { prefix: '+30', locale: 'EL' },
+    { prefix: '+36', locale: 'HU' },
+    { prefix: '+354', locale: 'IS' },
+    { prefix: '+353', locale: 'EN' },
+    { prefix: '+39', locale: 'IT' },
+    { prefix: '+383', locale: 'SQ' },
+    { prefix: '+371', locale: 'LV' },
+    { prefix: '+423', locale: 'DE' },
+    { prefix: '+370', locale: 'LT' },
+    { prefix: '+352', locale: 'FR' },
+    { prefix: '+356', locale: 'MT' },
+    { prefix: '+373', locale: 'MD' },
+    { prefix: '+377', locale: 'FR' },
+    { prefix: '+382', locale: 'SR' },
+    { prefix: '+31', locale: 'NL' },
+    { prefix: '+389', locale: 'MK' },
+    { prefix: '+47', locale: 'NB' },
+    { prefix: '+48', locale: 'PL' },
+    { prefix: '+351', locale: 'PT' },
+    { prefix: '+40', locale: 'RO' },
+    { prefix: '+7', locale: 'RU' },
+    { prefix: '+378', locale: 'IT' },
+    { prefix: '+381', locale: 'SR' },
+    { prefix: '+421', locale: 'SK' },
+    { prefix: '+386', locale: 'SL' },
+    { prefix: '+34', locale: 'ES' },
+    { prefix: '+46', locale: 'SV' },
+    { prefix: '+41', locale: 'DE' },
+    { prefix: '+380', locale: 'UK' },
+    { prefix: '+44', locale: 'EN' },
+    { prefix: '+379', locale: 'IT' }
+];
