@@ -198,7 +198,7 @@ function OnlineAppointmentDesktop({setOpen, selectedDepartment, selectedActiveDe
                         <input type="text"
                                value={email}
                                onBlur={() => setEmailError(!validateEmail(email))}
-                               placeholder="ex. yourname@gmail.comb"
+                               placeholder="ex. yourname@gmail.com"
                                className={`${emailError ? "border-red" : "border-[#3E404D]/[0.24]"} w-full transition-all border-[1px] border-[#3E404D]/[0.24] focus:border-[#00AAF1] rounded-[17px] outline-0 pt-4 pb-[15px] px-[17px] leading-[16.8px] h-[48px] placeholder:text-[#3E404D]/[0.5]`}
                                onChange={(e) => setEmail(e.target.value)}/>
                     </div>
