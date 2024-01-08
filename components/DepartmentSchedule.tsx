@@ -25,9 +25,9 @@ function DepartmentSchedule({ department, i, departments }: { department: any, i
       <>
           {(activeDepartment === department.specialty || !activeDepartment) ? <div
               className={`relative max-[1315px]:flex-col mb-[6px] flex py-[25px]`} id={department.name.toLowerCase()}>
-              <div className="absolute w-[calc(100%-50px)] left-[25px] top-0 z-[1000] h-[1px] bg-[#C9CACE]/[0.5] hidden min-[1316px]:block"/>
+              <div className="absolute w-[calc(100%-50px)] left-[25px] top-0 h-[1px] bg-[#C9CACE]/[0.5] hidden min-[1316px]:block"/>
                 <div className="relative">
-                  <div className="absolute w-[calc(100%-10px)] min-[1025px]:w-[calc(100%-50px)] left-[10px] min-[1025px]:left-[25px] bottom-0 z-[1000] h-[1px] bg-[#C9CACE]/[0.5] min-[1316px]:hidden"/>
+                  <div className="absolute w-[calc(100%-10px)] min-[1025px]:w-[calc(100%-50px)] left-[10px] min-[1025px]:left-[25px] bottom-0 h-[1px] bg-[#C9CACE]/[0.5] min-[1316px]:hidden"/>
                       <div className="relative mb-[6px] max-[1024px]:pl-[10px] min-[1025px]:pl-[25px] shrink-0 w-full min-[500px]:w-[250px] pr-[10px] min-[500px]:justify-start justify-between flex gap-[10px]">
                         <h2 className="text-[25px] leading-[35px] uppercase">
                           {department.specialty}
