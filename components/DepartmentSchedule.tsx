@@ -24,14 +24,18 @@ function DepartmentSchedule({ department, i, departments }: { department: any, i
   return (
       <>
           {(activeDepartment === department.specialty || !activeDepartment) ? <div
-              className={`max-[1315px]:flex-col mb-[6px] flex py-[25px] min-[1316px]:border-t-[1px] min-[1316px]:border-[#C9CACE]/[0.5]`} id={department.name.toLowerCase()}>
-              <div className="mb-[6px] max-[1024px]:pl-[10px] min-[1025px]:pl-[25px] shrink-0 w-full min-[500px]:w-[250px] pr-[10px] min-[500px]:justify-start justify-between flex gap-[10px]">
-                <h2 className="text-[25px] leading-[35px] uppercase">
-                  {department.specialty}
-                </h2>
-                  <h2 className="text-[25px] leading-[35px] text-[#3e404d]/[0.5]">{department.doctors.length}</h2>
-              </div>
-              <div className="flex gap-[25px] no-scrollbar overflow-x-scroll pt-[15px] min-[1316px]:pt-0 border-t-[1px] border-[#C9CACE]/[0.5] min-[1316px]:border-t-0">
+              className={`relative max-[1315px]:flex-col mb-[6px] flex py-[25px]`} id={department.name.toLowerCase()}>
+              <div className="absolute w-[calc(100%-50px)] left-[25px] top-0 z-[1000] h-[1px] bg-[#C9CACE]/[0.5] hidden min-[1316px]:block"/>
+                <div className="relative">
+                  <div className="absolute w-[calc(100%-10px)] min-[1025px]:w-[calc(100%-50px)] left-[10px] min-[1025px]:left-[25px] bottom-0 z-[1000] h-[1px] bg-[#C9CACE]/[0.5] min-[1316px]:hidden"/>
+                      <div className="relative mb-[6px] max-[1024px]:pl-[10px] min-[1025px]:pl-[25px] shrink-0 w-full min-[500px]:w-[250px] pr-[10px] min-[500px]:justify-start justify-between flex gap-[10px]">
+                        <h2 className="text-[25px] leading-[35px] uppercase">
+                          {department.specialty}
+                        </h2>
+                          <h2 className="text-[25px] leading-[35px] text-[#3e404d]/[0.5]">{department.doctors.length}</h2>
+                      </div>
+                  </div>
+              <div className="relative flex gap-[25px] no-scrollbar overflow-x-scroll pt-[15px] min-[1316px]:pt-0">
                     {department.doctors.map((doctor:any, i:number) => {
                         return <div className={`shrink-0 ${i === 0 ? "max-[1024px]:pl-[10px] max-[1315px]:pl-[25px]" : i === department.doctors.length-1 ? "pr-[10px]" : ""}`}
                                     key={doctor._id}>
