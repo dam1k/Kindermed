@@ -72,6 +72,7 @@ function Team({team}:{team:any}) {
     }
   }
 
+
   return (
     <div
       id="team"
@@ -192,6 +193,7 @@ function Team({team}:{team:any}) {
             ref={sliderRef}
         >
           {team.map((doctor:any, i:number) => {
+            // console.log(doctor.department);
             return (
                 <div className={`flex flex-col gap-[12px] min-[1025px]:gap-[25px] ${i === team.length -1 ? "mr-[10px] min-[1025px]:mr-[25px]" : ""}`} key={i}>
                   <div
@@ -201,7 +203,9 @@ function Team({team}:{team:any}) {
                               : "w-[165px] h-[220px] min-[1025px]:w-[262px] min-[1025px]:h-[348px] min-[1250px]:w-[300px] min-[1250px]:h-[400px]"
                       }`}
                   >
-                    <img alt="" className={`w-full h-full object-cover`} src={doctor.mainImage ? urlForImage(doctor.mainImage) : "/doctorImgNotFound.png"} />
+                    <Link href={`/orar#${doctor.department[0].name.toLowerCase()}`}>
+                      <img alt="" className={`w-full h-full object-cover`} src={doctor.mainImage ? urlForImage(doctor.mainImage) : "/doctorImgNotFound.png"} />
+                    </Link>
                   </div>
                   <div>
                     <h3 className="text-[15px] min-[1025px]:text-[20px] leading-[140%] uppercase min-[1025px]:leading-[105%]">

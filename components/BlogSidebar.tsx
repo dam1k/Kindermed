@@ -34,7 +34,7 @@ const BlogSidebar = ({ posts }: { posts: any }) => {
           posts.slice(0,3).map((post: any) => {
             return (
               <div
-                className="flex gap-[10px] min-[1025px]:gap-[25px] cursor-pointer "
+                className="flex gap-[10px] w-full min-[1025px]:gap-[25px] cursor-pointer "
                 key={post._id}
                 onClick={() => router.push(`/blog/${post.slug.current}`)}
               >
@@ -45,12 +45,12 @@ const BlogSidebar = ({ posts }: { posts: any }) => {
                   height={width > 1024 ? 90 : 125}
                   alt=""
                 />
-                <div className="">
-                  <div className="max-[1024px]:hidden flex mb-[8px] gap-[15px]">
+                <div className="w-full">
+                  <div className="max-[1024px]:hidden w-full flex mb-[8px] gap-[15px]">
                     {post.tags.map((tag: any) => {
                       return (
                         <span
-                          key={tag}
+                          key={tag._id}
                           style={{
                             color: tag.color,
                           }}
@@ -66,12 +66,12 @@ const BlogSidebar = ({ posts }: { posts: any }) => {
                     {/*{post.title.split(" ").slice(4).join(" ")}*/}
                     {/*{post.title}*/}
                   </h3>
-                  <div className="flex max-[1024px]:mt-[4px] justify-between items-center ">
+                  <div className="flex max-[1024px]:mt-[4px] w-full justify-between items-center ">
                     <div className="min-[1025px]:hidden flex mb-[8px] gap-[15px]">
                         {post.tags.map((tag: any) => {
                             return (
                                 <span
-                                    key={tag}
+                                    key={tag._id}
                                     style={{
                                         color: tag.color,
                                         fontSize: 12,

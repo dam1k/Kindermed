@@ -15,15 +15,10 @@ function Article({article}:{article:any}) {
         router.push(`/blog/${article.slug.current}`);
     }
 
+
     useEffect(() => {
         const ids = article.tags.map((tag:any) => tag._id);
-        ids.forEach((id:string) => {
-            if(activeTags.includes(id)) {
-                setShowArticle(true)
-            } else {
-                setShowArticle(false);
-            }
-        })
+        setShowArticle(ids.some((tagId:string) => activeTags.includes(tagId)));
     }, [article, activeTags]);
 
 

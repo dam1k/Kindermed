@@ -17,10 +17,10 @@ function BusRoutesDropdownContent() {
                             className="p-0 justify-between flex"
                             key={i}
                         >
-                            <p className="text-[#fff]/[0.5] w-[225px] leading-[23.2px] uppercase !font-[400]">
+                            <p className="shrink-0 text-[14px] min-[500px]:text-[16px] text-[#fff]/[0.5] w-[200px] min-[500px]:w-[225px] leading-[23.2px] uppercase !font-[400]">
                                 {busDirection.location}:
                             </p>
-                            <p className="text-[#fff] !font-[400] leading-[23.2px] w-[110px] text-right">
+                            <p className="shrink-0 text-[#fff] !font-[400] text-[14px] min-[500px]:text-[16px] w-[100px] leading-[23.2px] min-[500px]:w-[110px] text-right">
                                 {busDirection.routes.join(", ")}
                             </p>
                         </div>
