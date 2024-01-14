@@ -582,17 +582,17 @@ export const contacts: contact[] = [
     {
         name: "info.kindermed@gmail.com",
         href: "mailto:info.kindermed@gmail.com",
-        icon: "/icons/Mail.svg"
+        icon: "/icons/Mail.svg",
     },
     {
         name: "Instagram",
         href: "https://www.instagram.com/kindermedmd/",
-        icon: "/icons/InstagramWhite.svg"
+        icon: "/icons/InstagramPink.svg"
     },
     {
         name: "Facebook",
         href: "https://www.facebook.com/KinderMedMD/",
-        icon: "/icons/FacebookWhite.svg"
+        icon: "/icons/FacebookBlue.svg"
     }
 ]
 

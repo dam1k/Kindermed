@@ -95,27 +95,6 @@ function Footer() {
                    {showBusRoutesDropdown && <BusRoutesDropdownContent/>}
                   </AnimatePresence>
                 </div>
-                  {/*</DropdownMenuTrigger>*/}
-                  {/*<DropdownMenuContent className="bg-[#2B2B2B] flex flex-col gap-[7px] !mt-[14px] !border-0 px-[17px] py-[13px] rounded-[20px]">*/}
-                  {/*  {busDirections.map(*/}
-                  {/*    (busDirection: busDirection, i: number) => {*/}
-                  {/*      return (*/}
-                  {/*        <DropdownMenuLabel*/}
-                  {/*          className="p-0 justify-between flex"*/}
-                  {/*          key={i}*/}
-                  {/*        >*/}
-                  {/*          <p className="text-[#fff]/[0.5] w-[225px] leading-[23.2px] uppercase !font-[400]">*/}
-                  {/*            {busDirection.location}:*/}
-                  {/*          </p>*/}
-                  {/*          <p className="text-[#fff] !font-[400] leading-[23.2px] w-[110px] text-right">*/}
-                  {/*            {busDirection.routes.join(", ")}*/}
-                  {/*          </p>*/}
-                  {/*        </DropdownMenuLabel>*/}
-                  {/*      );*/}
-                  {/*    },*/}
-                  {/*  )}*/}
-                  {/*</DropdownMenuContent>*/}
-                {/*</DropdownMenu>*/}
 
                 <Link
                   className="leading-[105%] flex px-[17px] py-[12px] gap-[10px] items-center border-[1px] rounded-[15px] !border-[#fff]/[0.4] !text-[#fff]"
@@ -181,7 +160,8 @@ function Footer() {
                   {contacts.map((contact: contact) => {
                     return (
                       <Link
-                        className="leading-[105%] flex px-[17px] py-[12px] gap-[10px] items-center border-[1px] rounded-[15px] !border-[#fff]/[0.4] !text-[#fff]"
+                        className={`leading-[105%] flex px-[17px] py-[12px] gap-[10px] items-center border-[1px] rounded-[15px] !text-[#fff] 
+                        ${contact.name === "Facebook" ? "border-[#4267B2]/[0.65]" : contact.name === "Instagram" ? "border-[#FF1493]/[0.40]" : "!border-[#fff]/[0.4]"}`}
                         target="_blank"
                         href={contact.href}
                         key={contact.href}

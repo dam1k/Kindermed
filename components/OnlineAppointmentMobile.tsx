@@ -64,7 +64,6 @@ function OnlineAppointmentMobile({setOpen, selectedDepartment, selectedActiveDep
     }
 
     function handleSubmit(e: React.FormEvent) {
-        e.preventDefault();
         const foundCountry = countries.find((country: country) => country.prefix === countryPrefix);
         if(foundCountry) {
             //@ts-ignore
@@ -72,8 +71,9 @@ function OnlineAppointmentMobile({setOpen, selectedDepartment, selectedActiveDep
             const validName = name.length;
             const validEmail = validateEmail(email);
             if(validName && validPhone && validEmail) {
-                //...submit form
+               return
             } else {
+                e.preventDefault();
                 if(!validName) {
                     setNameError(true);
                 }
@@ -95,7 +95,7 @@ function OnlineAppointmentMobile({setOpen, selectedDepartment, selectedActiveDep
                     animate={{opacity: 1}}
                     exit={{opacity: 0}}
                     onClick={handleOverlayClick}>
-            <div ref={menuRef} className="fixed overflow-scroll bg-[#FFFFFF] h-[60vh] bottom-0 left-0 w-screen p-[15px] rounded-tr-[25px] rounded-tl-[25px]">
+            <div ref={menuRef} className="fixed overflow-scroll bg-[#FFFFFF] h-[65vh] bottom-0 left-0 w-screen p-[15px] rounded-tr-[25px] rounded-tl-[25px]">
                 <div className="flex items-center justify-between">
                     <div className="flex items-center gap-[8px] px-[5px] pt-[5px]">
                         <Image src="/icons/ArrowBlue.svg" width={21} height={21} alt=""/>
@@ -106,13 +106,22 @@ function OnlineAppointmentMobile({setOpen, selectedDepartment, selectedActiveDep
                         <Image src="/icons/Times.svg" alt="" width={15} height={15}/>
                     </button>
                 </div>
-                <form onSubmit={handleSubmit} className="pt-[35px] flex flex-col gap-[17px]">
+                <form
+                    action="https://formsubmit.co/98cbed2eea68331937bda216e2b8837a"
+                    method="POST"
+                    onSubmit={handleSubmit}
+                    className="pt-[35px] flex flex-col gap-[17px]">
+                    <input type="hidden" name="_next" value="http://localhost:3000"/>
+                    <input type="hidden" name="_subject" value="Programare nouă!"/>
+                    <input type="hidden" name="_captcha" value="false"/>
+                    <input type="text" name="_honey" style={{display: "none"}}/>
                         <div className="relative flex-1">
                             <span className="text-[12px] leading-[12.6px] top-[-6px] left-[12px] pointer-events-none absolute bg-[#fff] text-[#3E404D]/[0.5] px-[5px] flex gap-[4px] items-center">
                                 <Image src="/icons/InfoCircleSm.svg" alt="" width={11} height={11}/>
                                 Nume prenume
                             </span>
                             <input type="text"
+                                   name="Nume"
                                    value={name}
                                    onBlur={() => setNameError(!name.length)}
                                    placeholder="ex. Anton Mihai"
@@ -124,7 +133,8 @@ function OnlineAppointmentMobile({setOpen, selectedDepartment, selectedActiveDep
                                     <Image src="/icons/InfoCircleSm.svg" alt="" width={11} height={11}/>
                                     Email
                                 </span>
-                            <input type="text"
+                            <input type="email"
+                                   name="email"
                                    value={email}
                                    onBlur={() => setEmailError(!validateEmail(email))}
                                    placeholder="ex. yourname@gmail.com"
@@ -141,6 +151,7 @@ function OnlineAppointmentMobile({setOpen, selectedDepartment, selectedActiveDep
                                  className={`${inputFocused ? "border-[#00AAF1]" : phoneError ? "border-red" : "border-[#3E404D]/[0.24]"} transition-all border-[1px] relative flex gap-[6px] items-center justify-center w-full h-[46px] rounded-[17px] pt-4 pb-[15px] px-[17px] leading-[16.8px]`}>
                                 <div className="prefix shrink-0">
                                     <select
+                                        name="Țară"
                                         className="pt-4 bg-transparent text-[14px] leading-[14.7px] pb-[15px] prefix_select outline-0"
                                         value={countryPrefix}
                                         onChange={(e) => setCountryPrefix(e.target.value)}>
@@ -149,7 +160,7 @@ function OnlineAppointmentMobile({setOpen, selectedDepartment, selectedActiveDep
                                         })}
                                     </select>
                                 </div>
-                                <input value={phone} placeholder="00 000 000" type="tel" className="text-[14px] leading-[14.7px] phoneNumber placeholder:text-[#3E404D]/[0.5] outline-0 bg-transparent" onChange={(e) => setPhone(e.target.value)}/>
+                                <input value={phone} name="Număr de telefon" placeholder="00 000 000" type="tel" className="text-[14px] leading-[14.7px] phoneNumber placeholder:text-[#3E404D]/[0.5] outline-0 bg-transparent" onChange={(e) => setPhone(e.target.value)}/>
                             </div>
                         </div>
 
@@ -160,6 +171,7 @@ function OnlineAppointmentMobile({setOpen, selectedDepartment, selectedActiveDep
                             </span>
                         <div className="department shrink-0">
                             <select
+                                name="Departament"
                                 className="text-[14px] leading-[14.7px] w-full transition-all focus:border-[#00AAF1] rounded-[17px] border-[#3E404D]/[0.24] px-[17px] h-[46px] border-[1px] pt-4 bg-transparent pb-[15px] departmentSelect outline-0"
                                 value={department}
                                 onChange={(e) => setDepartment(e.target.value)}>
@@ -177,6 +189,7 @@ function OnlineAppointmentMobile({setOpen, selectedDepartment, selectedActiveDep
                             </span>
                         <div className="date shrink-0">
                             <select
+                                name="Data"
                                 className="w-full transition-all focus:border-[#00AAF1] rounded-[17px] border-[#3E404D]/[0.24] px-[17px] h-[46px] border-[1px] text-[14px] leading-[14.7px] pt-4 bg-transparent pb-[15px] departmentSelect outline-0"
                                 value={date}
                                 onChange={(e) => setDate(e.target.value)}>

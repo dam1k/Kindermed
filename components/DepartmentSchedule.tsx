@@ -36,7 +36,7 @@ function DepartmentSchedule({ department, i, departments }: { department: any, i
                       </div>
                   </div>
               <div className="relative flex gap-[25px] no-scrollbar overflow-x-scroll pt-[15px] min-[1316px]:pt-0">
-                    {department.doctors.map((doctor:any, i:number) => {
+                    {department.doctors.filter((doctor:any) => doctor?.schedule)?.map((doctor:any, i:number) => {
                         return <div className={`shrink-0 ${i === 0 ? "max-[1024px]:pl-[10px] max-[1315px]:pl-[25px]" : i === department.doctors.length-1 ? "pr-[10px]" : ""}`}
                                     key={doctor._id}>
                             <div className="w-[230px] h-[230px] mb-[17px]">
@@ -47,7 +47,7 @@ function DepartmentSchedule({ department, i, departments }: { department: any, i
                                <p className="text-[#3E404D]/[0.5] text-[14px] leading-[105%] mt-[5px]">{department.specialty}</p>
                            </div>
                             <div className="flex flex-col gap-[7px]">
-                                {doctor.schedule.map((scheduleDate:any, i:number) => {
+                                {doctor?.schedule && doctor.schedule.map((scheduleDate:any, i:number) => {
                                     return <div key={i} className="leading-[150%] text-[14px]">
                                         <p>{scheduleDate.day}</p>
                                         <p className="text-[#00AAF1]">{scheduleDate.hours}</p>

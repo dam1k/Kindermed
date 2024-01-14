@@ -72,7 +72,6 @@ function Team({team}:{team:any}) {
     }
   }
 
-
   return (
     <div
       id="team"
@@ -193,36 +192,62 @@ function Team({team}:{team:any}) {
             ref={sliderRef}
         >
           {team.map((doctor:any, i:number) => {
-            // console.log(doctor.department);
             return (
-                <div className={`flex flex-col gap-[12px] min-[1025px]:gap-[25px] ${i === team.length -1 ? "mr-[10px] min-[1025px]:mr-[25px]" : ""}`} key={i}>
-                  <div
-                      className={`rounded-[15px] overflow-hidden ${
-                          i === 0
-                              ? "w-[165px] h-[220px] min-[1025px]:w-[350px] min-[1025px]:h-[468px] min-[1250px]:w-[405px] min-[1250px]:h-[540px]"
-                              : "w-[165px] h-[220px] min-[1025px]:w-[262px] min-[1025px]:h-[348px] min-[1250px]:w-[300px] min-[1250px]:h-[400px]"
-                      }`}
-                  >
-                    <Link href={`/orar#${doctor.department[0].name.toLowerCase()}`}>
-                      <img alt="" className={`w-full h-full object-cover`} src={doctor.mainImage ? urlForImage(doctor.mainImage) : "/doctorImgNotFound.png"} />
-                    </Link>
-                  </div>
-                  <div>
-                    <h3 className="text-[15px] min-[1025px]:text-[20px] leading-[140%] uppercase min-[1025px]:leading-[105%]">
-                      {doctor.fullName}
-                    </h3>
-                    <p className="text-[14px] max-[1024px]:mt-[3px]min-[1025px]:text-[16px] leading-[135%] text-black/[0.5]">
-                      {doctor.department[0].specialty.slice(0, 1).toUpperCase() +
-                          doctor.department[0].specialty.slice(1)}
-                    </p>
-                  </div>
+              <div
+                className={`relative flex flex-col gap-[12px] min-[1025px]:gap-[25px] ${
+                  i === team.length - 1
+                    ? "mr-[10px] min-[1025px]:mr-[25px]"
+                    : ""
+                }`}
+                key={i}
+              >
+                {doctor?.mainImage &&
+                  <img
+                    src="/Logo.png"
+                    alt="kindermed"
+                    // className="absolute  top-[10px] right-[10px] min-[1401px]:top-[15px] min-[1401px]:right-[15px] h-[16px] min-[1401px]:h-[32px]"
+                    className="absolute h-[16px] top-[10px] right-[10px] min-[1025px]:top-[15px] min-[1025px]:right-[15px] min-[1025px]:h-[25px] min-[1250px]:h-[32px]"
+                  />
+                }
+                <div
+                  className={`rounded-[15px] overflow-hidden ${
+                    i === 0
+                      ? "w-[165px] h-[220px] min-[1025px]:w-[350px] min-[1025px]:h-[468px] min-[1250px]:w-[405px] min-[1250px]:h-[540px]"
+                      : "w-[165px] h-[220px] min-[1025px]:w-[262px] min-[1025px]:h-[348px] min-[1250px]:w-[300px] min-[1250px]:h-[400px]"
+                  }`}
+                >
                   <Link
-                      className="leading-[140%] max-[1024px]:hidden underline text-darkGrey"
-                      href={`/orar#${doctor.department[0].name.toLowerCase()}`}
+                    href={`/orar#${doctor.department[0].name.toLowerCase()}`}
+                  >
+                    <img
+                      alt=""
+                      className={`w-full h-full object-cover`}
+                      src={
+                        doctor.mainImage
+                          ? urlForImage(doctor.mainImage)
+                          : "/doctorImgNotFound.png"
+                      }
+                    />
+                  </Link>
+                </div>
+                <div>
+                  <h3 className="text-[15px] min-[1025px]:text-[20px] leading-[140%] uppercase min-[1025px]:leading-[105%]">
+                    {doctor.fullName}
+                  </h3>
+                  <p className="text-[14px] max-[1024px]:mt-[3px]min-[1025px]:text-[16px] leading-[135%] text-black/[0.5]">
+                    {doctor.department[0].specialty.slice(0, 1).toUpperCase() +
+                      doctor.department[0].specialty.slice(1)}
+                  </p>
+                </div>
+                {doctor?.schedule && (
+                  <Link
+                    className="leading-[140%] max-[1024px]:hidden underline text-darkGrey"
+                    href={`/orar#${doctor.department[0].name.toLowerCase()}`}
                   >
                     Vezi orarul
                   </Link>
-                </div>
+                )}
+              </div>
             );
           })}
         </div>

@@ -298,7 +298,7 @@ function Header() {
               return (
                 <li
                   key={link.href}
-                  className={`relative z-[3] ${link.href === activeLink ? "bg-[#00AAF1] text-[#fff] !border-transparent" : ""} transition-all cursor-pointer font-[500] text-[18px] py-[10.5px] px-[17px] border-[1px] border-[#3E404D]/[0.24] rounded-[57px] flex items-center leading-[105%]`}
+                  className={`relative z-[3] ${link.href === activeLink ? "bg-[#00AAF1] text-[#fff] !border-transparent" : "bg-[#3e404d]/[0.05]"} hover:opacity-80 transition-all cursor-pointer font-[500] text-[18px] py-[10.5px] px-[17px] border-[1px] border-[#3E404D]/[0.49] rounded-[57px] flex items-center leading-[105%]`}
                   onClick={() => handleLinkClick(link.href)}
                 >
                   <span>{link.text}</span>

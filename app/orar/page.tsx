@@ -6,13 +6,25 @@ import DepartmentSchedule from "@/components/DepartmentSchedule";
 import Footer from "../../components/Footer"
 
 async function Schedule() {
-    const departments = await client.fetch(groq`*[_type == "department"] | order(_createdAt asc) {
+    let departments = await client.fetch(groq`*[_type == "department"] | order(_createdAt asc) {
   ...,
   doctors[]-> {
   ...,
   schedule[]->
   }
   }`);
+
+    departments = departments.filter((department:any) => {
+        let showDepartment;
+        department.doctors.forEach((doctor:any) => {
+            if(!doctor.schedule) {
+                showDepartment = false;
+            } else {
+                showDepartment = true;
+            }
+        })
+        return showDepartment;
+    })
 
     const departmentsNames = departments.map((department:any) => department.specialty);
 
