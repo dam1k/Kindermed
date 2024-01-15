@@ -53,23 +53,26 @@ const Hero = () => {
 
                 <div className="border-[3px] bg-[#EBEBEC] border-[#EBEBEC] relative overflow-hidden rounded-[50%] z-[3] h-[44px] min-[1025px]:h-[55px] w-[44px] min-[1025px]:w-[55px]">
                     <Image
-                        src="/icons/DoctorIcon1.png"
+                        src="/icons/Doctor1.png"
                         alt=""
                         fill
+                        quality={50}
                     />
                 </div>
                 <div className="border-[3px] bg-[#EBEBEC] border-[#EBEBEC] relative overflow-hidden rounded-[50%] h-[44px] ml-[-21px] z-[2] min-[1025px]:h-[55px] w-[44px] min-[1025px]:w-[55px]">
                         <Image
                             fill
-                            src="/icons/DoctorIcon2.png"
+                            src="/icons/Doctor2.png"
                             alt=""
+                            quality={50}
                         />
                 </div>
                 <div className="border-[3px] bg-[#EBEBEC] border-[#EBEBEC] relative overflow-hidden rounded-[50%] ml-[-21px] z-[1] h-[44px] min-[1025px]:h-[55px] w-[44px] min-[1025px]:w-[55px]">
                   <Image
-                      src="/icons/DoctorIcon3.png"
+                      src="/icons/Doctor3.png"
                       alt=""
                       fill
+                      quality={50}
                   />
                 </div>
               <Button
