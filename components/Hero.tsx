@@ -51,21 +51,21 @@ const Hero = () => {
                 {/*</span>*/}
               {/*</div>*/}
 
-                <div className="relative z-[3] h-[44px] min-[1025px]:h-[55px] w-[44px] min-[1025px]:w-[55px]">
+                <div className="border-[3px] bg-[#EBEBEC] border-[#EBEBEC] relative overflow-hidden rounded-[50%] z-[3] h-[44px] min-[1025px]:h-[55px] w-[44px] min-[1025px]:w-[55px]">
                     <Image
                         src="/icons/DoctorIcon1.png"
                         alt=""
                         fill
                     />
                 </div>
-                <div className="relative h-[44px] ml-[-21px] z-[2] min-[1025px]:h-[55px] w-[44px] min-[1025px]:w-[55px]">
+                <div className="border-[3px] bg-[#EBEBEC] border-[#EBEBEC] relative overflow-hidden rounded-[50%] h-[44px] ml-[-21px] z-[2] min-[1025px]:h-[55px] w-[44px] min-[1025px]:w-[55px]">
                         <Image
                             fill
                             src="/icons/DoctorIcon2.png"
                             alt=""
                         />
                 </div>
-                <div className="relative ml-[-21px] z-[1] h-[44px] min-[1025px]:h-[55px] w-[44px] min-[1025px]:w-[55px]">
+                <div className="border-[3px] bg-[#EBEBEC] border-[#EBEBEC] relative overflow-hidden rounded-[50%] ml-[-21px] z-[1] h-[44px] min-[1025px]:h-[55px] w-[44px] min-[1025px]:w-[55px]">
                   <Image
                       src="/icons/DoctorIcon3.png"
                       alt=""
