@@ -118,11 +118,11 @@ function Header() {
               <div className="flex gap-[8px]">
                 <Link
                   target="_blank"
-                  className="p-[11px] rounded-[15px] border-[1px] border-[#3E404D]/[0.24]"
+                  className="p-[11px] rounded-[15px] border-[1px] border-[#FF1493]/[0.4]"
                   href="https://www.instagram.com/kindermedmd/"
                 >
                   <Image
-                    src="/icons/InstagramGrey.svg"
+                    src="/icons/InstagramPink.svg"
                     alt=""
                     width={17}
                     height={17}
@@ -130,11 +130,11 @@ function Header() {
                 </Link>
                 <Link
                   target="_blank"
-                  className="p-[11px] rounded-[15px] border-[1px] border-[#3E404D]/[0.24]"
+                  className="p-[11px] rounded-[15px] border-[1px] border-[#4267B2]/[0.65]"
                   href="https://www.facebook.com/KinderMedMD/"
                 >
                   <Image
-                    src="/icons/FacebookGrey.svg"
+                    src="/icons/FacebookBlue.svg"
                     alt=""
                     width={17}
                     height={17}
