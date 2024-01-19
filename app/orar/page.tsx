@@ -14,17 +14,19 @@ async function Schedule() {
   }
   }`);
 
-    departments = departments.filter((department:any) => {
+   if(departments) {
+      departments = departments?.filter((department: any) => {
         let showDepartment;
-        department.doctors.forEach((doctor:any) => {
-            if(!doctor.schedule) {
-                showDepartment = false;
-            } else {
-                showDepartment = true;
-            }
-        })
+        department.doctors?.forEach((doctor: any) => {
+          if (!doctor.schedule) {
+            showDepartment = false;
+          } else {
+            showDepartment = true;
+          }
+        });
         return showDepartment;
-    })
+      });
+    }
 
     const departmentsNames = departments.map((department:any) => department.specialty);
 
