@@ -245,7 +245,7 @@ function Footer() {
         <p className="min-[1024px]:w-[515px] text-center leading-[145%] !text-[#fff]/[0.15]">
           Copyright © 2023, S.R.L. “MIDLTON”. Toate drepturile sunt rezervate.{" "}
           <br />
-          Adresa juridică: mun.Chișinău, bd. Dacia, 9/1, ap.35 <br />
+          Adresa juridică: mun.Chișinău, str. Nicolae Costin 50, of. 42 <br />
           Adresa fizică: mun. Chișinău, str. Vasile Alecsandri, 87
         </p>
         <Link

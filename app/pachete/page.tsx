@@ -30,4 +30,4 @@ async function Packages() {
 
 export default Packages;
 
-export const dynamic = 'force-dynamic'
+// export const dynamic = 'force-dynamic'
