@@ -1,8 +1,6 @@
 import React from "react";
 import { client } from "@/sanity/lib/client";
 import { groq } from "next-sanity";
-import Image from "next/image";
-import Footer from "@/components/Footer";
 import Package from "@/components/Package";
 
 async function Packages() {
@@ -11,7 +9,6 @@ async function Packages() {
     );
 
     return (
-        <>
             <div className="!mt-[50px] min-[1400px]:!mt-[100px] container max-[1025px]:!px-[10px] !mb-[100px]">
                 {/*<div className="bg-black/[0.5] w-full h-[1px]"/>*/}
                 <div className="w-full min-[1400px]:flex min-[1400px]:!pt-[25px] min-[1400px]:border-t-[1px] border-[rgba(201, 202, 206, 0.50)]">
@@ -23,8 +20,6 @@ async function Packages() {
                     </div>
                 </div>
             </div>
-            <Footer/>
-            </>
     );
 }
 

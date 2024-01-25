@@ -45,7 +45,6 @@ async function Article({params}: {params: {slug:string}}) {
     }
 
     return (
-        <>
         <div className="px-[10px] min-[770px]:!px-0 mt-[48px] min-[770px]:mt-[100px] min-[1400px]:mt-[50px] mb-[100px] w-full min-[770px]:w-[750px] mx-auto">
             {/*{article.body.slice(0, 1).map((item: any, i: number) => {*/}
             {/*    return <p key={i} className="!text-[#3E404D]/[0.8] text-[14px] min-[650px]:text-[16px] leading-[21.7px] min-[650px]:leading-[24.8px]">*/}
@@ -80,8 +79,6 @@ async function Article({params}: {params: {slug:string}}) {
                 <PortableText value={article.body} components={myPortableTextComponents}/>
             </div>
         </div>
-            <Footer/>
-        </>
     );
 }
 

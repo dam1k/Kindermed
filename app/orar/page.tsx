@@ -3,7 +3,6 @@ import ScheduleFilters from "@/components/ScheduleFilters";
 import {client} from "@/sanity/lib/client";
 import {groq} from "next-sanity";
 import DepartmentSchedule from "@/components/DepartmentSchedule";
-import Footer from "../../components/Footer"
 
 async function Schedule() {
     let departments = await client.fetch(groq`*[_type == "department"] | order(_createdAt asc) {
@@ -31,7 +30,6 @@ async function Schedule() {
     const departmentsNames = departments.map((department:any) => department.specialty);
 
     return (
-        <>
             <div className="!mt-[50px] !mb-[100px] max-[1315px]:!pr-0">
                 <div className="">
                     <h3 className="ml-[10px] min-[1025px]:ml-[25px] text-[16px] uppercase">Funcția</h3>
@@ -41,8 +39,6 @@ async function Schedule() {
                         return <DepartmentSchedule key={department._id} i={i} departments={departments} department={department}/>
                     })}
             </div>
-            <Footer/>
-        </>
     );
 }
 

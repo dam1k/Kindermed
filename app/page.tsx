@@ -3,7 +3,6 @@ import Services from "@/components/Services";
 import Team from "@/components/Team";
 import Blog from "@/components/Blog";
 import React from "react";
-import Footer from "@/components/Footer";
 import {client} from "@/sanity/lib/client";
 import {groq} from "next-sanity";
 import {useAppointmentModal} from "@/hooks/useAppointmentModal";
@@ -43,7 +42,6 @@ export default async function Home() {
           <Blog />
         {/*</div>*/}
       </main>
-      <Footer />
     </>
   );
 }
