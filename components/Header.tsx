@@ -71,9 +71,6 @@ function Header() {
 
 
   useEffect(() => {
-    // setShowMobileMenu(false);
-    // document.body.style.overflowY = "scroll"
-
     if(pathname.length > 1) {
       setActiveLink(pathname);
     }
@@ -82,16 +79,6 @@ function Header() {
     }
   }, [pathname]);
 
-  // useEffect(() => {
-  //   if(width <= 1400) {
-  //     if (showMobileMenu) {
-  //       document.body.style.overflow = "hidden";
-  //       // document.body.style.height = "100vh"
-  //     } else {
-  //       document.body.style.overflow = "scroll";
-  //     }
-  //   }
-  // }, [width, showMobileMenu]);
 
   function handleMobileMenuBtnClick() {
     document.body.style.overflow = "hidden";
@@ -295,20 +282,15 @@ function Header() {
           </div>
           <ul className="flex max-[1400px]:hidden h-[44px] gap-[15px]">
             {navLinks.map((link: navLink) => {
+              console.log(link)
               return (
                 <li
                   key={link.href}
-                  className={`relative z-[3] ${link.href === activeLink ? "bg-[#00AAF1] text-[#fff] !border-transparent" : "bg-[#3e404d]/[0.05]"} hover:opacity-80 transition-all cursor-pointer font-[500] text-[18px] py-[10.5px] px-[17px] border-[1px] border-[#3E404D]/[0.49] rounded-[57px] flex items-center leading-[105%]`}
+                  className={`relative z-[3] ${link.href === activeLink ? "bg-[#00AAF1] text-[#fff] !border-transparent" : "bg-[#3e404d]/[0.05]"} gap-[8px] hover:opacity-80 transition-all cursor-pointer font-[500] text-[18px] py-[10.5px] px-[17px] border-[1px] border-[#3E404D]/[0.49] rounded-[57px] flex items-center leading-[105%]`}
                   onClick={() => handleLinkClick(link.href)}
                 >
                   <span>{link.text}</span>
-                  {/*{link.href === "#team" && (*/}
-                  {/*  <div className="relative text-[#fff] h-[21px] w-[22px] rounded-[8px] ml-[8px] bg-blue text-[12px]">*/}
-                      {/*<span className="absolute top-[50%] left-[50%] leading-[105%] translate-x-[-50%] translate-y-[-50%]">*/}
-                      {/*  13*/}
-                      {/*</span>*/}
-                  {/*  </div>*/}
-                  {/*)}*/}
+                  {link.href === "/vaccinare" && <span className={`${link.href === activeLink ? "bg-white text-[#00AAF1]" : "text-white bg-[#00AAF1]"} py-[4px] px-[7px] text-[12px] leading-[12.6px] rounded-[8px]`}>Curând</span>}
                 </li>
               );
             })}

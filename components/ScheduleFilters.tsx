@@ -30,7 +30,7 @@ function ScheduleFilters({departments}: IScheduleFiltersProps) {
                 return <button value={department} onClick={(e) => {
                     handleClick(department)
                 }} className={`${i === departments.length-1 ? "mr-[10px] min-[1025px]:mr-[25px]" : ""}
-                ${activeDepartment === department ? "bg-blue text-white" : "bg-[#3E404D]/[0.05]"} transition-all leading-[16.8px] py-2 px-[14px] rounded-[50px]`} key={department}>
+                ${activeDepartment === department ? "bg-blue text-white" : "bg-[#3E404D]/[0.05]"} h-[33px] shrink-0 transition-all leading-[16.8px] py-2 px-[14px] rounded-[50px]`} key={department}>
                     {`${department.slice(0, 1).toUpperCase()}${department.slice(1)}`}
                 </button>
             })}

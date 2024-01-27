@@ -86,12 +86,13 @@ function MobileMenu({working, day, setMenuOpen, setAppointmentOpen, handleLinkCl
                     {navLinks.map((link: navLink) => {
                         return (
                             <li key={link.href}
-                                  className="uppercase text-[14px] font-[500] py-[10px] px-[17px] border-[1px] border-[#3E404D]/[0.24] rounded-[57px] flex items-center leading-[105%]"
+                                  className="gap-[8px] uppercase text-[14px] font-[500] py-[10px] px-[17px] border-[1px] border-[#3E404D]/[0.24] rounded-[57px] flex items-center leading-[105%]"
                                   onClick={() => {
                                       handleLinkClick(link.href)
                                       handleClose();
                                   }}>
                                 <span>{link.text}</span>
+                                {link.href === "/vaccinare" && <span className="leading-[9px] lowercase flex items-center justify-center px-[6px] text-[10px] text-white bg-[#00AAF1] h-[17px] rounded-[7px]">Curând</span>}
                                 {/*{link.href === "#team" && <div*/}
                                 {/*    className="flex items-center justify-center text-[#fff] h-[17px] w-[17px] rounded-[7px] ml-[8px] bg-blue">*/}
                                 {/*<span*/}
