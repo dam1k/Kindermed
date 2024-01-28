@@ -92,7 +92,7 @@ function MobileMenu({working, day, setMenuOpen, setAppointmentOpen, handleLinkCl
                                       handleClose();
                                   }}>
                                 <span>{link.text}</span>
-                                {link.href === "/vaccinare" && <span className="leading-[9px] lowercase flex items-center justify-center px-[6px] text-[10px] text-white bg-[#00AAF1] h-[17px] rounded-[7px]">Curând</span>}
+                                {link.href === "/vaccinare" && <span className="leading-[9px] lowercase flex items-center justify-center px-[6px] text-[10px] text-white bg-[#00AAF1] h-[17px] rounded-[7px]">În curând</span>}
                                 {/*{link.href === "#team" && <div*/}
                                 {/*    className="flex items-center justify-center text-[#fff] h-[17px] w-[17px] rounded-[7px] ml-[8px] bg-blue">*/}
                                 {/*<span*/}
