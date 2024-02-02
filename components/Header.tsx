@@ -282,7 +282,6 @@ function Header() {
           </div>
           <ul className="flex max-[1400px]:hidden h-[44px] gap-[15px]">
             {navLinks.map((link: navLink) => {
-              console.log(link)
               return (
                 <li
                   key={link.href}

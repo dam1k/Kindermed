@@ -5,11 +5,17 @@ import "./globals.css";
 import React from "react";
 import Footer from "@/components/Footer";
 
+
 const rubik = FontSans({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
   title: "Kindermed",
   description: "Kindermed - clinica pentru copii",
+    openGraph: {
+      images: [
+          "../public/icons/logo.svg"
+      ]
+    }
 };
 
 export default function RootLayout({
