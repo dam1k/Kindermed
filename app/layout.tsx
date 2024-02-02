@@ -11,11 +11,6 @@ const rubik = FontSans({ subsets: ["latin"], variable: "--font-sans" });
 export const metadata: Metadata = {
   title: "Kindermed",
   description: "Kindermed - clinica pentru copii",
-    openGraph: {
-      images: [
-          { url: "https://kindermed.md/images/logo.svg"}
-      ]
-    }
 };
 
 export default function RootLayout({
