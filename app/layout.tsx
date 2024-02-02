@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description: "Kindermed - clinica pentru copii",
     openGraph: {
       images: [
-          "../public/icons/logo.svg"
+          "/icons/logo.svg"
       ]
     }
 };
