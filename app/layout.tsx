@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import "./globals.css";
 import React from "react";
 import Footer from "@/components/Footer";
-
+import ogImage from "./opengraph-image.png"
 
 const rubik = FontSans({ subsets: ["latin"], variable: "--font-sans" });
 
