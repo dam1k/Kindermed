@@ -157,7 +157,7 @@ function OnlineAppointmentDesktop({setOpen, selectedDepartment, selectedActiveDe
                       method="POST"
                       onSubmit={handleSubmit}
                       className="pt-[35px] flex flex-col gap-[17px]">
-                    <input type="hidden" name="_next" value="http://localhost:3000"/>
+                    <input type="hidden" name="_next" value="https://kindermed.md"/>
                     <input type="hidden" name="_subject" value="Programare nouă!"/>
                     <input type="hidden" name="_captcha" value="false"/>
                     <input type="text" name="_honey" style={{display: "none"}}/>
