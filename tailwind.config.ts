@@ -10,7 +10,8 @@ module.exports = {
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
-    "./app/*/*"
+    "./app/*/*",
+    "./app/page.tsx"
   ],
   theme: {
     extend: {

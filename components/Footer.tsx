@@ -32,6 +32,18 @@ function Footer() {
     return () =>
       window.removeEventListener("resize", () => setWidth(window.innerWidth));
   }, []);
+
+
+  // useEffect(() => {
+  //   if(showAppointment) {
+  //     document.body.style.overflow = "hidden"
+  //     document.body.style.height = "100vh"
+  //   } else {
+  //     document.body.style.overflow = "scroll"
+  //     document.body.style.height = "auto"
+  //   }
+  // }, [showAppointment]);
+
   
   return (
     <>

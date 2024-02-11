@@ -31,6 +31,17 @@ function Header() {
   const [day, setDay] = useState<number>(0);
   const [working, setWorking] = useState<boolean>(true);
 
+
+  // useEffect(() => {
+  //   if(showMobileMenu) {
+  //     document.body.style.overflow = "hidden"
+  //     document.body.style.height = "100vh"
+  //   } else {
+  //     document.body.style.overflow = "scroll"
+  //     document.body.style.height = "auto"
+  //   }
+  // }, [showMobileMenu]);
+
   useEffect(() => {
     setWidth(window.innerWidth);
     const date = new Date();

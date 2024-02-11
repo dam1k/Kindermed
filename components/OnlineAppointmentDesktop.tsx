@@ -138,7 +138,7 @@ function OnlineAppointmentDesktop({setOpen, selectedDepartment, selectedActiveDe
     return (
         <motion.div onClick={handleOverlayClick}
                     ref={overlayRef}
-                    className={`max-[815px]:hidden overflow-y-scroll overflow-x-hidden h-screen pb-[159px] bg-blur items-start px-[150px] min-[1600px]:px-[285px] flexible-grid gap-[15px] pt-[159px] fixed top-0 left-0 w-screen z-[11]`}
+                    className={`overflow-y-scroll justify-center overflow-x-hidden h-screen pb-[159px] bg-blur items-start px-[50px] min-[850px]:px-[150px] min-[1600px]:px-[250px] flexible-grid gap-[15px] pt-[159px] fixed top-0 left-0 w-screen z-[11]`}
         initial={{opacity: 0}}
         animate={{opacity: 1}}
         exit={{opacity: 0}}>
@@ -255,9 +255,7 @@ function OnlineAppointmentDesktop({setOpen, selectedDepartment, selectedActiveDe
                     </Button>
                 </form>
             </div>
-                <div ref={infoBoxRef} className=" max-[1350px]:col-span-2 rounded-[50px] flex flex-col gap-[25px] p-[35px] bg-[#fff]">
-                    {/*<Image src=""/>*/}
-                    {/*    <div className="bg-[#E7E9EC] rounded-[30px] h-[400px] w-full" />*/}
+                <div ref={infoBoxRef} className="max-w-[800px] max-[1350px]:col-span-2 rounded-[50px] flex flex-col gap-[25px] p-[35px] bg-[#fff]">
                     <div className="h-[400px] w-full relative">
                         <Image priority={true} src={activeDepartment?.img || ""} fill alt="" className="rounded-[30px] object-cover w-full h-[400px]" />
                     </div>
