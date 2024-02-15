@@ -34,6 +34,7 @@ interface country {
 
 const allServices = [...services]
 function OnlineAppointmentDesktop({setOpen, selectedDepartment, selectedActiveDepartment}: IOnlineAppointmentDesktopProps) {
+    const [successfulAppointment, setSuccessfulAppointment] = useState(false);
     const [name, setName] = useState<string>("");
     const [nameError, setNameError] = useState<boolean>(false);
     const [email, setEmail] = useState<string>("");
@@ -91,7 +92,7 @@ function OnlineAppointmentDesktop({setOpen, selectedDepartment, selectedActiveDe
             const validName = name.length;
             const validEmail = validateEmail(email);
             if(validName && validPhone && validEmail) {
-                return
+                setSuccessfulAppointment(true);
             } else {
                 e.preventDefault();
                 if(!validName) {
@@ -249,10 +250,14 @@ function OnlineAppointmentDesktop({setOpen, selectedDepartment, selectedActiveDe
                         </div>
                     </div>
 
-                    <Button type="submit" className="h-[55px] flex gap-[6px] leading-[16.8px] rounded-[19px] items-center bg-[#00AAF1] pt-[16px] pb-[15px] text-white">
-                        Programează-te online
-                        <Image src="/icons/Send.svg" width={15} height={15} alt=""/>
-                    </Button>
+                    {successfulAppointment ?
+                        <Button type="submit" className="h-[55px] flex gap-[6px] leading-[16.8px] rounded-[19px] items-center bg-[#00AAF1] pt-[16px] pb-[15px] text-white">
+                            Programare efectuată!
+                        </Button> :
+                        <Button type="submit" className="h-[55px] flex gap-[6px] leading-[16.8px] rounded-[19px] items-center bg-[#00AAF1] pt-[16px] pb-[15px] text-white">
+                            Programează-te online
+                            <Image src="/icons/Send.svg" width={15} height={15} alt=""/>
+                        </Button>}
                 </form>
             </div>
                 <div ref={infoBoxRef} className="max-w-[800px] max-[1350px]:col-span-2 rounded-[50px] flex flex-col gap-[25px] p-[35px] bg-[#fff]">
