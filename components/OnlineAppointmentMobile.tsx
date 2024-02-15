@@ -19,6 +19,7 @@ interface country {
 
 
 function OnlineAppointmentMobile({setOpen, selectedDepartment, selectedActiveDepartment}:IOnlineAppointmentMobileProps) {
+    const [successfulAppointment, setSuccessfulAppointment] = useState(false);
     const [name, setName] = useState<string>("");
     const [nameError, setNameError] = useState<boolean>(false);
     const [email, setEmail] = useState<string>("");
@@ -71,7 +72,7 @@ function OnlineAppointmentMobile({setOpen, selectedDepartment, selectedActiveDep
             const validName = name.length;
             const validEmail = validateEmail(email);
             if(validName && validPhone && validEmail) {
-               return
+                setSuccessfulAppointment(true);
             } else {
                 e.preventDefault();
                 if(!validName) {
@@ -111,7 +112,7 @@ function OnlineAppointmentMobile({setOpen, selectedDepartment, selectedActiveDep
                     method="POST"
                     onSubmit={handleSubmit}
                     className="pt-[35px] flex flex-col gap-[17px]">
-                    <input type="hidden" name="_next" value="http://localhost:3000"/>
+                    <input type="hidden" name="_next" value="https://kindermed.md"/>
                     <input type="hidden" name="_subject" value="Programare nouă!"/>
                     <input type="hidden" name="_captcha" value="false"/>
                     <input type="text" name="_honey" style={{display: "none"}}/>
@@ -200,10 +201,14 @@ function OnlineAppointmentMobile({setOpen, selectedDepartment, selectedActiveDep
                         </div>
                     </div>
 
-                    <Button className="h-[50px] flex gap-[6px] leading-[14.7px] text-[14px] rounded-[19px] items-center bg-[#00AAF1] pt-[16px] pb-[15px] text-white">
-                        Programează-te online
-                        <Image src="/icons/Send.svg" width={15} height={15} alt=""/>
-                    </Button>
+                    {successfulAppointment ?
+                        <Button className="h-[50px] flex gap-[6px] leading-[14.7px] text-[14px] rounded-[19px] items-center bg-[#00AAF1] pt-[16px] pb-[15px] text-white">
+                            Programare efectuată!
+                        </Button> :
+                        <Button className="h-[50px] flex gap-[6px] leading-[14.7px] text-[14px] rounded-[19px] items-center bg-[#00AAF1] pt-[16px] pb-[15px] text-white">
+                            Programează-te online
+                            <Image src="/icons/Send.svg" width={15} height={15} alt=""/>
+                        </Button>}
                 </form>
             </div>
         </motion.div>
