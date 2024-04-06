@@ -300,7 +300,7 @@ function Header() {
                   onClick={() => handleLinkClick(link.href)}
                 >
                   <span>{link.text}</span>
-                  {link.href === "/vaccinare" && <span className={`${link.href === activeLink ? "bg-white text-[#00AAF1]" : "text-white bg-[#00AAF1]"} py-[4px] px-[7px] text-[12px] leading-[12.6px] rounded-[8px]`}>În curând</span>}
+                  {/*{link.href === "/vaccinare" && <span className={`${link.href === activeLink ? "bg-white text-[#00AAF1]" : "text-white bg-[#00AAF1]"} py-[4px] px-[7px] text-[12px] leading-[12.6px] rounded-[8px]`}>În curând</span>}*/}
                 </li>
               );
             })}
