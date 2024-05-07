@@ -8,10 +8,10 @@ function Vaccination() {
       {/*    la KinderMed!*/}
       {/*  </div>*/}
       {/*</div>*/}
-        <div className="container !max-w-[1350px] !mt-[42px] !mb-[75px] min-[768px]:!mb-[125px] grid grid-cols-1 min-[768px]:grid-cols-3 gap-[20px]">
+        <div className="container !max-w-[1000px] !mt-[42px] !mb-[75px] min-[768px]:!mb-[125px] grid grid-cols-2 gap-[20px]">
             <img src="/Vaccinare1.jpg" className="w-full rounded-[25px]" alt=""/>
             <img src="/Vaccinare2.jpg" className="w-full rounded-[25px]" alt=""/>
-            <img src="/Vaccinare3.jpg" className="w-full rounded-[25px]" alt=""/>
+            {/* <img src="/Vaccinare3.jpg" className="w-full rounded-[25px]" alt=""/> */}
         </div>
 
       <div className="overflow-auto min-[1400px]:flex min-[1400px]:items-center min-[1400px]:justify-center !mt-[42px] !mb-[125px]">
