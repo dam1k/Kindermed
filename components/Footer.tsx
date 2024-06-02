@@ -263,7 +263,7 @@ function Footer() {
         <Link
           target="_blank"
           className="!text-[#fff]/[0.15] leading-[105%] flex gap-[10px] items-center"
-          href="https://dreamsite.md"
+          href="https://12oclock.net"
         >
           Developed by
           <Image
